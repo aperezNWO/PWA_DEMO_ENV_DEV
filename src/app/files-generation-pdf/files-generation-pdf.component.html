@@ -1,0 +1,38 @@
+<div id="content-body">
+    <div align="center" style="padding-top:10px;">
+        <h4>{{pageTitle}}</h4>
+    </div>
+    <p>Ver referencia&nbsp;<a href="javascript: void window.open('https://www.nuget.org/packages/iTextSharp/')">[ITextSharp v5.5.13.2]</a></p>
+    <hr>
+    <div>
+        NOMBRE COMPLETO : <input type="text" class="inputPDF" id="subjectName" #subjectName>
+    </div>
+    <hr>
+    <input id="GetPdf" type="button" title="[OBTENER PDF]" value="[OBTENER PDF]" (click)="this.onSubmit()">
+    <input id="NewPdf" type="button" title="[NUEVO PDF]"   value="[NUEVO PDF]"   (click)="this.onNewPdf()">
+    <div *ngIf="this.DownloadLink">
+        <!--STATUS / INICIO -->
+        <hr>
+        <div *ngIf="GetPDFUrl" class="progress my-3">
+        <div
+            class="progress-bar progress-bar-info progress-bar-striped"
+            role="progressbar"
+            attr.aria-valuenow="{{ progress }}"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            [ngStyle]="{ width: progress + '%' }"
+        >
+        {{ progress }}%
+        </div>
+        </div>
+        <!-- STATUS / FIN   -->
+        <!-- ENLACE DESCARGA / INICIO -->
+        <hr>
+        <a [href]="this.DownloadLink" id="DownloadFile" target="_blank">{{ this.downloadCaption }}</a>
+        <!-- ENLACE DESCARGA FIN       -->
+    </div> 
+    <hr>
+    <div *ngIf="message" class="alert alert-secondary" role="alert">{{ this.message }}</div>
+    <hr>
+    <a routerLink="/FilesGenerationWeb">Volver al Menú</a>   
+</div>
