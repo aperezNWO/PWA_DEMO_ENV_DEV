@@ -15,7 +15,7 @@ export class MCSDService {
       //public prefix      : string = 'http://localhost:81/';
       //public prefix        : string = 'https://mcsd.somee.com/';
       //
-      return 'https://angulardemo.somee.com/';
+      return 'https://webapiangulardemo.somee.com/';
     }
     readonly prefix          : string = MCSDService._prefix;
     ////////////////////////////////////////////////////////////////  

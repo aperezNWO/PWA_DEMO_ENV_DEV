@@ -25,6 +25,7 @@ import { AlgorithmSortComponent        } from './algorithm-sort/algorithm-sort.c
 import { AlgorithmDijkstraComponent    } from './algorithm-dijkstra/algorithm-dijkstra.component';
 import { AngularTutorialsnWebComponent } from './angular-tutorialsn-web/angular-tutorialsn-web.component';
 import { AAboutWebComponent            } from './a-about-web/a-about-web.component';
+import { UnitTestingComponent } from './unit-testing/unit-testing.component';
 //
 const routes = [
   {  path: 'Home'                  , component: HomeWebComponent                      },
@@ -72,6 +73,7 @@ export class CustomErrorHandler implements ErrorHandler {
     FilesGenerationZIPComponent,
     AngularTutorialsnWebComponent,
     AAboutWebComponent,
+    UnitTestingComponent,
   ],
   imports: [
     FormsModule,
