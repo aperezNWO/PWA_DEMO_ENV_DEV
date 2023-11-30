@@ -10,7 +10,20 @@ import { Observable                                      } from 'rxjs';
 export class MCSDService {
     ////////////////////////////////////////////////////////////////  
     // CAMPOS
-    ////////////////////////////////////////////////////////////////  
+    //////////////////////////////////////////////////////////////// 
+    public HTTPOptions_Text = {
+      headers: new HttpHeaders({
+        'Accept':'application/text'
+      }),
+      'responseType'  : 'text' as 'json'
+    };
+    //    
+    public HTTPOptions_JSON = {
+      headers: new HttpHeaders({
+        'Content-Type' : 'application/json'
+      })
+      ,'responseType' : 'text' as 'json'
+    };  
     public static get _prefix()   : string {
       //public prefix      : string = 'http://localhost:81/';
       //public prefix        : string = 'https://mcsd.somee.com/';
@@ -334,4 +347,28 @@ export class MCSDService {
       //
       return regExData; 
     }
+    ////////////////////////////////////////////////////////////////  
+    // GAMES
+    ////////////////////////////////////////////////////////////////  
+    //
+    _GetSudoku(): Observable<string>
+   {
+     // 
+     let p_url              : string  = 'https://webapiangulardemo.somee.com/Demos/Sudoku_Generate_CPP';
+     //
+     let sudokuGenerated    : Observable<string> =  this.http.get<string>(p_url,this.HTTPOptions_Text);
+     //
+     return sudokuGenerated;
+   };
+   //
+   _SolveSudoku(p_matrix : string): Observable<string>
+   {
+     // 
+     let p_url               : string  = `https://webapiangulardemo.somee.com/Demos/Sudoku_Solve_CPP?p_matrix=${p_matrix}`
+     //
+     let sudokuSolved        : Observable<string> =  this.http.get<string>(p_url,this.HTTPOptions_Text);
+     //
+     return sudokuSolved;
+   };
+
 }

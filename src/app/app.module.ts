@@ -25,7 +25,8 @@ import { AlgorithmSortComponent        } from './algorithm-sort/algorithm-sort.c
 import { AlgorithmDijkstraComponent    } from './algorithm-dijkstra/algorithm-dijkstra.component';
 import { AngularTutorialsnWebComponent } from './angular-tutorialsn-web/angular-tutorialsn-web.component';
 import { AAboutWebComponent            } from './a-about-web/a-about-web.component';
-import { UnitTestingComponent } from './unit-testing/unit-testing.component';
+import { UnitTestingComponent          } from './unit-testing/unit-testing.component';
+import { GamesSudokuComponent          } from './games-sudoku/games-sudoku.component';
 //
 const routes = [
   {  path: 'Home'                  , component: HomeWebComponent                      },
@@ -40,6 +41,7 @@ const routes = [
   {  path: 'FilesGenerationZIP'    , component: FilesGenerationZIPComponent           },         
   {  path: 'AngularTutorialsnWeb'  , component: AngularTutorialsnWebComponent         },
   {  path: 'AAboutWeb'             , component: AAboutWebComponent                    },
+  {  path: 'GamesSudoku'           , component: GamesSudokuComponent                  },
   {  path: '**'                    , component: AppComponent                          }, 
 ];
 //
@@ -74,6 +76,7 @@ export class CustomErrorHandler implements ErrorHandler {
     AngularTutorialsnWebComponent,
     AAboutWebComponent,
     UnitTestingComponent,
+    GamesSudokuComponent,
   ],
   imports: [
     FormsModule,
@@ -91,8 +94,8 @@ export class CustomErrorHandler implements ErrorHandler {
   ], 
   exports  : [RouterModule],
   providers: [
-                { provide: LocationStrategy   , useClass: HashLocationStrategy},
-                { provide: ErrorHandler       , useClass: CustomErrorHandler }
+                { provide: LocationStrategy   , useClass: HashLocationStrategy },
+                { provide: ErrorHandler       , useClass: CustomErrorHandler   }
              ],
   bootstrap: [AppComponent]
 })
