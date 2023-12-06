@@ -397,10 +397,6 @@ export class FilesGenerationXLSComponent implements OnInit, AfterViewInit {
     //
     td_update(td_searchCriteria : SearchCriteria):void {
       //
-      this.td_buttonCaption = "[Favor espere...]";
-      //
-      this.td_textStatus    = "";
-      //
       td_searchCriteria.P_FECHA_INICIO_STR = this.GetFormattedDate(td_searchCriteria.P_FECHA_INICIO,0);
       td_searchCriteria.P_FECHA_FIN_STR    = this.GetFormattedDate(td_searchCriteria.P_FECHA_FIN   ,0); 
       //
@@ -418,42 +414,53 @@ export class FilesGenerationXLSComponent implements OnInit, AfterViewInit {
       //
       switch (selectedIndex) {
         case 1: // C#
-          //      
-          td_informeLogRemoto                      = this.mcsdService.getLogRemoto(td_searchCriteria);
-          //
-          const td_observer = {
-            next: (td_logEntry: LogEntry[])     => { 
               //
-              console.log('TEMPLATE DRIVEN - RETURN VALUES (Record Count): ' + td_logEntry.length);
+              this.td_buttonCaption = "[Favor espere...]";
               //
-              this.td_dataSource           = new MatTableDataSource<LogEntry>(td_logEntry);
-              this.td_dataSource.paginator = this.td_paginator;
+              this.td_textStatus    = "";
+              //      
+              td_informeLogRemoto                      = this.mcsdService.getLogRemoto(td_searchCriteria);
               //
-              this.td_textStatus           = "Se encontraron [" + td_logEntry.length + "] registros ";
-              this.td_formSubmit           = false;
-            },
-            error           : (err: Error)      => {
+              const td_observer = {
+                next: (td_logEntry: LogEntry[])     => { 
+                  //
+                  console.log('TEMPLATE DRIVEN - RETURN VALUES (Record Count): ' + td_logEntry.length);
+                  //
+                  this.td_dataSource           = new MatTableDataSource<LogEntry>(td_logEntry);
+                  this.td_dataSource.paginator = this.td_paginator;
+                  //
+                  this.td_textStatus           = "Se encontraron [" + td_logEntry.length + "] registros ";
+                  this.td_formSubmit           = false;
+                },
+                error           : (err: Error)      => {
+                  //
+                  console.error('TEMPLATE DRIVEN - (ERROR) : ' + JSON.stringify(err.message));
+                  //
+                  this.td_textStatus           = "Ha ocurrido un error. Favor intente de nuevo";
+                  this.td_formSubmit           = false;
+                  this.td_buttonCaption        = "[Buscar]";
+                  //
+                },
+                complete        : ()                => {
+                  //
+                  console.log('TEMPLATE DRIVEN -  (SEARCH END)');
+                  //
+                  this.td_formSubmit           = false;
+                  this.td_buttonCaption        = "[Buscar]";
+                },
+              }; 
               //
-              console.error('TEMPLATE DRIVEN - (ERROR) : ' + JSON.stringify(err.message));
-              //
-              this.td_textStatus           = "Ha ocurrido un error. Favor intente de nuevo";
-              this.td_formSubmit           = false;
-              this.td_buttonCaption        = "[Buscar]";
-              //
-            },
-            complete        : ()                => {
-              //
-              console.log('TEMPLATE DRIVEN -  (SEARCH END)');
-              //
-              this.td_formSubmit           = false;
-              this.td_buttonCaption        = "[Buscar]";
-            },
-        }; 
-        //
-        td_informeLogRemoto.subscribe(td_observer);
+              td_informeLogRemoto.subscribe(td_observer);
           break;
-        case 2: // 
-          td_informeLogRemoto                      = this.mcsdService.getLogRemotoNodeJS(td_searchCriteria);
+        case 2: // NODE.JS
+              //
+              // this.td_buttonCaption = "[Favor espere...]";
+              //
+              // this.td_textStatus    = "";
+              // 
+              td_informeLogRemoto    = this.mcsdService.getLogRemotoNodeJS(td_searchCriteria);
+              //
+              //this.lblStatusNodeJs = JSON.parse(jsondata)['recordsets'][0][0]['NombreCompleto'];
           break;
         default:
           return;
