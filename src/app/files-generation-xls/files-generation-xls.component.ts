@@ -2,7 +2,7 @@ import { AfterViewInit, Component, OnInit, ViewChild   } from '@angular/core';
 import { FormBuilder, Validators                       } from '@angular/forms';
 import { MatTableDataSource                            } from '@angular/material/table';
 import { MatPaginator                                  } from '@angular/material/paginator';
-import { LogEntry,SearchCriteria                       } from '../log-info.model';
+import { LogEntry,SearchCriteria, _languageName        } from '../log-info.model';
 import { MCSDService                                   } from '../mcsd.service';
 import { CustomErrorHandler                            } from '../app.module';
 import { Observable                                    } from 'rxjs';
@@ -88,6 +88,11 @@ export class FilesGenerationXLSComponent implements OnInit, AfterViewInit {
      ,"");
     //
     @ViewChild("td_paginator" ,{read:MatPaginator}) td_paginator!:  MatPaginator;
+    //
+    @ViewChild('_languajeList')    _languajeList       : any;
+    //
+    public __languajeList                              : any;
+    protected tituloListadoLenguajes                   : string = "Seleccione Lenguaje";
     //--------------------------------------------------------------------------
     // PROPIEDADES - ESTADISTICA
     //--------------------------------------------------------------------------
@@ -117,7 +122,17 @@ export class FilesGenerationXLSComponent implements OnInit, AfterViewInit {
     }
     //
     ngAfterViewInit():void {
-      //
+        //-----------------------------------------------------------------------------
+        // LENGUAJES DE PROGRAMACION
+        //-----------------------------------------------------------------------------
+        this.__languajeList = new Array();
+        //
+        this.__languajeList.push(
+          new _languageName(0, '(SELECCIONE OPCION..)', false),
+        );
+        //
+        this.__languajeList.push(new _languageName(1, 'C#'      , true));
+        this.__languajeList.push(new _languageName(2, '(Node.js)', false));
     }
     //--------------------------------------------------------------------------
     // METODOS COMUNES 
