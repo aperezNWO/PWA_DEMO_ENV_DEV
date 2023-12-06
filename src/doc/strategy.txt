@@ -160,8 +160,16 @@
 */
 
 /*
- //
-|
-}
+accessDate : "2023-12-06T04:28:53.423"
+id_Column  :  3486
+ipValue    :  "181.57.12.78"
+pageName   : "PAGE_ANGULAR_DEMO_INDEX
+
+"ID_column":3449,
+"PageName":"PAGE_ACCESS_LOG_DEMO",
+"AccessDate":"2023-12-06T03:55:02.693Z",
+"IpValue":"181.57.12.78",
+"LogType":1
+
 */
 =====================================================================

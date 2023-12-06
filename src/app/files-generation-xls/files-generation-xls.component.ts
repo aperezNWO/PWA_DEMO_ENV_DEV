@@ -407,8 +407,6 @@ export class FilesGenerationXLSComponent implements OnInit, AfterViewInit {
       console.log("(FROM PARAM) : P_FECHA_INICIO (valid : 01/09/2022)  : " + td_searchCriteria.P_FECHA_INICIO_STR);
       console.log("(FROM PARAM) : P_FECHA_FIN    (valid : 30/09/2022)  : " + td_searchCriteria.P_FECHA_FIN_STR);
       console.log("(SEARCH INIT)");
-      // 
-      let td_informeLogRemoto!                 : Observable<LogEntry[]>;
       //
       let selectedIndex: number = this._languajeList.nativeElement.options.selectedIndex; // c++ by default
       //
@@ -418,6 +416,8 @@ export class FilesGenerationXLSComponent implements OnInit, AfterViewInit {
               this.td_buttonCaption = "[Favor espere...]";
               //
               this.td_textStatus    = "";
+              // 
+              let td_informeLogRemoto!                 : Observable<LogEntry[]>;
               //      
               td_informeLogRemoto                      = this.mcsdService.getLogRemoto(td_searchCriteria);
               //
@@ -454,13 +454,48 @@ export class FilesGenerationXLSComponent implements OnInit, AfterViewInit {
           break;
         case 2: // NODE.JS
               //
-              // this.td_buttonCaption = "[Favor espere...]";
+              this.td_buttonCaption = "[Favor espere...]";
               //
-              // this.td_textStatus    = "";
+              this.td_textStatus    = "";
               // 
-              td_informeLogRemoto    = this.mcsdService.getLogRemotoNodeJS(td_searchCriteria);
+              let td_informeLogRemoto_NodeJs!   : Observable<string>;
+              // 
+              td_informeLogRemoto_NodeJs        = this.mcsdService.getLogRemotoNodeJS(td_searchCriteria);
               //
-              //this.lblStatusNodeJs = JSON.parse(jsondata)['recordsets'][0][0]['NombreCompleto'];
+              const td_observer_node_js = {
+                next: (td_logEntry_node_js: string)     => { 
+                  //
+                  console.log('TEMPLATE DRIVEN - NODE.JS - RETURN VALUES  : ' + td_logEntry_node_js);
+                  //
+                  let td_logEntry_node_js_json = JSON.parse(td_logEntry_node_js)['recordsets'][0];
+                  //
+                  console.log('TEMPLATE DRIVEN - NODE.JS - RETURN VALUE   : ' + td_logEntry_node_js_json);
+                  //
+                  this.td_dataSource           = new MatTableDataSource<LogEntry>(td_logEntry_node_js_json);
+                  this.td_dataSource.paginator = this.td_paginator;
+                  //
+                  this.td_textStatus           = "Se encontraron [" + td_logEntry_node_js_json.length + "] registros ";
+                  this.td_formSubmit           = false;
+                },
+                error           : (err: Error)      => {
+                  //
+                  console.error('TEMPLATE DRIVEN - NODE.JS - (ERROR) : ' + JSON.stringify(err.message));
+                  //
+                  this.td_textStatus           = "Ha ocurrido un error. Favor intente de nuevo";
+                  this.td_formSubmit           = false;
+                  this.td_buttonCaption        = "[Buscar]";
+                  //
+                },
+                complete        : ()                => {
+                  //
+                  console.log('TEMPLATE DRIVEN - NODE.JS -  (SEARCH END)');
+                  //
+                  this.td_formSubmit           = false;
+                  this.td_buttonCaption        = "[Buscar]";
+                },
+              }; 
+              //
+              td_informeLogRemoto_NodeJs.subscribe(td_observer_node_js);
           break;
         default:
           return;

@@ -153,11 +153,11 @@ export class MCSDService {
         return this.http.get<LogEntry[]>(url);
     }
     //
-    getLogRemotoNodeJS(_searchCriteria : SearchCriteria) {
+    getLogRemotoNodeJS(_searchCriteria : SearchCriteria) : Observable<string>{
       //
-      let p_url: string = `https://ms7tks-4000.csb.app/generarinformejson`;
+      let p_url       : string = `https://ms7tks-4000.csb.app/generarinformejson`;
       //
-      let nodeJsOutput: Observable<LogEntry[]> = this.http.get<LogEntry[]>(
+      let nodeJsOutput: Observable<string> = this.http.get<string>(
         p_url,
         this.HTTPOptions_JSON,
       );
@@ -169,7 +169,7 @@ export class MCSDService {
     //
     getInformeExcel(_searchCriteria : SearchCriteria){
         //
-        let p_url  = this.prefix + 'demos/generarinformexls';
+        let p_url       = this.prefix + 'demos/generarinformexls';
         //
         var HTTPOptions = {
           headers: new HttpHeaders({
