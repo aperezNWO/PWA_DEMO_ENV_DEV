@@ -153,6 +153,20 @@ export class MCSDService {
         return this.http.get<LogEntry[]>(url);
     }
     //
+    getLogRemotoNodeJS(_searchCriteria : SearchCriteria) {
+      //
+      let p_url: string = `https://ms7tks-4000.csb.app/generarinformejson`;
+      //
+      let nodeJsOutput: Observable<LogEntry[]> = this.http.get<LogEntry[]>(
+        p_url,
+        this.HTTPOptions_JSON,
+      );
+      //
+      console.log('getLogRemotoNodeJS : ' + p_url);
+      //
+      return nodeJsOutput;
+    }
+    //
     getInformeExcel(_searchCriteria : SearchCriteria){
         //
         let p_url  = this.prefix + 'demos/generarinformexls';

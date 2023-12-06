@@ -413,38 +413,51 @@ export class FilesGenerationXLSComponent implements OnInit, AfterViewInit {
       console.log("(SEARCH INIT)");
       // 
       let td_informeLogRemoto!                 : Observable<LogEntry[]>;
-      td_informeLogRemoto                      = this.mcsdService.getLogRemoto(td_searchCriteria);
       //
-      const td_observer = {
-        next: (td_logEntry: LogEntry[])     => { 
+      let selectedIndex: number = this._languajeList.nativeElement.options.selectedIndex; // c++ by default
+      //
+      switch (selectedIndex) {
+        case 1: // C#
+          //      
+          td_informeLogRemoto                      = this.mcsdService.getLogRemoto(td_searchCriteria);
           //
-          console.log('TEMPLATE DRIVEN - RETURN VALUES (Record Count): ' + td_logEntry.length);
-          //
-          this.td_dataSource           = new MatTableDataSource<LogEntry>(td_logEntry);
-          this.td_dataSource.paginator = this.td_paginator;
-          //
-          this.td_textStatus           = "Se encontraron [" + td_logEntry.length + "] registros ";
-          this.td_formSubmit           = false;
-        },
-        error           : (err: Error)      => {
-          //
-          console.error('TEMPLATE DRIVEN - (ERROR) : ' + JSON.stringify(err.message));
-          //
-          this.td_textStatus           = "Ha ocurrido un error. Favor intente de nuevo";
-          this.td_formSubmit           = false;
-          this.td_buttonCaption        = "[Buscar]";
-          //
-        },
-        complete        : ()                => {
-          //
-          console.log('TEMPLATE DRIVEN -  (SEARCH END)');
-          //
-          this.td_formSubmit           = false;
-          this.td_buttonCaption        = "[Buscar]";
-        },
-    }; 
-    //
-    td_informeLogRemoto.subscribe(td_observer);
+          const td_observer = {
+            next: (td_logEntry: LogEntry[])     => { 
+              //
+              console.log('TEMPLATE DRIVEN - RETURN VALUES (Record Count): ' + td_logEntry.length);
+              //
+              this.td_dataSource           = new MatTableDataSource<LogEntry>(td_logEntry);
+              this.td_dataSource.paginator = this.td_paginator;
+              //
+              this.td_textStatus           = "Se encontraron [" + td_logEntry.length + "] registros ";
+              this.td_formSubmit           = false;
+            },
+            error           : (err: Error)      => {
+              //
+              console.error('TEMPLATE DRIVEN - (ERROR) : ' + JSON.stringify(err.message));
+              //
+              this.td_textStatus           = "Ha ocurrido un error. Favor intente de nuevo";
+              this.td_formSubmit           = false;
+              this.td_buttonCaption        = "[Buscar]";
+              //
+            },
+            complete        : ()                => {
+              //
+              console.log('TEMPLATE DRIVEN -  (SEARCH END)');
+              //
+              this.td_formSubmit           = false;
+              this.td_buttonCaption        = "[Buscar]";
+            },
+        }; 
+        //
+        td_informeLogRemoto.subscribe(td_observer);
+          break;
+        case 2: // 
+          td_informeLogRemoto                      = this.mcsdService.getLogRemotoNodeJS(td_searchCriteria);
+          break;
+        default:
+          return;
+      }
     };
     //
     td_GenerarInformeXLSValidate():void
