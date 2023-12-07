@@ -25,7 +25,7 @@ export class MCSDService {
       ,'responseType' : 'text' as 'json'
     };  
     public static get _prefix()   : string {
-      //public prefix      : string = 'http://localhost:81/';
+      //public prefix        : string = 'http://localhost:81/';
       //public prefix        : string = 'https://mcsd.somee.com/';
       //
       return 'https://webapiangulardemo.somee.com/';
