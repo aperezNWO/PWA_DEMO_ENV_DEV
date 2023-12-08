@@ -1,5 +1,5 @@
 import { Injectable                                      } from '@angular/core';
-import { LogEntry, SearchCriteria                        } from './log-info.model';
+import { LogEntry, LogType, SearchCriteria                        } from './log-info.model';
 import { HttpClient, HttpRequest, HttpEvent, HttpHeaders } from '@angular/common/http';
 import { Observable                                      } from 'rxjs';
 //
@@ -24,13 +24,13 @@ export class MCSDService {
       })
       ,'responseType' : 'text' as 'json'
     };  
-    public static get _prefix()   : string {
+    public get _prefix()   : string {
       //public prefix        : string = 'http://localhost:81/';
       //public prefix        : string = 'https://mcsd.somee.com/';
       //
       return 'https://webapiangulardemo.somee.com/';
     }
-    readonly prefix          : string = MCSDService._prefix;
+    readonly prefix          : string = this._prefix;
     ////////////////////////////////////////////////////////////////  
     // METODOS - [EVENT HANDLERS]
     ////////////////////////////////////////////////////////////////  
@@ -142,7 +142,35 @@ export class MCSDService {
     }
     ////////////////////////////////////////////////////////////////  
     // METODOS - [GENERAR ARCHIVO XLS]
-    ////////////////////////////////////////////////////////////////  
+    ////////////////////////////////////////////////////////////////
+      //
+      public SetLog(p_PageTitle : string ,p_logMsg : string, logType : LogType = LogType.Info):void
+      {
+        //
+        let logInfo!  : Observable<string>;
+        //
+        let p_url     = `${this._prefix}demos/_SetLog?p_logMsg=${p_logMsg}&logType=${logType.toString()}`;
+        //
+        logInfo       = this.http.get<string>(p_url, this.HTTPOptions_Text);
+        //
+        const logInfoObserver   = {
+              //
+              next: (logResult: string)     => { 
+                    //
+                    console.warn(p_PageTitle +  ' - [LOG] - [RESULT] : ' + logResult);
+              },
+              error: (err: Error) => {
+                    //
+                    console.error(p_PageTitle + ' - [LOG] - [ERROR]  : ' + err);
+              },       
+              complete: ()        => {
+                    //
+                    console.info(p_PageTitle  + ' - [LOG] - [COMPLETE]');
+              },
+          };
+          //
+          logInfo.subscribe(logInfoObserver);
+      };  
     //
     getLogRemoto(_searchCriteria : SearchCriteria) {
         //
@@ -276,6 +304,15 @@ export class MCSDService {
       };
       //
       let dijkstraData : Observable<string> =  this.http.get<string>(p_url,HTTPOptions);
+      //
+      return dijkstraData; 
+    }
+    //
+    getRandomVertexCpp(vertexSize : Number,sourcePoint : Number): Observable<string> {
+      //
+      let p_url    = `${this._prefix}demos/GenerateRandomVertex_CPP?p_vertexSize=${vertexSize}&p_sourcePoint=${sourcePoint}`;
+      //
+      let dijkstraData : Observable<string> =  this.http.get<string>(p_url,this.HTTPOptions_Text);
       //
       return dijkstraData; 
     }

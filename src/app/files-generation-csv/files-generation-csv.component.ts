@@ -449,7 +449,7 @@ export class FilesGenerationCSVComponent implements OnInit, AfterViewInit {
           //
           let urlFile                = this.mcsdService.DebugHostingContent(_excelFileName);
           //
-          this.rf_ExcelDownloadLink = `${MCSDService._prefix}/wwwroot/xlsx/${urlFile}`;
+          this.rf_ExcelDownloadLink = `${this.mcsdService._prefix}/wwwroot/xlsx/${urlFile}`;
           //
           this.rf_textStatus_xls     = "[Descargar Excel]";
         },

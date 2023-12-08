@@ -8,8 +8,27 @@
             <p>Ver referencia&nbsp;<a href="javascript: void window.open('https://www.npmjs.com/package/jspdf')">[jsPDF]</a></p>
         </div>
         <hr />
-        <p>
-            <span id="tituloListadoDistancias"></span>
+        <div id="LangListDiv">
+            <span id="tituloListadoLenguajes">{{this.tituloListadoLenguajes}}</span>
+            <br>
+            <label for="LangList"></label>
+            <br>
+            &nbsp;<select   id="LanguageList"
+                            name="LanguajeList"
+                            #_languajeList
+                            (change)="this._cppSourceDivHiddenChaged()">
+                            <option *ngFor="let _languageName of __languajeList" 
+                            [value]="_languageName._index"
+                            [selected]="_languageName._selected">{{_languageName._value}}</option>
+            </select>
+            &nbsp;&nbsp;
+            <span id="cppSoureDiv" [hidden]="this._cppSourceDivHidden">
+               <a href="javascript: void window.open('https://github.com/aperezNWO/CppBuilder01/blob/master/Project2/Dijkstra.cpp')">[View Source]</a>
+            </span>
+        </div>
+        <hr />
+        <div id="listTitle" [hidden]="((this.PointListHidden.length == 0) && (this.MatrixListHidden.length == 0))">
+            <span id="tituloListadoDistancias">{{this.tituloListadoDistancias}}</span>
             <br>
             <label for="DistanceList"></label>
             <br>
@@ -19,7 +38,7 @@
                             (change)="this._distanceListChange()">
                             <option *ngFor="let _vertexSize of __distanceList" [value]="_vertexSize._index">{{_vertexSize._value}}</option>
             </select>
-        </p>
+        </div>
         <div>
             <!-- PANEL GRAFICO / INICIO -->
             <div id="divCanvas_Pdf" #divCanvas_Pdf style="display: block; box-sizing: border-box; height: 255px; width: 255px;padding:5px;" height="255" width="255">
@@ -50,15 +69,19 @@
         </p>
         <hr />
         <div>
-            <input id="GetGraph" type="button" title="[GENERAR]"   value="[GENERAR]"   (click)="this._GetGraph()">
+            <input id="GetGraph" type="button" title="[GENERAR]"   value="[GENERAR]"   (click)="this._GetGraph()" 
+            [disabled]="!((this.PointListHidden.length == 0) && (this.MatrixListHidden.length == 0))">
             |
-            <input id="NewGraph" type="button" title="[REINICIAR]" value="[REINICIAR]" (click)="this._ResetControls()">
+            <input id="NewGraph" type="button" title="[REINICIAR]" value="[REINICIAR]" (click)="this._ResetControls()"
+            [disabled]="((this.PointListHidden.length == 0) && (this.MatrixListHidden.length == 0))">
         </div>
         <hr />
-            <input id="GetPDF" type="button" title="[GENERAR PDF]" value="[GENERAR PDF]" (click)="this._GetPDF()">
+            <input id="GetPDF" type="button" title="[GENERAR PDF]" value="[GENERAR PDF]" (click)="this._GetPDF()"
+            [disabled]="  ( (this.PointListHidden.length  == 0) 
+                         && (this.MatrixListHidden.length == 0))
+                         || (this.selectedIndex           == 0)">
         <hr />
         <a routerLink="/AlgorithmWeb">Volver al Menú</a>
     </div>
 </div>
-
 
