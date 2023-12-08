@@ -63,35 +63,40 @@
 
 --[_] DEPLOY ON GITHUB CODESPACES
 
-Build your Angular application: Create a production build of your Angular application 
-using the Angular CLI:
+    #Build your Angular application: Create a production build of your Angular application 
+    using the Angular CLI:
 
-bash
-Copy code
-ng build --prod
+    $ ng build --c=production
 
-Deploy to GitHub Pages: You can create a GitHub Pages branch or use the gh-pages 
-package to automate the deployment process. 
+    En archivo "index.html" Reemplazar <base href="/"> 
+    https://apereznwo.github.io/AngularMCSD_Public
 
-Here's an example using the angular-cli-ghpages package:
+    Deploy to GitHub Pages: You can create a GitHub Pages branch or use the gh-pages 
+    package to automate the deployment process. 
 
-# Install the angular-cli-ghpages package globally
-npm install -g angular-cli-ghpages
+    Here's an example using the angular-cli-ghpages package:
 
-# Deploy the built application to GitHub Pages
-npx ngh --dir=dist/your-angular-app
+    # Install the angular-cli-ghpages package globally
+    npm install -g angular-cli-ghpages
 
-Replace your-angular-app with the name of your Angular app's directory 
-where the build artifacts are located.
+    # Deploy the built application to GitHub Pages
+    npx ngh --dir=dist/angular-dijkstra
 
-Configure GitHub Pages: Go to your GitHub repository settings, 
-navigate to the GitHub Pages section, 
-and set the source branch to the one you used for deployment (e.g., gh-pages). 
+    Replace your-angular-app with the name of your Angular app's directory 
+    where the build artifacts are located.
 
-GitHub will provide you with a URL where your Angular application will be hosted.
+    # Configure GitHub Pages: Go to your GitHub repository settings, 
+    navigate to the GitHub Pages section, 
+    and set the source branch to the one you used for deployment (e.g., gh-pages). 
 
-Remember, this method will make your Angular application available at a URL like 
+    GitHub will provide you with a URL where your Angular application will be hosted.
 
-https://username.github.io/repository-name. 
+    Remember, this method will make your Angular application available at a URL like 
 
-This URL will be accessible publicly, providing a permanent link to your deployed application.
+    https://username.github.io/repository-name. 
+    https://apereznwo.github.io/AngularMCSD_Public
+
+    This URL will be accessible publicly, providing a permanent link to your deployed application.
+
+    # (optional / verification), Go to pages > actions and find the label
+    "pages build and deployment"
