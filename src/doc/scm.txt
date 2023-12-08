@@ -69,7 +69,7 @@
     $ ng build --c=production
 
     En archivo "index.html" Reemplazar <base href="/"> 
-    https://apereznwo.github.io/AngularMCSD_Public
+    https://apereznwo.github.io/AngularMCSD_Public/
 
     Deploy to GitHub Pages: You can create a GitHub Pages branch or use the gh-pages 
     package to automate the deployment process. 
