@@ -1,7 +1,9 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MCSDService                                 } from '../../../_services/mcsd.service';
+import { CustomErrorHandler                          } from '../../../app.module';
 import { Observable                                  } from 'rxjs';
-import { MCSDService                                 } from 'src/app/_services/mcsd.service';
-import { CustomErrorHandler } from 'src/app/app.module';
+import { _languageName                               } from 'src/app/_models/log-info.model';
+
 //
 @Component({
   selector: 'app-algorithm-reg-ex',
@@ -18,25 +20,38 @@ export class AlgorithmRegExComponent implements OnInit, AfterViewInit {
       return '[ALGORITMOS - EXPRESIONES REGULARES]';
     }
     //
-    readonly  pageTitle             : string = AlgorithmRegExComponent.PageTitle;
-    protected xmlData               : string = "";
-    protected lblStatus             : string = "";
-    protected pattern               : string = "";
+    readonly  pageTitle              : string = AlgorithmRegExComponent.PageTitle;
+    protected xmlData                : string = "";
+    protected lblStatus              : string = "";
+    protected pattern                : string = "";
+    public    __languajeList         : any;
+    public    _cppSourceDivHidden    : boolean = false;
+    public    tituloListadoLenguajes : string = "Seleccione Lenguaje";
     //
-    @ViewChild('mensajes')    mensajes    : any;
-    @ViewChild('tagSearch')   tagSearch   : any;
-    @ViewChild('textSearch')  textSearch  : any;
-    @ViewChild('regExSearch') regExSearch : any;
+    @ViewChild('mensajes')        mensajes       : any;
+    @ViewChild('tagSearch')       tagSearch      : any;
+    @ViewChild('textSearch')      textSearch     : any;
+    @ViewChild('regExSearch')     regExSearch    : any;
+    @ViewChild('_languajeList')   _languajeList  : any;
     //
     constructor(private mcsdService:MCSDService, private customErrorHandler : CustomErrorHandler)
     {
         //
+        mcsdService.SetLog(this.pageTitle,"PAGE_REGEX_DEMO");
     }
     //
     ngOnInit(): void {
         //
         console.log(AlgorithmRegExComponent.PageTitle + " - [INGRESANDO]");
         //
+        //-----------------------------------------------------------------------------
+        // LENGUAJES DE PROGRAMACION
+        //-----------------------------------------------------------------------------
+        this.__languajeList = new Array();
+        //
+        this.__languajeList.push( new _languageName(0,"(SELECCIONE OPCION..)",false));        
+        this.__languajeList.push( new _languageName(1,"C#",false));        
+        this.__languajeList.push( new _languageName(2,"C++",true));  
     }
     //
     ngAfterViewInit(): void {
@@ -56,7 +71,7 @@ export class AlgorithmRegExComponent implements OnInit, AfterViewInit {
         //
         xmlInfo       = this.mcsdService._GetXmlData();
         //
-        let data      : any;
+        this.lblStatus = "[..CARGANDO POR FAVOR ESPERERE...]"
         //
         const xmlInfoObserver   = {
             //
@@ -65,7 +80,7 @@ export class AlgorithmRegExComponent implements OnInit, AfterViewInit {
                 // OBTENER DATA
                 //------------------------------------------------------------
                 //
-                console.warn(AlgorithmRegExComponent.PageTitle + ' - [GET XML DATA] - [RETURN VALUE] : ' + _xmlData);
+                console.warn(AlgorithmRegExComponent.PageTitle + ' - [GET XML DATA] - [RETURN VALUE] : ' + _xmlData.length);
                 //
                 this.xmlData = _xmlData;
                 //-------------------------------------------------------------
@@ -79,6 +94,10 @@ export class AlgorithmRegExComponent implements OnInit, AfterViewInit {
                 this.pattern   = "";
             },
             error: (err: Error) => {
+                //
+                this.lblStatus = "[HA OCURRIDO UN ERROR]"
+                //
+                this.pattern   = "";
                 //
                 console.error(AlgorithmRegExComponent.PageTitle + ' - [GET XML DATA]- [error] : ' + err.message);
             },       
@@ -115,9 +134,24 @@ export class AlgorithmRegExComponent implements OnInit, AfterViewInit {
             return;
         }
         //
-        let regExInfo!  : Observable<string>;
+        let regExInfo!         : Observable<string>;
         //
-        regExInfo       = this.mcsdService._RegExEval(tagSearchIndex,textSearchValue);
+        let _progLangId        : number = Number.parseInt(this._languajeList.nativeElement.value);
+        //
+        switch(_progLangId)    
+        {
+            case 0:  // (seleccione lenguaje...)
+                  return;
+            break;
+            case 1 : // C#
+                //
+                regExInfo       = this.mcsdService._RegExEval(tagSearchIndex,textSearchValue);
+            break;
+            case 2: // C++
+                //
+                regExInfo       = this.mcsdService._RegExEval_CPP(tagSearchIndex,textSearchValue);
+            break;
+        }
         //
         let data      : any;
         //
@@ -128,7 +162,7 @@ export class AlgorithmRegExComponent implements OnInit, AfterViewInit {
                 // OBTENER DATA
                 //------------------------------------------------------------
                 //
-                console.warn(AlgorithmRegExComponent.PageTitle + ' - [EVAL REGEX] - [RETURN VALUE] : ' + data);
+                console.warn(AlgorithmRegExComponent.PageTitle + ' - [EVAL REGEX] - [RETURN VALUE] : ' + data.length);
                 //    
                 let resultArray : string[] = data.split("|");
                 //
@@ -172,5 +206,14 @@ export class AlgorithmRegExComponent implements OnInit, AfterViewInit {
         };
         //
         regExInfo.subscribe(regExInfoObserver);
+    }
+    //
+    public _cppSourceDivHiddenChaged():void  
+    {
+        //
+        console.log(AlgorithmRegExComponent.PageTitle + " - [DIV CPP SOURCE CHANGED]");
+        //
+        let _selectedIndex       : number  = this._languajeList.nativeElement.options.selectedIndex;
+        this._cppSourceDivHidden = (_selectedIndex != 2) // item 2 = "c++"
     }
 }

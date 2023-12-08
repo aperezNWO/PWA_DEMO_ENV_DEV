@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild  }  from '@angular/core';
 import { Observable                    }  from 'rxjs';
 import { MCSDService                   } from '../../../_services/mcsd.service';
-import { _languageName } from '../../../log-info.model';
+import { _languageName } from '../../../_models/log-info.model';
 //
 @Component({
   selector: 'app-games-sudoku',

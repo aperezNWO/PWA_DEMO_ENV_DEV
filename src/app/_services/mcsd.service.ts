@@ -1,5 +1,5 @@
 import { Injectable                                      } from '@angular/core';
-import { LogEntry, LogType, SearchCriteria                        } from '../log-info.model';
+import { LogEntry, LogType, SearchCriteria                        } from '../_models/log-info.model';
 import { HttpClient, HttpRequest, HttpEvent, HttpHeaders } from '@angular/common/http';
 import { Observable                                      } from 'rxjs';
 //
@@ -357,6 +357,16 @@ export class MCSDService {
       //
       return newSortData; 
     }
+    //    
+    getSort_CPP(p_sortAlgoritm: number, p_unsortedList: string):Observable<string>
+    {
+      //
+      let p_url    = `${this._prefix}demos/_GetSort_CPP?p_sortAlgoritm=${p_sortAlgoritm}&p_unsortedList=${p_unsortedList}`;
+      //
+      let newSortData : Observable<string> =  this.http.get<string>(p_url,this.HTTPOptions_Text);
+      //
+      return newSortData; 
+    }
     ////////////////////////////////////////////////////////////////  
     // METODOS - [ALGORITMOS - ORDENAMIENTO]
     ////////////////////////////////////////////////////////////////  
@@ -395,6 +405,16 @@ export class MCSDService {
       };
       //
       let regExData : Observable<string> =  this.http.get<string>(p_url,HTTPOptions);
+      //
+      return regExData; 
+    }
+    //
+    public _RegExEval_CPP(tagSearchIndex: number, textSearchValue: string): Observable<string>
+    {
+      //
+      let p_url    : string = `${this._prefix}demos/_RegExEval_CPP?p_tagSearch=${tagSearchIndex}&p_textSearch=${textSearchValue}`;
+      //
+      let regExData : Observable<string> =  this.http.get<string>(p_url,this.HTTPOptions_Text);
       //
       return regExData; 
     }

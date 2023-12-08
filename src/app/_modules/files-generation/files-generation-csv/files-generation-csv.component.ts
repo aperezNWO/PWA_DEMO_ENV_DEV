@@ -8,7 +8,7 @@ import jsPDF                                             from 'jspdf';
 import html2canvas                                       from 'html2canvas';
 import { MCSDService                                   } from '../../../_services/mcsd.service';
 import { CustomErrorHandler                            } from '../../../app.module';
-import { LogEntry, PersonEntity, SearchCriteria, _languageName  } from '../../../log-info.model';
+import { LogEntry, PersonEntity, SearchCriteria, _languageName  } from '../../../_models/log-info.model';
 //
 @Component({
   selector: 'app-files-generation-csv',
