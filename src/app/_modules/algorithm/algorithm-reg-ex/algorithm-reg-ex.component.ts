@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { MCSDService                                 } from '../mcsd.service';
 import { Observable                                  } from 'rxjs';
-import { CustomErrorHandler                          } from '../app.module';
+import { MCSDService                                 } from 'src/app/_services/mcsd.service';
+import { CustomErrorHandler } from 'src/app/app.module';
 //
 @Component({
   selector: 'app-algorithm-reg-ex',

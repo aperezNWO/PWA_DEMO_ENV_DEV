@@ -1,5 +1,5 @@
 import { Component          } from '@angular/core';
-import { CustomErrorHandler } from '../app.module';
+import { CustomErrorHandler } from '../../../app.module';
 //
 @Component({
   selector: 'app-files-generation-web',

@@ -1,9 +1,9 @@
 import { Component, VERSION            } from '@angular/core';
-import { HomeWebComponent              } from './home-web/home-web.component';
-import { AlgorithmWebComponent         } from './algorithm-web/algorithm-web.component';
-import { AngularTutorialsnWebComponent } from './angular-tutorialsn-web/angular-tutorialsn-web.component';
-import { FilesGenerationWebComponent   } from './files-generation-web/files-generation-web.component';
-import { AAboutWebComponent            } from './a-about-web/a-about-web.component';
+import { HomeWebComponent              } from './_modules/home/home-web/home-web.component';
+import { AlgorithmWebComponent         } from './_modules/algorithm/algorithm-web/algorithm-web.component';
+import { AngularTutorialsnWebComponent } from './_modules/about/angular-tutorialsn-web/angular-tutorialsn-web.component';
+import { FilesGenerationWebComponent   } from './_modules/files-generation/files-generation-web/files-generation-web.component';
+import { AAboutWebComponent            } from './_modules/about/a-about-web/a-about-web.component';
 import { Router                        } from '@angular/router';
 import { CustomErrorHandler            } from './app.module';
 //
@@ -18,7 +18,7 @@ export class AppComponent {
     //
     title             : string = "[MCSD - CONSULTAS]"; 
     appName           : string = "[MCSD - CONSULTAS]";
-    appVersion        : string = '1.0.0.72';
+    appVersion        : string = '1.0.0.73';
     runtimeVersion    : string = VERSION.full;
     //
     readonly HomeWebComponent_pageTitle                   : string  = HomeWebComponent.PageTitle;
