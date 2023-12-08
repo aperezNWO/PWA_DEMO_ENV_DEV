@@ -92,7 +92,7 @@ export class FilesGenerationXLSComponent implements OnInit, AfterViewInit {
     @ViewChild('_languajeList')    _languajeList       : any;
     //
     public __languajeList                              : any;
-    protected tituloListadoLenguajes                   : string = "Seleccione Lenguaje";
+    protected tituloListadoLenguajes                   : string = "Seleccione Backend";
     //--------------------------------------------------------------------------
     // PROPIEDADES - ESTADISTICA
     //--------------------------------------------------------------------------
@@ -131,8 +131,8 @@ export class FilesGenerationXLSComponent implements OnInit, AfterViewInit {
           new _languageName(0, '(SELECCIONE OPCION..)', false),
         );
         //
-        this.__languajeList.push(new _languageName(1, 'C#'      , true));
-        this.__languajeList.push(new _languageName(2, '(Node.js)', false));
+        this.__languajeList.push(new _languageName(1, '(.Net Core)'      , true));
+        this.__languajeList.push(new _languageName(2, '(Node.js)'        , false));
     }
     //--------------------------------------------------------------------------
     // METODOS COMUNES 
@@ -311,7 +311,7 @@ export class FilesGenerationXLSComponent implements OnInit, AfterViewInit {
           //
           let urlFile                = this.mcsdService.DebugHostingContent(_excelFileName);
           //
-          this.rf_ExcelDownloadLink = `${MCSDService._prefix}xlsx/${urlFile}`;
+          this.rf_ExcelDownloadLink = `${MCSDService._prefix}/wwwroot/xlsx/${urlFile}`;
           //
           this.rf_textStatus_xls     = "[Descargar Excel]";
         },
@@ -529,7 +529,7 @@ export class FilesGenerationXLSComponent implements OnInit, AfterViewInit {
           //
           let urlFile                = this.mcsdService.DebugHostingContent(_excelFileName); 
           //
-          this.td_ExcelDownloadLink  = `${MCSDService._prefix}xlsx/${urlFile}`;
+          this.td_ExcelDownloadLink  = `${MCSDService._prefix}/wwwroot/xlsx/${urlFile}`;
           //
           this.td_textStatus_xls     = "[Descargar Excel]";
         },
