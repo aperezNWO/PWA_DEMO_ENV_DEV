@@ -120,42 +120,90 @@ export class FilesGenerationCSVComponent implements OnInit, AfterViewInit {
         //
         console.log(FilesGenerationCSVComponent.PageTitle + " - [SET CSV DATA]");
         //
-        let csv_informeLogRemoto!                 : Observable<string>;
-        csv_informeLogRemoto                      = this.mcsdService.getInformeRemotoCSV();
+        let selectedIndex: number = this._languajeList.nativeElement.options.selectedIndex; // (.NET CORE) POR DEFECTO
         //
-        const csv_observer = {
-          next: (csv_data: string)     => { 
-            //
-            console.log(FilesGenerationCSVComponent.PageTitle + " - [SET CSV DATA] - Return Values : [" + csv_data + "]");
-            //
-            let jsondata     = JSON.parse(csv_data);
-            //
-            let recordNumber = jsondata.length;
-            //
-            console.log(FilesGenerationCSVComponent.PageTitle + ' - [SET CSV DATA] - RecordNumber ' + recordNumber);
-            //
-            this.rf_textStatus        = "Se encontraton [" + recordNumber  + "] registros";
-            //
-            this.csv_dataSource           = new MatTableDataSource<PersonEntity>(jsondata);
-            this.csv_dataSource.paginator = this.csv_paginator;
-          },
-          error           : (err: Error)      => {
-            //
-            console.log(FilesGenerationCSVComponent.PageTitle + " - [SET CSV DATA] - Error : [" + err.message + "]");
-            //
-            this.rf_textStatus    = "[Ha ocurrido un error]";
-            //
-            this.rf_buttonCaption = "[Buscar]";
-          },
-          complete        : ()                => {
-            //
-            console.log(FilesGenerationCSVComponent.PageTitle + " - [SET CSV DATA] - [Search end]");
-            //
-            this.rf_buttonCaption = "[Buscar]";
-          },
-        }
-        //
-        csv_informeLogRemoto.subscribe(csv_observer);
+        switch (selectedIndex)
+        {
+            case 1: // (.NET CORE)
+                //
+                let csv_informeLogRemoto!                 : Observable<string>;
+                csv_informeLogRemoto                      = this.mcsdService.getInformeRemotoCSV();
+                //
+                const csv_observer = {
+                  next: (csv_data: string)     => { 
+                    //
+                    console.log(FilesGenerationCSVComponent.PageTitle + " - [SET CSV DATA] - Return Values : [" + csv_data + "]");
+                    //
+                    let jsondata     = JSON.parse(csv_data);
+                    //
+                    let recordNumber = jsondata.length;
+                    //
+                    console.log(FilesGenerationCSVComponent.PageTitle + ' - [SET CSV DATA] - RecordNumber ' + recordNumber);
+                    //
+                    this.rf_textStatus        = "Se encontraton [" + recordNumber  + "] registros";
+                    //
+                    this.csv_dataSource           = new MatTableDataSource<PersonEntity>(jsondata);
+                    this.csv_dataSource.paginator = this.csv_paginator;
+                  },
+                  error           : (err: Error)      => {
+                    //
+                    console.log(FilesGenerationCSVComponent.PageTitle + " - [SET CSV DATA] - Error : [" + err.message + "]");
+                    //
+                    this.rf_textStatus    = "[Ha ocurrido un error]";
+                    //
+                    this.rf_buttonCaption = "[Buscar]";
+                  },
+                  complete        : ()                => {
+                    //
+                    console.log(FilesGenerationCSVComponent.PageTitle + " - [SET CSV DATA] - [Search end]");
+                    //
+                    this.rf_buttonCaption = "[Buscar]";
+                  },
+                }
+                //
+                csv_informeLogRemoto.subscribe(csv_observer);
+            break;
+            case 2: // NODE.JS
+                //
+                let csv_informeLogRemoto_NodeJS!                 : Observable<string>;
+                csv_informeLogRemoto_NodeJS                      = this.mcsdService.getInformeRemotoCSV_NodeJS();
+                //
+                const csv_observer_node_js = {
+                  next: (csv_data_node_js: string)     => { 
+                    //
+                    console.log(FilesGenerationCSVComponent.PageTitle + " - [SET CSV DATA] - [NODE JS] - Return Values : [" + csv_data_node_js + "]");
+                    //
+                    let csv_data_node_js_json =  JSON.parse(csv_data_node_js)['recordsets'][0];
+                    //
+                    let recordNumber = csv_data_node_js_json.length;
+                    //
+                    console.log(FilesGenerationCSVComponent.PageTitle + ' - [SET CSV DATA] - [NODE JS] - RecordNumber ' + recordNumber);
+                    //
+                    this.rf_textStatus            = "Se encontraton [" + recordNumber  + "] registros";
+                    //
+                    this.csv_dataSource           = new MatTableDataSource<PersonEntity>(csv_data_node_js_json);
+                    this.csv_dataSource.paginator = this.csv_paginator;
+
+                  },
+                  error           : (err: Error)      => {
+                    //
+                    console.log(FilesGenerationCSVComponent.PageTitle + " - [SET CSV DATA] - [NODE JS] - Error : [" + err.message + "]");
+                    //
+                    this.rf_textStatus    = "[Ha ocurrido un error]";
+                    //
+                    this.rf_buttonCaption = "[Buscar]";
+                  },
+                  complete        : ()                => {
+                    //
+                    console.log(FilesGenerationCSVComponent.PageTitle + " - [SET CSV DATA] - [NODE JS] - [Search end]");
+                    //
+                    this.rf_buttonCaption = "[Buscar]";
+                  },
+                };      
+                //
+                csv_informeLogRemoto_NodeJS.subscribe(csv_observer_node_js);
+            break;          
+        };
     } 
     //
     SetCSVLink()

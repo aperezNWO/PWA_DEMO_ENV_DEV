@@ -140,6 +140,25 @@ export class MCSDService {
           //
           return jsonCSVData; 
     }
+    // 
+    //    
+    getInformeRemotoCSV_NodeJS(): Observable<string> {
+      //
+      let p_url    = 'https://ms7tks-4000.csb.app/GenerarInformeCSVJson';
+      //
+      console.warn(" REQUESTING URL : " + p_url);
+      //
+      var HTTPOptions = {
+        headers: new HttpHeaders({
+          'Accept':'application/text'
+        }),
+        'responseType': 'text' as 'json'
+      };
+      //
+      let jsonCSVData : Observable<string> =  this.http.get<string>(p_url,HTTPOptions);
+      //
+      return jsonCSVData; 
+    }
     ////////////////////////////////////////////////////////////////  
     // METODOS - [GENERAR ARCHIVO XLS]
     ////////////////////////////////////////////////////////////////

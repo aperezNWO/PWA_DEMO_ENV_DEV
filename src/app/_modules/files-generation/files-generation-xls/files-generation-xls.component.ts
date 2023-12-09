@@ -208,10 +208,10 @@ export class FilesGenerationXLSComponent implements OnInit, AfterViewInit {
       console.log("(FROM PARAM) : P_FECHA_FIN    (valid : 30/09/2022)  : " + td_searchCriteria.P_FECHA_FIN_STR);
       console.log("(SEARCH INIT)");
       //
-      let selectedIndex: number = this._languajeList.nativeElement.options.selectedIndex; // c++ by default
+      let selectedIndex: number = this._languajeList.nativeElement.options.selectedIndex; // (.NET CORE) POR DEFECTO
       //
       switch (selectedIndex) {
-        case 1: // C#
+        case 1: // (.NET CORE)
               //
               this.td_buttonCaption = "[Favor espere...]";
               //
@@ -267,7 +267,7 @@ export class FilesGenerationXLSComponent implements OnInit, AfterViewInit {
                   //
                   console.log('TEMPLATE DRIVEN - NODE.JS - RETURN VALUES  : ' + td_logEntry_node_js);
                   //
-                  let td_logEntry_node_js_json = JSON.parse(td_logEntry_node_js)['recordsets'][0];
+                  let td_logEntry_node_js_json =  JSON.parse(td_logEntry_node_js)['recordsets'][0];
                   //
                   console.log('TEMPLATE DRIVEN - NODE.JS - RETURN VALUE   : ' + td_logEntry_node_js_json);
                   //
