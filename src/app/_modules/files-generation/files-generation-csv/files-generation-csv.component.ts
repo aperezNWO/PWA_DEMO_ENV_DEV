@@ -8,7 +8,7 @@ import jsPDF                                             from 'jspdf';
 import html2canvas                                       from 'html2canvas';
 import { MCSDService                                   } from '../../../_services/mcsd.service';
 import { CustomErrorHandler                            } from '../../../app.module';
-import { LogEntry, PersonEntity, SearchCriteria, _languageName  } from '../../../_models/log-info.model';
+import { PersonEntity, SearchCriteria, _languageName   } from '../../../_models/log-info.model';
 //
 @Component({
   selector: 'app-files-generation-csv',
@@ -56,15 +56,11 @@ export class FilesGenerationCSVComponent implements OnInit, AfterViewInit {
     //
     rf_formSubmit                      : boolean = false;
     //
-    rf_ExcelDownloadLink               : string  = "";
+    rf_buttonCaption_csv               : string  = "";
     //
-    rf_buttonCaption_xls               : string  = "";
-    //
-    rf_textStatus_xls                  : string  = "";
-    //
-    rf_dataSource                      = new MatTableDataSource<LogEntry>();
+    rf_dataSource                      = new MatTableDataSource<PersonEntity>();
     // 
-    rf_displayedColumns                : string[] = ['id_Column', 'pageName', 'accessDate', 'ipValue'];
+    rf_displayedColumns                : string[] = ['id_Column', 'ciudad', 'nombreCompleto'];
     //
     rf_model                           = new SearchCriteria( "1"
                                             ,"1"
@@ -97,10 +93,6 @@ export class FilesGenerationCSVComponent implements OnInit, AfterViewInit {
     //
     ngOnInit(): void {
         //
-        this.SetCSVData();
-        //
-        this.SetCSVLink();
-        //
         this.SetChart();
         //
         this.rf_newSearch();
@@ -110,7 +102,7 @@ export class FilesGenerationCSVComponent implements OnInit, AfterViewInit {
     //
     ngAfterViewInit():void {
         //
-                //-----------------------------------------------------------------------------
+        //-----------------------------------------------------------------------------
         // LENGUAJES DE PROGRAMACION
         //-----------------------------------------------------------------------------
         this.__languajeList = new Array();
@@ -140,7 +132,9 @@ export class FilesGenerationCSVComponent implements OnInit, AfterViewInit {
             //
             let recordNumber = jsondata.length;
             //
-            console.log('ESTADISTICA - (return): ' + recordNumber);
+            console.log(FilesGenerationCSVComponent.PageTitle + ' - [SET CSV DATA] - RecordNumber ' + recordNumber);
+            //
+            this.rf_textStatus        = "Se encontraton [" + recordNumber  + "] registros";
             //
             this.csv_dataSource           = new MatTableDataSource<PersonEntity>(jsondata);
             this.csv_dataSource.paginator = this.csv_paginator;
@@ -148,10 +142,16 @@ export class FilesGenerationCSVComponent implements OnInit, AfterViewInit {
           error           : (err: Error)      => {
             //
             console.log(FilesGenerationCSVComponent.PageTitle + " - [SET CSV DATA] - Error : [" + err.message + "]");
+            //
+            this.rf_textStatus    = "[Ha ocurrido un error]";
+            //
+            this.rf_buttonCaption = "[Buscar]";
           },
           complete        : ()                => {
             //
             console.log(FilesGenerationCSVComponent.PageTitle + " - [SET CSV DATA] - [Search end]");
+            //
+            this.rf_buttonCaption = "[Buscar]";
           },
         }
         //
@@ -183,10 +183,14 @@ export class FilesGenerationCSVComponent implements OnInit, AfterViewInit {
           error           : (err: Error)      => {
             //
             console.log(FilesGenerationCSVComponent.PageTitle + " - [SET CSV LINK] - Error : [" + err.message + "]");
+            //
+            this.downloadCaption = "";
           },
           complete        : ()                => {
             //
             console.log(FilesGenerationCSVComponent.PageTitle + " - [SET CSV LINK] - [Search end]");
+            //
+            this.downloadCaption = "[Donwload CSV]";
           },
         }
         //
@@ -307,7 +311,7 @@ export class FilesGenerationCSVComponent implements OnInit, AfterViewInit {
           pdfDoc.save('sample-file.pdf');
       });
     }
- //--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
     // METODOS REACTIVE FORMS 
     //--------------------------------------------------------------------------
     //
@@ -316,7 +320,7 @@ export class FilesGenerationCSVComponent implements OnInit, AfterViewInit {
         //
         console.warn("(NEW SEARCH RF)");
         //
-        this.rf_dataSource           = new MatTableDataSource<LogEntry>();
+        this.rf_dataSource           = new MatTableDataSource<PersonEntity>();
         this.rf_dataSource.paginator = this.rf_paginator;
         //
         this.rf_searchForm   = this.formBuilder.group({
@@ -333,17 +337,19 @@ export class FilesGenerationCSVComponent implements OnInit, AfterViewInit {
         console.log("P_FECHA_FIN       : " + (this.rf_searchForm.value["_P_FECHA_FIN"]      || "")); 
         console.log("(DEFAULT VALUES - END)");
         //
-        this.rf_buttonCaption     = "[Buscar]";
+        this.rf_buttonCaption       = "[Buscar]";
         //
-        this.rf_formSubmit        = false;
+        this.rf_formSubmit          = false;
         //
-        this.rf_textStatus        = "";
+        this.rf_textStatus          = "";
         //
-        this.rf_buttonCaption_xls               = "[Generar Excel]";
+        this.rf_buttonCaption_csv   = "[Generar CSV]";
         //
-        this.rf_textStatus_xls                  = "";
+        this.downloadCaption        = "";
         //
-        this.rf_ExcelDownloadLink               = "#";
+        this.downloadLink           = "";
+        //
+        this.csv_dataSource           = new MatTableDataSource<PersonEntity>();
     }
     //
     rf_onSubmit() 
@@ -380,97 +386,6 @@ export class FilesGenerationCSVComponent implements OnInit, AfterViewInit {
       //
       this.rf_formSubmit        = true;
       //
-      let rf_informeLogRemoto!  : Observable<LogEntry[]>;
-      //
-      rf_informeLogRemoto       = this.mcsdService.getLogRemoto(_searchCriteria);
-      //
-      const logSearchObserver   = {
-        //
-        next: (p_logEntry: LogEntry[])     => { 
-          //
-          console.log('Observer got a next value: ' + JSON.stringify(p_logEntry));
-          //
-          let recordCount : number  = p_logEntry.length;
-          //
-          this.rf_textStatus        = "Se encontraton [" + recordCount  + "] registros";
-          //
-          this.rf_dataSource           = new MatTableDataSource<LogEntry>(p_logEntry);
-          this.rf_dataSource.paginator = this.rf_paginator;
-          //
-          // los botones se configuran en el evento "complete()".
-        },
-        error: (err: Error) => {
-          //
-          console.error('Observer got an error: ' + err);
-          //
-          this.rf_textStatus        = "Ha ocurrido un error";
-          //
-          this.rf_buttonCaption     = "[Buscar]";
-          //
-          this.rf_formSubmit        = false;
-        },       
-        complete: ()        => {
-          //
-          console.log('Observer got a complete notification');
-          //
-          this.rf_buttonCaption     = "[Buscar]";
-          //
-          this.rf_formSubmit        = false;
-        },
-      };
-      //
-      rf_informeLogRemoto.subscribe(logSearchObserver);
-    }
-    //
-    rf_GenerarInformeXLSValidate():void{
-      //
-      this.rf_GenerarInformeXLSPost();
-    };
-    //
-    rf_GenerarInformeXLSPost():void  {
-      //
-      console.log("GENERAR EXCEL (RF) - POST");
-      //
-      let rf_excelFileName!                   : Observable<string>;
-      //
-      rf_excelFileName                        = this.mcsdService.getInformeExcel(this.rf_model);
-      //
-      this.rf_ExcelDownloadLink               = "#";
-      //
-      this.rf_buttonCaption_xls               = "[Generando por favor espere...]";
-      //
-      this.rf_textStatus_xls                  = "[Generando por favor espere...]";
-      //
-      const xlsObserver                       = {
-        //
-        next: (_excelFileName: string) => { 
-          //
-          console.log('Observer got a next value: ' + _excelFileName);
-          //
-          let urlFile                = this.mcsdService.DebugHostingContent(_excelFileName);
-          //
-          this.rf_ExcelDownloadLink = `${this.mcsdService._prefix}/wwwroot/xlsx/${urlFile}`;
-          //
-          this.rf_textStatus_xls     = "[Descargar Excel]";
-        },
-        error   : (err: Error)  => {
-          //
-          console.error('Observer got an error: ' + err.cause);
-          //
-          console.error('Observer got an error: ' + err.message);
-          //
-          this.rf_buttonCaption_xls  = "[Ha ocurrido un error]";
-          //
-          this.rf_textStatus_xls     = "[Ha ocurrido un error]";
-        },
-        complete: () => {
-          //
-          console.log('Observer got a complete notification')
-          //
-          this.rf_buttonCaption_xls  = "[Generar Excel]";
-        },
-      };
-      //
-      rf_excelFileName.subscribe(xlsObserver);
+      this.SetCSVData();
     }
 }
