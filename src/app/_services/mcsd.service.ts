@@ -1,5 +1,5 @@
 import { Injectable                                      } from '@angular/core';
-import { LogEntry, LogType, SearchCriteria                        } from '../_models/log-info.model';
+import { LogEntry, LogType, SearchCriteria               } from '../_models/log-info.model';
 import { HttpClient, HttpRequest, HttpEvent, HttpHeaders } from '@angular/common/http';
 import { Observable                                      } from 'rxjs';
 //
