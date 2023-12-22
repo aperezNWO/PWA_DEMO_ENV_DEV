@@ -55,19 +55,22 @@
     </div>
 <!-- GENERERAR DESDE ... / FIN    -->
 <!-- LISTADO LENGUAJE / FIN -->    
-<hr />   
+<hr>
+<form #_yourForm="ngForm" (submit)="this._SolveSudoku()">
 <div class="fileUpload" align="left" [hidden]="this._fileUploadDivHidden">
-    <a href="./assets/sudoku.txt" target="_blank">[Download Template]</a>
+    <a href="./assets/sudoku.txt" target="_blank" download="sudoku.txt">[Download Template]</a>
     <hr>
     <!-- FILE UPLOAD / INICIO -->
     <div class="col-12">
-        <label class="btn btn-default p-0">
-        <input type="file" (change)="selectFile($event)"/>
-        </label>
+            <label class="btn btn-default p-0">
+                <input type="file" name="_fileUpload" #_fileUpload (change)="selectFile($event)"/>
+            </label>
+            |
+            <button id="resetFile" type="reset">[RESET]</button>
     </div>
     <hr>       
-    <!-- FILE UPLOAD / FIN -->
-    <!--STATUS / INICIO -->
+    <!-- FILE UPLOAD / FIN    -->
+    <!-- PROGRESS    / INICIO -->
     <div *ngIf="currentFile" class="progress my-3">
         <div
             class="progress-bar progress-bar-info progress-bar-striped"
@@ -78,12 +81,15 @@
             [ngStyle]="{ width: progress + '%' }"
         >
         {{ progress }}%
+        </div>
     </div>
-    </div>
-    <hr>
-    <div *ngIf="message" class="alert alert-secondary" role="alert">{{ message }}</div>
-    <!-- STATUS / FIN   -->
+    <!-- PROGRESS    / FIN  -->
 </div>
+<!--STATUS / INICIO -->
+<div align="left">
+    <div *ngIf="message" class="alert alert-secondary" role="alert">{{ message }}</div>
+</div>
+<!-- STATUS / FIN   -->
 <!-- BUTTONS / INICIO -->
 <hr/>
 <div align="left">
@@ -91,11 +97,12 @@
     [disabled]="(this.btnGenerateCaption == '[...generando...]') ||
                 (this.btnSolveCaption    == '[...resolviendo...]')">
     |
-    <input id="SolveSudoku" type="button" [value]="this.btnSolveCaption"  (click)="this._SolveSudoku()"
+    <input id="SolveSudoku" type="submit" [value]="this.btnSolveCaption" 
     [disabled]="(this.btnSolveCaption    == '[...resolviendo...]') ||
                 (this.btnGenerateCaption == '[...generando...]')   ||
                 (this.sudokuSolved       == true)">
 </div>
+</form>
 <!--- BUTTONS / FIN -->
 <hr />
 <a routerLink="/Home">[Home]</a>      
