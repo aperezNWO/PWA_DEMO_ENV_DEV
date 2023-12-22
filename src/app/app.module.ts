@@ -1,4 +1,5 @@
 import { ErrorHandler, Injectable, NgModule } from '@angular/core';
+import { CommonModule                  } from '@angular/common';
 import { FormsModule                   } from '@angular/forms';
 import { MatListModule                 } from '@angular/material/list';
 import { MatTableModule                } from '@angular/material/table';
@@ -26,7 +27,7 @@ import { AlgorithmDijkstraComponent    } from './_modules/algorithm/algorithm-di
 import { AngularTutorialsnWebComponent } from './_modules/about/angular-tutorialsn-web/angular-tutorialsn-web.component';
 import { AAboutWebComponent            } from './_modules/about/a-about-web/a-about-web.component';
 import { UnitTestingComponent          } from './unit-testing/unit-testing.component';
-import { GamesSudokuComponent          } from './_modules/games/games-sudoku/games-sudoku.component';
+import { SudokuComponent               } from './_modules/games/games-sudoku/games-sudoku.component';
 //
 const routes = [
   {  path: 'Home'                  , component: HomeWebComponent                      },
@@ -41,7 +42,7 @@ const routes = [
   {  path: 'FilesGenerationZIP'    , component: FilesGenerationZIPComponent           },         
   {  path: 'AngularTutorialsnWeb'  , component: AngularTutorialsnWebComponent         },
   {  path: 'AAboutWeb'             , component: AAboutWebComponent                    },
-  {  path: 'GamesSudoku'           , component: GamesSudokuComponent                  },
+  {  path: 'GamesSudoku'           , component: SudokuComponent                       },
   {  path: '**'                    , component: AppComponent                          }, 
 ];
 //
@@ -76,10 +77,11 @@ export class CustomErrorHandler implements ErrorHandler {
     AngularTutorialsnWebComponent,
     AAboutWebComponent,
     UnitTestingComponent,
-    GamesSudokuComponent,
+    SudokuComponent,
   ],
   imports: [
     FormsModule,
+    CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
