@@ -2,14 +2,15 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpEventType, HttpResponse  } from '@angular/common/http';
 import { Observable                   } from 'rxjs';
 import { MCSDService                  } from 'src/app/_services/mcsd.service';
-import { NgForm                       } from '@angular/forms';
 import { ListItem                     } from 'src/app/_models/log-info.model';
+import { FormBuilder, Validators      } from '@angular/forms';
 //
 @Component({
   selector: 'app-sudoku',
   templateUrl: './games-sudoku.component.html',
   styleUrls: ['./games-sudoku.component.css'],
 })
+//
 export class SudokuComponent implements OnInit {
   //
   board: number[][] = [];
@@ -23,8 +24,7 @@ export class SudokuComponent implements OnInit {
   @ViewChild('_languajeList') _languajeList: any;
   @ViewChild('_SourceList')   _sourceList: any;
   @ViewChild('_fileUpload')   _fileUpload: any;
-  @ViewChild('_yourForm', { static: false }) _yourForm: NgForm | undefined;
-  //
+    //
   public __languajeList: any;
   //
   public __generateSourceList : any;
@@ -44,7 +44,11 @@ export class SudokuComponent implements OnInit {
   message          : string = '';
   downloadLink     : string = '';
   //
-  constructor(private mcsdService: MCSDService) {
+  rf_searchForm   = this.formBuilder.group({
+    _fileUpload          : ["", Validators.required],
+  });
+  //
+  constructor(private mcsdService: MCSDService,private formBuilder: FormBuilder,) {
     //
     console.log('[SUDOKU - INGRESO]');
   }
@@ -352,6 +356,8 @@ export class SudokuComponent implements OnInit {
         this.selectedFiles = undefined;
         //
         this.currentFile   = undefined;
+        //
+        this.rf_searchForm.reset();
       },
     };
     //

@@ -28,3 +28,9 @@
   padding: 1em;
   background-color: #cccccc;
 }
+
+a, a:visited, a:hover, a:active {
+  color: #007bff; 
+}
+
+

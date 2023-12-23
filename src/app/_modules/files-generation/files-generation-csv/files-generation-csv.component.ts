@@ -88,7 +88,6 @@ export class FilesGenerationCSVComponent implements OnInit, AfterViewInit {
     constructor(private mcsdService: MCSDService, private formBuilder: FormBuilder, private customErrorHandler : CustomErrorHandler) {
       //
       Chart.register(...registerables);
-      //
     }
     //
     ngOnInit(): void {
