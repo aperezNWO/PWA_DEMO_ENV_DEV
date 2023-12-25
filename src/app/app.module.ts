@@ -28,6 +28,8 @@ import { AngularTutorialsnWebComponent } from './_modules/about/angular-tutorial
 import { AAboutWebComponent            } from './_modules/about/a-about-web/a-about-web.component';
 import { UnitTestingComponent          } from './unit-testing/unit-testing.component';
 import { SudokuComponent               } from './_modules/games/games-sudoku/games-sudoku.component';
+import { TictactoeComponent            } from './_modules/games/tictactoe/tictactoe.component';
+import { GameswebComponent             } from './_modules/games/gamesweb/gamesweb.component';
 //
 const routes = [
   {  path: 'Home'                  , component: HomeWebComponent                      },
@@ -43,6 +45,8 @@ const routes = [
   {  path: 'AngularTutorialsnWeb'  , component: AngularTutorialsnWebComponent         },
   {  path: 'AAboutWeb'             , component: AAboutWebComponent                    },
   {  path: 'GamesSudoku'           , component: SudokuComponent                       },
+  {  path: 'TicTacToe'             , component: TictactoeComponent                    },
+  {  path: 'GamesWeb'              , component: GameswebComponent                     },
   {  path: '**'                    , component: AppComponent                          }, 
 ];
 //
@@ -78,6 +82,8 @@ export class CustomErrorHandler implements ErrorHandler {
     AAboutWebComponent,
     UnitTestingComponent,
     SudokuComponent,
+    TictactoeComponent,
+    GameswebComponent,
   ],
   imports: [
     FormsModule,
