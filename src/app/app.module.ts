@@ -29,7 +29,9 @@ import { AAboutWebComponent            } from './_modules/about/a-about-web/a-ab
 import { UnitTestingComponent          } from './unit-testing/unit-testing.component';
 import { SudokuComponent               } from './_modules/games/games-sudoku/games-sudoku.component';
 import { TictactoeComponent            } from './_modules/games/tictactoe/tictactoe.component';
+import { BoardComponent                } from "./_modules/games/tictactoe/board/board.component";
 import { GameswebComponent             } from './_modules/games/gamesweb/gamesweb.component';
+
 //
 const routes = [
   {  path: 'Home'                  , component: HomeWebComponent                      },
@@ -66,46 +68,47 @@ export class CustomErrorHandler implements ErrorHandler {
 }
 //
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeWebComponent,  
-    AlgorithmWebComponent,
-    AlgorithmRegExComponent,
-    AlgorithmSortComponent,
-    AlgorithmDijkstraComponent,
-    FilesGenerationWebComponent,
-    FilesGenerationXLSComponent,
-    FilesGenerationCSVComponent,
-    FilesGenerationPDFComponent,
-    FilesGenerationZIPComponent,
-    AngularTutorialsnWebComponent,
-    AAboutWebComponent,
-    UnitTestingComponent,
-    SudokuComponent,
-    TictactoeComponent,
-    GameswebComponent,
-  ],
-  imports: [
-    FormsModule,
-    CommonModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    MatListModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatTabsModule,
-    NgbModule,
-    RouterModule,
-    RouterModule.forRoot( routes, { useHash: true }),
-  ], 
-  exports  : [RouterModule],
-  providers: [
-                { provide: LocationStrategy   , useClass: HashLocationStrategy },
-                { provide: ErrorHandler       , useClass: CustomErrorHandler   }
-             ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HomeWebComponent,
+        AlgorithmWebComponent,
+        AlgorithmRegExComponent,
+        AlgorithmSortComponent,
+        AlgorithmDijkstraComponent,
+        FilesGenerationWebComponent,
+        FilesGenerationXLSComponent,
+        FilesGenerationCSVComponent,
+        FilesGenerationPDFComponent,
+        FilesGenerationZIPComponent,
+        AngularTutorialsnWebComponent,
+        AAboutWebComponent,
+        UnitTestingComponent,
+        SudokuComponent,
+        TictactoeComponent,
+        GameswebComponent,
+    ],
+    exports: [RouterModule],
+    providers: [
+        { provide: LocationStrategy, useClass: HashLocationStrategy },
+        { provide: ErrorHandler, useClass: CustomErrorHandler }
+    ],
+    bootstrap: [AppComponent],
+    imports: [
+        FormsModule,
+        CommonModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        MatListModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatTabsModule,
+        NgbModule,
+        RouterModule,
+        RouterModule.forRoot(routes, { useHash: true }),
+        BoardComponent
+    ]
 })
 //
 export class AppModule { 
