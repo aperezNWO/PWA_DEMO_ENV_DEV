@@ -31,6 +31,8 @@ import { SudokuComponent               } from './_modules/games/games-sudoku/gam
 import { TictactoeComponent            } from './_modules/games/tictactoe/tictactoe.component';
 import { BoardComponent                } from "./_modules/games/tictactoe/board/board.component";
 import { GameswebComponent             } from './_modules/games/gamesweb/gamesweb.component';
+import { HanoiTowersComponent          } from './_modules/games/games-hanoi/games-hanoi.component';
+import { TowerComponent                } from './_modules/games/games-hanoi/tower/tower.component';
 
 //
 const routes = [
@@ -48,6 +50,7 @@ const routes = [
   {  path: 'AAboutWeb'             , component: AAboutWebComponent                    },
   {  path: 'GamesSudoku'           , component: SudokuComponent                       },
   {  path: 'TicTacToe'             , component: TictactoeComponent                    },
+  {  path: 'Hanoi'                 , component: HanoiTowersComponent                  },
   {  path: 'GamesWeb'              , component: GameswebComponent                     },
   {  path: '**'                    , component: AppComponent                          }, 
 ];
@@ -86,6 +89,7 @@ export class CustomErrorHandler implements ErrorHandler {
         SudokuComponent,
         TictactoeComponent,
         GameswebComponent,
+        HanoiTowersComponent,
     ],
     exports: [RouterModule],
     providers: [
@@ -107,7 +111,8 @@ export class CustomErrorHandler implements ErrorHandler {
         NgbModule,
         RouterModule,
         RouterModule.forRoot(routes, { useHash: true }),
-        BoardComponent
+        BoardComponent,
+        TowerComponent,
     ]
 })
 //
