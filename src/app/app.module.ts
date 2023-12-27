@@ -31,8 +31,8 @@ import { SudokuComponent               } from './_modules/games/games-sudoku/gam
 import { TictactoeComponent            } from './_modules/games/tictactoe/tictactoe.component';
 import { BoardComponent                } from "./_modules/games/tictactoe/board/board.component";
 import { GameswebComponent             } from './_modules/games/gamesweb/gamesweb.component';
-import { HanoiTowersComponent          } from './_modules/games/games-hanoi/games-hanoi.component';
-import { TowerComponent                } from './_modules/games/games-hanoi/tower/tower.component';
+import { HanoiTowersComponent          } from './_modules/games/game-hanoi/game-hanoi.component';
+import { TowerComponent                } from './_modules/games/game-hanoi/tower/tower.component';
 
 //
 const routes = [
