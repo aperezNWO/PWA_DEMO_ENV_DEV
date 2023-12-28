@@ -24,7 +24,6 @@ export class FilesGenerationZIPComponent {
   //--------------------------------------------------------------------------
   // PROPIEDADES - FILE UPLOAD - FORM SUBMIT
   //--------------------------------------------------------------------------
-  public urlPost       : string='https://mcsd.somee.com/Demos/_ZipDemo';
   //
   //--------------------------------------------------------------------------
   // PROPIEDADES - FILE UPLOAD  - BYTESTREAM
@@ -40,6 +39,8 @@ export class FilesGenerationZIPComponent {
   constructor(private mcsdService: MCSDService, customErrorHandler: CustomErrorHandler) {
     //
     console.log(this.pageTitle + " - [INGRESO]");
+    //
+    mcsdService.SetLog(this.pageTitle,"PAGE_ZIP_DEMO");
   }
   //--------------------------------------------------------------------------
   // METODOS COMUNES
@@ -77,7 +78,7 @@ export class FilesGenerationZIPComponent {
               //
               console.log("RESPONSE : " + event.body);
               //
-              this.message = event.body;
+              this.message = "[SE CARGO CORRECTAMENTE EL ARCHIVO]";
             }
           },
           error: (err: any) => {
@@ -120,7 +121,7 @@ export class FilesGenerationZIPComponent {
            //
            next: (p_zipFile: string) => { 
             //
-            let downloadLink_1 = (this.mcsdService.prefix + p_zipFile);
+            let downloadLink_1 = (this.mcsdService._prefix + p_zipFile);
             //
             while (downloadLink_1.indexOf("\"") > -1) 
                 downloadLink_1 = downloadLink_1.replace("\"", "");
@@ -128,7 +129,8 @@ export class FilesGenerationZIPComponent {
             this.downloadLink  = this.mcsdService.DebugHostingContent(downloadLink_1);
             //
             console.log('[Download link] : ' + this.downloadLink);
-            // los botones se configuran en el evento "complete()".
+            //
+            this.message = "[SE GENERO CORRECTAMENTE ARCHIVO ZIP]";
           },
           error: (err: Error) => {
             //
@@ -146,4 +148,20 @@ export class FilesGenerationZIPComponent {
       //
       fileName.subscribe(setZipObserver);
   }
+  //--------------------------------------------------------------------------
+  NewZip():void{
+      //
+      console.log(this.pageTitle + ' - [NEW PDF] ');  
+      //
+      this.selectedFiles = undefined;
+      //
+      this.currentFile   = undefined;
+      //
+      this.progress      = 0;
+      //
+      this.message       = "";
+      //
+      this.downloadLink  = "";
+  }  
+  //--------------------------------------------------------------------------  
 }

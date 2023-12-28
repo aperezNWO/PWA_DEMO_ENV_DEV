@@ -7,8 +7,8 @@ import { FormBuilder, Validators      } from '@angular/forms';
 //
 @Component({
   selector: 'app-sudoku',
-  templateUrl: './games-sudoku.component.html',
-  styleUrls: ['./games-sudoku.component.css'],
+  templateUrl: './game-sudoku.component.html',
+  styleUrls: ['./game-sudoku.component.css'],
 })
 //
 export class SudokuComponent implements OnInit {

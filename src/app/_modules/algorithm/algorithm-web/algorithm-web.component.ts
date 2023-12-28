@@ -1,5 +1,5 @@
 import { Component          } from '@angular/core';
-import { CustomErrorHandler } from '../../../app.module';
+import { CustomErrorHandler } from 'src/app/app.module';
 //
 @Component({
   selector: 'app-algorithm-web',

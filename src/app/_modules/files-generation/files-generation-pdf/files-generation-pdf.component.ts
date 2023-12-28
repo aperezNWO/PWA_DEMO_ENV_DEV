@@ -33,6 +33,8 @@ export class FilesGenerationPDFComponent {
   {
     //
     console.log(FilesGenerationPDFComponent.PageTitle + "- [INGRESO]");
+    //
+    mcsdService.SetLog(this.pageTitle,"PAGE_PDF_DEMO");
   }  
   //
   public onNewPdf()
@@ -74,7 +76,7 @@ export class FilesGenerationPDFComponent {
               //
               if (resultArray.length > 0) {
                   //
-                  var fileUrl        = this.mcsdService.prefix + '/wwwroot/output/uploadedfiles/pdf/' + resultArray[1];
+                  var fileUrl        = this.mcsdService._prefix + '/wwwroot/output/uploadedfiles/pdf/' + resultArray[1];
                   var fileLocalPath  = resultArray[2];
                   var imagePath      = resultArray[3];
                   //

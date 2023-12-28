@@ -1,9 +1,9 @@
 export enum LogType {
-    Info  = 1
-  , Debug = 2
-  , Error = 3
+      Info  = 1
+    , Debug = 2
+    , Error = 3
 };
-
+//
 export interface LogEntry {
   id_Column   :string;
   pageName    :string;
@@ -64,7 +64,6 @@ export class _languageName
         //
     }
 }
-
 //
 export class ListItem
 {

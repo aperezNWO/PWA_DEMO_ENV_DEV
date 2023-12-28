@@ -1,26 +1,26 @@
 import { Component          } from '@angular/core';
 import { CustomErrorHandler } from '../../../app.module';
 import { MCSDService        } from '../../../_services/mcsd.service';
-//
+
 @Component({
-  selector: 'app-a-about-web',
-  templateUrl: './a-about-web.component.html',
-  styleUrls: ['./a-about-web.component.css']
+  selector: 'app-contact',
+  templateUrl: './contact.component.html',
+  styleUrls: ['./contact.component.css']
 })
-export class AAboutWebComponent {
+export class ContactComponent {
   //
   public static get PageTitle()   : string {
     //
-    return '[ACERCA DE]';
+    return '[CONTACT]';
   }
   //
-  readonly pageTitle : string = AAboutWebComponent.PageTitle;
+  readonly pageTitle : string = ContactComponent.PageTitle;
   //
   constructor(private mcsdServiCe: MCSDService, private customErrorHandler: CustomErrorHandler)
   {
       //
       console.log(this.pageTitle + "- [INGRESO]");
       //
-      mcsdServiCe.SetLog(this.pageTitle,"PAGE_ABOUT");
+      mcsdServiCe.SetLog(this.pageTitle,"PAGE_CONTACT");
   }
 }

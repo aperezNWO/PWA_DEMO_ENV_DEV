@@ -1,63 +1,367 @@
 =====================================================================
--- TODO LIST GENERAL 
+-- STRATEGY - dev
 =====================================================================
--- [_] put uix on separated hosting.
--- [_] copiar de "angularspaeconsultalog.loginfoiview".
--- [_] [COMPONENTS]
-    -- [>] [GENERAR ARCHIVO]
-        -- [>] [GENERAR ARCHIVO XLS]
-                -- [>] TABS
-        -- [_] [GENERAR ARCHIVO ZIP]
-        -- [_] [GENERAR ARCHIVO PDF] 
-        -- [_] [GENERAR ARCHIVO CSV]
-    -- [_] [ALGORITMOS]
-        -- [_] [ALGORITMOS - DISTANCIA MAS CORTA]
-        -- [_] [ALGORITMOS - ORDENAMIENTO]
-        -- [_] [ALGORITMOS - EXPRESIONES REGULARES]
-    -- [_] [TUTORIALES]
-    -- [_] [HOME]
-    -- [_] ANGULAR TOPICS.
-        -- [_] TEMPLADE DRIVEN FORMS.
-        -- [_] REACTIVE FORMS.
-        -- [_] DYNAMIC FORMS. 
--- [_] disable chorome security.
-        -- [_] "C:\Program Files\Google\Chrome\Application\"
-        -- [_] chrome.exe --user-data-dir="C://Chrome dev session" --disable-web-security
--- [_] implementar filtro de busqueda en WEBAPI remoto.
--- [_] https://mugan86.medium.com/exportar-pdfs-en-angular-con-jspdf-85c7a11a110f
--- [_] ERROR Error: Uncaught (in promise): Invalid element provided as first argument
-    at resolvePromise (zone.js:1193:31)
+-- [x] copiar de "angularspaeconsultalog.loginfoiview".
+-- [x] [COMPONENTS]
 
--- [_] list of sources and articles.
+    -- [x] TOPICS
+        -- [x] TYPESCRIPT.
+        -- [x] ANGULAR.
+        -- [x] Bootstrap.
+        -- [x] MATERIAL.
 
-        -- [_] file uplodad angular .net client core example.
-                -- [_] https://www.bezkoder.com/angular-15-file-upload/
--- [_] install bootstrap
-       -- [_]implement menu.
--- [_] DebugHostingContent as webapi.
--- [_] Editar lista de cumpleaños exnacato.
--- [_] Backend como webapi service.
--- [_] Turn off .net core uix.
--- [_] Bootstrap menu navigation (from .NET CORE).
--- [_] DebugHostingContent as global/cdn.
--- [_] CSV download link.
--- [_] Algorithm Service.
--- [_] TOPICS
-        -- [_] TYPESCRIPT.
-        -- [_] ANGULAR.
-        -- [_] IN THE REPLACE OF "TUTORIALS" / "MCSD CERT".
--- [_] scss.
--- [_] oauth.
-    -- [_] seccion comentarios.
--- [_] read config file.
-    -- [_] environments.
--- [_] Print type script version.
--- [_] menu collapse on page entry.
--- [_] prevent dead links on angular.
+    -- [x] [HOME]
+    -- [x] ANGULAR TOPICS.
+
+        -- [x] TEMPLADE DRIVEN FORMS.
+        -- [x] REACTIVE FORMS.
+        -- [x] DYNAMIC FORMS. 
+        -- [x] REPLACED BT "TUTORIALS" / "MCSD CERT".
+
+-- [x] https://mugan86.medium.com/exportar-pdfs-en-angular-con-jspdf-85c7a11a110f
+-- [x] ERROR Error: Uncaught (in promise): Invalid element provided as first argument at resolvePromise (zone.js:1193:31)
+-- [x] Invalid argument passed to jsPDF.hpf.
+-- [x] zip demo.
+-- [x] default web page.
+-- [x] prevent dead links on angular.
+-- [x] list of sources and articles.
+-- [x] Print type script version.
+-- [x] CSV download link.
+-- [x] file uplodad angular .net client core example.
+
+                -- [x] https://www.bezkoder.com/angular-15-file-upload/
+
+-- [x] log visit.
+
+        -- [x] service methods.
+        -- [x] Remove SharedService.        
+
+-- [x] configuration.
+
+    -- [x] https://angular.io/guide/build
+    -- [x] read config file.
+
+           -- [x] https://stackoverflow.com/questions/36158848/how-can-i-declare-a-global-variable-in-angular-2-and-up-typescript
+           -- [x] https://tutswiki.com/read-write-config-files-in-angular/
+
+-- [x] [APP NAME FROM CONFIG]
+
+-- [x] SERVICE VERSION METHOD.
+
+-- [_] CHAT GTP.
+
+    -- [_]  https://www.businessinsider.es/chatgpt-codigos-impresionantes-prompts-debes-usar-expertos-1288236
+
+-- [_] ANGULAR TOPICS.
+
+    -- [_] https://angular.io/docs
+
+        -- [_] MODULES.
+        -- [_] @Input.
+        -- [_] i18n.
+        -- [_] Dynamic Forms.
+        -- [_] Angular CDN.
+                -- [_] DebugHostingContent as webapi/global/cdn.
+        -- [_] TOPIC_1.        
+        -- [_] TOPIC_2.
+        -- [_] TOPIC_3.
+
+-- [_] architectural changes.
+
+    -- [x] backend version     as webapi/global/cdn.
+    -- [x] Domain : webapidemo (replace mcsdbackend).
+    -- [x] Turn off .net core uix.
+    -- [x] Service Project.
+
+            -- [x] put uix on separated hosting.
+            -- [x] Swagger. 
+                    -- [x]  https://localhost:44355/swagger/index.html          
+                    -- [x]  http://localhost:83/swagger/index.html
+                    -- [x]  https://mcsd.somee.com/swagger/index.html
+
+    -- [x] Backend como webapi service.
+
+            -- [x] Algorithm Service.
+            -- [x] revisar error (post genera CORS).
+
+    -- [_] General Error Handling.
+
+    -- [_] Service Architecture.
+
+        -- [_] uv_apidigitacion / [nuevo ruv].
+
+    -- [_] paquete de idiomas/localizacion (en/us).
+           
+           -- [_] angular i18n.
+
+    -- [_] DebugHostingContent as webapi/global/cdn.
+
+    -- [_] OAUTH.
+
+        -- [_] https://codingpotions.com/angular-login-sesion/
+        -- [_] https://auth0.com/docs/quickstart/spa/angular/01-login
+        -- [_] https://auth0.com/blog/complete-guide-to-angular-user-authentication/
+        -- [_] https://dev.to/ricardochl/angular-login-with-auth0-4d8l
+        -- [_] https://medium.com/@michaszala/2-authentication-guide-angular-14-simple-login-and-register-app-4d7c01a69546
+        -- [_] https://www.positronx.io/angular-facebook-oauth-social-login-tutorial/
+        -- [_] https://medium.com/@danilrabizo/google-authentication-in-the-angular-application-e86df69be58a
+        -- [_] https://learn.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-angular-auth-code
+
+-- [_] uix --> general.
+
+        -- [x] install bootstrap.
+        -- [x] Bootstrap menu navigation (from .NET CORE).
+        -- [x] implement menu.
+        -- [_] check uix color/usability.
+        -- [_] menu collapse on page entry.
+        -- [_] metronic.
+        -- [_] scss.
+                -- [daniel sevilla]         https://primeng.org/installation.
+
+-- [_] UIX --> check.
+
+    -- [x] [ALGORITMOS]
+
+        -- [x] [ALGORITMOS - ORDENAMIENTO]
+
+                    -- [x] revisar uix.
+
+                    -- [x] preservar arreglo original.
+
+                    -- [x] marcar 2 posiciones de intercambio (swap).
+
+                    -- [x] fila horizontal de numeros aleatorios con estilos.
+
+        -- [x] [ALGORITMOS - DISTANCIA MAS CORTA]
+
+                    -- [x] Corregir uix.
+
+        -- [>] [ALGORITMOS - EXPRESIONES REGULARES]
+
+            -- [>] [revisar USO DE sesion EN .net core]
+                    -- [x] [web.config]
+                    -- [x] angular and .net core backend preserve session.
+                           -- [x] "Angular HttpClient Interceptors: If you're using Angular's HttpClient to make API requests, consider using interceptors. Interceptors can be used to modify requests and responses. Make sure that an interceptor isn't inadvertently modifying or removing session-related headers."
+                           -- [>] https://stackoverflow.com/questions/71768653/storing-data-per-session-in-asp-net-core-with-angular-front-end-web-app
+                           -- [>] https://learn.microsoft.com/en-us/answers/questions/1164151/state-management-in-net-core
+                           -- [>] "asp.net core session state management not working on cross origin"
+                    -- [x] use cookies instead of session.
+                    -- [x] asp.net core CACHE.
+
+    -- [_] [GENERAR ARCHIVO]
+
+        -- [x] [GENERAR ARCHIVO ZIP]
+
+                    -- [x] revisar uix.
+                    -- [x] orden de botones.
+
+        -- [x] [GENERAR ARCHIVO PDF] 
+
+               -- [x] https://mcsd.somee.com/output/uploadedfiles/pdf/92c332e2-2cef-4a4e-bbd3-777598af6d6f20230822041909.pdf
+               -- [x] https://mcsd.somee.com/wwwroot/output/uploadedfiles/pdf/92c332e2-2cef-4a4e-bbd3-777598af6d6f20230822041909.pdf
+               -- [x] https://mcsd.somee.com/demos/_GetPdf?subjectName=camila
+                - [x] public GetPDF(subjectName: string | undefined): Observable<HttpEvent<any>> {
+
+    -- [_] [ACERCA DE]
+    
+        -- [_] [contacto]
+        -- [_] [technical specs]
+        -- [_] [job search]  
+            -- [_] oauth.        
+        -- [_] [seccion comentarios]
+            -- [_] oauth.
+    
+    -- [_] [LOGIN]            
+            -- [_] CUSTOM.
+            -- [_] oauth.
+            -- [_] DYNAMIC FORM.
+
+    -- [_] [CPP DEMO]
+    
+        -- [_] performance benchmark [c# / typescript / c++]
+
+    -- [_] [AI/ NEURAL NETWORK DEMO]
+
+           -- [_] [TIC/TAC/TOE] --> [min/max algorthm].
+
+                  -- [_] https://www.geeksforgeeks.org/implementation-of-tic-tac-toe-game/
+
+    -- [_] UDEMY / ANGULAR.
+        
+        -- [_] https://www.udemy.com/topic/angular/free/
+
+
 -- [_] cusotm error handling.
 
+        -- [_] to interface --> [standard label status].
+        -- [_] to log.
+        -- [_] debug console messages.
+        -- [_] asp.net core enable trace.
+
+-- [_] Use custom login.
+
+        -- [_] DYNAMIC FORM.
+        -- [_] DB MODEL.
+
+-- [_] [GENERAR ARCHIVO XLS]
+
+        -- [x] angular interceptors.
+        -- [_] filtro por tipo de log.
+        -- [_] corregir consulta y rango de fechas.
+        -- [_] CORREGIR DATOS ESTADISTICAS.
+        -- [_] Referencia Template Driven/Reactive.
+        -- [_] depurar entradas log.
+
+-- [_] [GENERAR ARCHIVO CSV]
+
+        -- [x] Corregir ruta:
+                -- [x]   https://mcsd.somee.com//csv/3e0632b0-c7a7-4387-a014-00ae9ab3e86320230821091025.csv
+                -- [x]   https://mcsd.somee.com/wwroot/csv/3e0632b0-c7a7-4387-a014-00ae9ab3e86320230821091025.csv
+                -- [x]   SetCSVLink /  getCSVLinkGET / let p_url    = this._prefix + 'demos/_GetCSVLinkJsonGET';
+
+        -- [_] Editar lista de cumpleaños exnacato.
+                -- [_] ANGULA CRUD.
+                -- [_] METRONIC.
+        -- [_] oauth.
+        -- [_] Dynamic forms.
+
+-- [_] config file.
+
+        -- [_] read values from .config file.
+                -- [_] baseUrl.
+                -- [_] appName.
+                -- [_] appVersion.
+                
+-- [_] node.js.
+
+       -- [_] standalone demo.
+
+       -- [_] as backend of sandbox demo.
+
+=====================================================================
+-- SCM - HOSTING
+=====================================================================
+
+-- [x] environments.
+
+        -- [_] LOCAL_IIS.
+        -- [_] WebApi.
+        -- [_] mcsd.
+        -- [_] angulardemo.
+
+-- [>] SOURCE github.com        
+
+        -- [_] PUBLIC SOURCES.                        
+                -- [x] [mcsdWebApíTFS] (tff)      -->  (github) "mcsd_public".
+                -- [x] [AngularMCSD]   (github)   -->  (github) "AngularMCSD_public".
+                -- [>] Update sources.
+
+-- [>] HOSTING  
+
+        -- [_] [alternativas]
+
+                -- [_] https://xranks.com/es/somee.com
+
+        -- [_] [somee.com]
+         
+                -- [_] [HELP]
+                        https://somee.com/doka/Help/Article/106/How_to_deploy_Web_project_from_Visual_Studio
+
+                -- [_] [mcsd/angulardemo/webapidemo]
+                -- [_] [db].
+                       -- [_] reset log db #1 / debug content.
+                       -- [_] enbable   db #2 / (CSV DEMO).
+                -- [_] check disabled accounts.
+                       -- [_] https://www.angulardemo.somee.com.
+
+-- [>] webapidemo / service.
+
+       -- [x] remove demo views/controllers.
+       -- [x] enable domain "WebApiDemo".
+       -- [x] mcsdWebApíTFS.
+       -- [x] mcsdBackup.
+
+                -- [x] BACKUP /DELETE BOOK "DELORME".  
+                -- [x] BACKUP /DELETE folder "_angular".  
+                -- [x] turn off domain "mcsdBackup".
+                -- [x] change tfs/github name "mcsdNet48TFS" / "mcsdNet48GitHub".
+                -- [x] change tfs/github name "mcsd" por "mcsdNetCoreBackup".
+
+        -- [_] REDUCE FILE SIZE.
+                -- [_] check disable email from "somee.com".
+
+/*
+
+        Your website 'angulardemo.somee.com' was disabled for the following reason: 
+
+        Website's average, per request bandwidth has exceeded a limit that is set for the website hosted with a free hosting package! 
+        Although we do not limit the file size that can be uploaded or downloaded from your website, 
+        we set a limit of [150KByte] on average file size that can be downloaded from the website hosted with free package. 
+
+        The average is calculated every several hours for all files together, including *.html, *.asp, *.aspx, *.jpg, *.png, *.gif, *.mpg 
+        and other text and media files. 
+
+        Your website is scheduled to start again in about 12 hours, or you can start it manually from our control panel any time. 
+
+        But if you will not take actions to decrease the average file size that is sent from your website it will be stopped again 
+        and you are allowed to start it 5 times only. 
+
+        You can also switch to any other hosting package where such maintenance is not performed.
+
+*/
+=====================================================================
+-- STRATEGY - DIFUSION
+=====================================================================
+
+-- [_] FREELANCE WEB SITES
+
+                -- [_] WORKANA.
+                -- [_] FIVERR.
+                -- [_] UPWORK.
+
+-- [_] LINKEDIN
+
+-- [_] facebook
+
+        -- [_] .NET COMMUNITY
+        -- [_] ANGULAR COMMUNITY
+
+-- [_] DIRECT EMAIL
+
+        -- [_] JOB SEARCH MODULE
+
+-- [_] TWITTER /
+-- [_] INSTAGRAM / TK.
+-- [_] NON IT COMPANIES / DIRECT OFFER.
+
+=====================================================================
+-- ERRORS
+=====================================================================
+
+   -- [x]  Access to XMLHttpRequest at 'https://mcsd.somee.com/demos/GetConsultaLogStatGet' 
+           from origin 'https://mcsdbackup.somee.com' has been blocked by CORS policy:
+           No 'Access-Control-Allow-Origin' header is present on the requested resource.
+
+   -- [x]  Access to XMLHttpRequest at 'https://mcsd.somee.com/demos/GenerarInformeCSVJsonSTAT' 
+           from origin 'https://mcsdbackup.somee.com' has been blocked by CORS policy: 
+           No 'Access-Control-Allow-Origin' header is present on the requested resource.
+
+   -- [_]  index.js:489 [webpack-dev-server] WARNING
+           E:\pablo.perez\dev\AngularMCSD\AngularMCSD\src\app\_modules\files-generation\files-generation-xls\files-generation-xls.component.ts depends on 'html2canvas'. 
+           CommonJS or AMD dependencies can cause optimization bailouts.
+           For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
+
+=====================================================================
+-- OBSERVACIONES / REDES SOCIALES
+=====================================================================
+-- [daniel sevilla]         
+
+    -- [_]              https://primeng.org/installation.
+
+=====================================================================
+
 ////////////////////////////////////////////////////////////////////////////////
--- [_] TODO LIST GENERAL
+-- [_] TODO GENERAL
 ////////////////////////////////////////////////////////////////////////////////
 
 -- [_] Algorithms
@@ -85,91 +389,3 @@
         -- [_] Docker
 
 ////////////////////////////////////////////////////////////////////////////////
-
-=====================================================================
--- STRATEGY
-=====================================================================
-
--- [CONSULTA XLS]
-
-   -- [_] Añadir consulta node.js.
-
-        -- [_]  let url    = this.prefix + 'demos/generarinformejson';
-        -- [_]  " SELECT 
-                       [ID_column]
-                      ,[PageName]
-                      ,[AccessDate]
-                      ,[IpValue]
-                 FROM 
-                       [dbo].[accessLogs] 
-                 WHERE
-                       [LogType] = {0}
-                 order by 
-                       [ID_column] desc"
-
-        -- [_] Añador Node.js EndPoint. 
-
-        -- [_] https://codesandbox.io/p/github/aperezNWO/CS_NodeJs/
-
-        -- [_] TestNodeJs().
-        
--- [CONSULTA CSV]   
-
-   -- [_] Añadir tab de consulta.
-   -- [_] Añadir consulta node.js.
-
-/*
- //
-  TestNodeJs(): void {
-    //
-    console.log('[TEST NODE.JS] \n');
-    //
-    this.BtnTestNodeJSCaption  = "...(retrieving data)...";
-    //
-    let testNodeJsObservable: Observable<string> =
-      this.algorithmService._TestNodeJs();
-    //
-    const testNodeJsObserver = {
-      next: (jsondata: string) => {
-        //
-        this.lblStatusNodeJs = JSON.parse(jsondata)['recordsets'][0][0]['NombreCompleto'];
-        //
-        console.log(
-          '[TEST - NODEJS] - (return): ' +
-            this.lblStatusNodeJs,
-        );
-        //
-        this.BtnTestNodeJSCaption = '[TEST NODE.JS]';
-      },
-      error: (err: Error) => {
-        //
-        console.error(
-          '[TEST - NODEJS] - (ERROR) : ' + JSON.stringify(err.message),
-        );
-      },
-      complete: () => {
-        //
-        console.log('[TEST - NODEJS]  -  (COMPLETE)');
-        //
-      },
-    };
-    //
-    testNodeJsObservable.subscribe(testNodeJsObserver);
-  }
-}
-*/
-
-/*
-accessDate : "2023-12-06T04:28:53.423"
-id_Column  :  3486
-ipValue    :  "181.57.12.78"
-pageName   : "PAGE_ANGULAR_DEMO_INDEX
-
-"ID_column":3449,
-"PageName":"PAGE_ACCESS_LOG_DEMO",
-"AccessDate":"2023-12-06T03:55:02.693Z",
-"IpValue":"181.57.12.78",
-"LogType":1
-
-*/
-=====================================================================

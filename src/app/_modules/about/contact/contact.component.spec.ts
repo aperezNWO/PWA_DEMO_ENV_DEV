@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TictactoeComponent } from './tictactoe.component';
+import { ContactComponent } from './contact.component';
 
-describe('TictactoeComponent', () => {
-  let component: TictactoeComponent;
-  let fixture: ComponentFixture<TictactoeComponent>;
+describe('ContactComponent', () => {
+  let component: ContactComponent;
+  let fixture: ComponentFixture<ContactComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TictactoeComponent]
+      declarations: [ContactComponent]
     });
-    fixture = TestBed.createComponent(TictactoeComponent);
+    fixture = TestBed.createComponent(ContactComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

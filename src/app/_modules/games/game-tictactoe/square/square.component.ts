@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule                           } from '@angular/common';
 //
 @Component({
   selector: 'app-square',
@@ -18,3 +18,4 @@ export class SquareComponent {
     this.clickEvent.emit();
   }
 }
+

@@ -1,6 +1,6 @@
 import { Component               } from '@angular/core';
 import { CustomErrorHandler      } from '../../../app.module';
-import { Observable,  throwError } from 'rxjs';
+import { MCSDService             } from '../../../_services/mcsd.service';
 //
 @Component({
   selector   : 'app-angular-tutorialsn-web',
@@ -17,31 +17,12 @@ export class AngularTutorialsnWebComponent {
   //
   readonly pageTitle : string = AngularTutorialsnWebComponent.PageTitle;
   //
-  constructor(private customErrorHandler : CustomErrorHandler)
+  constructor(private mcsdService : MCSDService, private customErrorHandler : CustomErrorHandler)
   {
       //
       console.log(AngularTutorialsnWebComponent.PageTitle + " - [INGRESO]") ;
       //
-  }
-  //
-  TestError():void
-  {
-      //
-      let obs! : Observable<any>;
-      obs      = throwError("[ERROR THROWN TEST]");
-      //
-      obs.subscribe(
-        (        el: string) => {
-          console.log("Value Received :" + el);
-        },
-        (        err: string) => {
-          console.log("[ERROR CAUGTH TEST ] : " + err);
-        },
-        () => console.log("Processing Complete")
-      );
-      // CAUSAR ERROR
-      // @ts-ignore 
-      test = test+1;  
+      mcsdService.SetLog(this.pageTitle,"PAGE_TOPIC_INDEX");
   }
 }
 

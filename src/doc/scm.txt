@@ -2,15 +2,109 @@
 // SCM STRATEGY
 /////////////////////////////////////////////////////////////////
 
--- [x] typescriptdemo.somee.com
+-- [_] staring url:
 
--- [x] webapidemo.somee.com
+      -- [x] https://mcsd.somee.com
+
+      -- [x] https://angulardemo.somee.com
+
+      -- [x] http://webapidemo.somee.com
+
+      -- [x] https://angulardemo.somee.com/wwwroot/_angular/_angularMCSD/#/Home
+
+      -- [x] https://mcsd.somee.com/wwwroot/_angular/_angularMCSD/#/Home
 
 /////////////////////////////////////////////////////////////////
-// SCM INFO
+// VSTUDIO SETUP / BROWSER
 /////////////////////////////////////////////////////////////////
 
--- [x] Set-ExecutionPolicy -Scope CurrentUser unrestricted
+-- [x] disable chorome security.
+        -- [x] "C:\Program Files\Google\Chrome\Application\"
+        -- [x] chrome.exe --user-data-dir="C://Chrome dev session" --disable-web-security
+
+-- [x] VISUAL STUDIO POWER SHELL SETUP 
+        -- [_] Set-ExecutionPolicy -Scope CurrentUser unrestricted
+
+/////////////////////////////////////////////////////////////////
+// environments
+/////////////////////////////////////////////////////////////////
+
+-- [_] https://angular.io/guide/build
+
+-- [_] env list
+        -- [_] serve       port 4200
+        -- [_] serve/build port 83
+        -- [_]       build mcsd
+        -- [_]       build angulardemo
+
+
+-- [_] angular.json
+
+"configurations": {
+  "development": { … },
+  "production": { … },
+  "<env_name>": {
+    "fileReplacements": [
+      {
+        "replace": "src/environments/environment.ts",
+        "with": "src/environments/environment.<env_name>.ts"
+      }
+    ]
+  }
+}
+
+-- [_] ng build
+
+ng build --configuration=IIS_LOCAL
+
+ng build --configuration=mcsd
+
+ng build --configuration=angulardemo
+
+"serve": {
+  "builder": "@angular-devkit/build-angular:dev-server",
+  "options": {
+    "browserTarget": "your-project-name:build"
+  },
+  "configurations": {
+    "development": {
+      "browserTarget": "your-project-name:build:development"
+    },
+    "production": {
+      "browserTarget": "your-project-name:build:production"
+    },
+    "<env_name>": {
+      "browserTarget": "your-project-name:build:<env_name>"
+    }
+  }
+},
+
+-- [_] ng serve
+
+ng serve --configuration=IIS_LOCAL
+
+ng serve --configuration=mcsd
+
+ng serve --configuration=angulardemo
+
+
+-- [_] config.json
+
+{
+    "baseUrl": "<ENV_URL>"
+}
+
+-- [_] environment.<ENV_NAME>.ts
+
+export class environment {
+   static baseUrl        : string | undefined   = '<ENV_URL>';
+   static serviceName    : string | undefined   = '<ENV_MAME>';
+};
+
+
+/////////////////////////////////////////////////////////////////
+// SCM PACKAGES
+/////////////////////////////////////////////////////////////////
 
 -- [x] npm packages
 
@@ -55,48 +149,42 @@
 ├── @angular/platform-browser@16.1.2
 ├── @angular/router@16.1.2 
 
-////////////////////////////////////////////////////////////////////////////
-// CODESPACES
-////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+// GIT HUB CODESPACES / PAGES
+/////////////////////////////////////////////////////////////////
 
---[_] https://apereznwo.github.io/AngularMCSD_Public/
+-- [_] Build your Angular application: 
 
---[_] DEPLOY ON GITHUB CODESPACES
+-- Create a production build of your Angular application using the Angular CLI:
 
-    #Build your Angular application: Create a production build of your Angular application 
-    using the Angular CLI:
+   $ ng build --c=production
 
-    $ ng build --c=production
+-- Corregir <base href="/"> en archivo "dist\<your-angular-app>\index.html":   
 
-    En archivo "index.html" Reemplazar <base href="/"> 
-    https://apereznwo.github.io/AngularMCSD_Public/
+   https://apereznwo.github.io/AngularMCSD/
 
-    Deploy to GitHub Pages: You can create a GitHub Pages branch or use the gh-pages 
-    package to automate the deployment process. 
+-- Deploy to GitHub Pages: You can create a GitHub Pages branch or use the gh-pages package to automate the deployment process. 
 
-    Here's an example using the angular-cli-ghpages package:
+  Here's an example using the angular-cli-ghpages package:
 
-    # Install the angular-cli-ghpages package globally
-    npm install -g angular-cli-ghpages
+  # Install the angular-cli-ghpages package globally
+  npm install -g angular-cli-ghpages
 
-    # Deploy the built application to GitHub Pages
-    npx ngh --dir=dist/angular-dijkstra
+  # Deploy the built application to GitHub Pages
+  npx ngh --dir=dist/angular-dijkstra
 
-    Replace your-angular-app with the name of your Angular app's directory 
-    where the build artifacts are located.
+-- Replace your-angular-app with the name of your Angular app's directory where the build artifacts are located.
 
-    # Configure GitHub Pages: Go to your GitHub repository settings, 
-    navigate to the GitHub Pages section, 
-    and set the source branch to the one you used for deployment (e.g., gh-pages). 
+-- Configure GitHub Pages: 
 
-    GitHub will provide you with a URL where your Angular application will be hosted.
+   Go to your GitHub repository settings, navigate to the GitHub Pages section, 
+   and set the source branch to the one you used for deployment (e.g., gh-pages). GitHub will provide you with a URL where your Angular application will be hosted.
 
-    Remember, this method will make your Angular application available at a URL like 
+-- Remember, this method will make your Angular application available at a URL like https://username.github.io/repository-name. 
 
-    https://username.github.io/repository-name. 
-    https://apereznwo.github.io/AngularMCSD_Public
+   This URL will be accessible publicly,  providing a permanent link to your deployed application.
+   https://apereznwo.github.io/AngularMCSD/
 
-    This URL will be accessible publicly, providing a permanent link to your deployed application.
+-- (confirmation) Configure GitHub Actions:    
 
-    # (optional / verification), Go to pages > actions and find the label
-    "pages build and deployment"
+   See workflow : "pages build and deployment". 
