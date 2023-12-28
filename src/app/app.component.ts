@@ -19,9 +19,9 @@ import { ConfigService                 } from './_services/config.service';
 //
 export class AppComponent {
     // miembros
-    public static title             : string | undefined = "[WEB API DEMO]"; 
+    public static title             : string | undefined = "[WEB API - DEVENV]"; 
     // propiedades internas
-    public static appName           : string | undefined = "[WEB API DEMO]";
+    public static appName           : string | undefined = "[WEB API DENVENV]";
     public static appVersion        : string | undefined = "[1.0.1.12]";
     // propiedades publicas
     public readonly _title                                       : string | undefined  = AppComponent.title;

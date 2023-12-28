@@ -161,7 +161,7 @@ export class environment {
 
 -- Corregir <base href="/"> en archivo "dist\<your-angular-app>\index.html":   
 
-   https://apereznwo.github.io/AngularMCSD/
+   https://apereznwo.github.io/AngularMCSD_Public/
 
 -- Deploy to GitHub Pages: You can create a GitHub Pages branch or use the gh-pages package to automate the deployment process. 
 
