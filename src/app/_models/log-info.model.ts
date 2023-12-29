@@ -332,7 +332,18 @@ export class TicTacToeEngine
     }
   }
   //
-  makeMove(n: number) {
+  makeHumanMove(n: number) {
+    //
+    this.doPlay(this.HUMAN   ,this.HUMANMOVE    ,n);
+  }
+  //
+  makeComputerMove():void
+  {
+    //
+    this.doPlay(this.COMPUTER,this.COMPUTERMOVE,0);  
+  }
+   //
+   makeMove(n: number) {
     if (this.squares[n] || this.winner) {
         return;
       }
@@ -346,17 +357,6 @@ export class TicTacToeEngine
         //
         this._declareWinner()
       }
-  }
-  //
-  makeHumanMove(n: number) {
-    //
-    this.doPlay(this.HUMAN   ,this.HUMANMOVE    ,n);
-  }
-  //
-  makeComputerMove():void
-  {
-    //
-    this.doPlay(this.COMPUTER,this.COMPUTERMOVE,0);  
   }
 }
 
