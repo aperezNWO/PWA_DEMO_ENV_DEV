@@ -194,4 +194,4 @@ export class environment {
 /////////////////////////////////////////////////////////////////
 -- [_] npm update --force 
 -- [_] npm install @angular/pwa 
--- [_] ng add angular@pwa --project=AngularDijkstra 
+-- [_] ng add @angular/pwa --project=AngularDijkstra 
