@@ -1,5 +1,5 @@
 import { Component, ViewChild           } from '@angular/core';
-import { DiskInfo, HanoiStep, ListItem } from 'src/app/_models/log-info.model';
+import { DiskInfo, HanoiStep, ListItem  } from 'src/app/_models/log-info.model';
 //
 @Component({
   selector: 'app-games-hanoi',
