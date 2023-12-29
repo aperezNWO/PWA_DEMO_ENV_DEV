@@ -1,5 +1,5 @@
 import { Injectable, NgModule, LOCALE_ID } from '@angular/core';
-import { APP_INITIALIZER,ErrorHandler    } from '@angular/core';
+import { APP_INITIALIZER,ErrorHandler, isDevMode    } from '@angular/core';
 import { FormsModule                     } from '@angular/forms';
 import { MatListModule                   } from '@angular/material/list';
 import { MatTableModule                  } from '@angular/material/table';
@@ -43,6 +43,7 @@ import { MCSDService                     } from './_services/mcsd.service';
 import { UnitTestingComponent            } from './unit-testing/unit-testing.component';
 import { LogType                         } from './_models/log-info.model';
 import { Observable, finalize, tap       } from 'rxjs';
+import { ServiceWorkerModule } from '@angular/service-worker';
 //
 const routes = [
   {  path: 'Home'                  , component: HomeWebComponent                      },
@@ -230,6 +231,12 @@ function initialize(http: HttpClient, globalConfigService: ConfigService, mcsdSe
         TowerComponent,
         RouterModule,
         RouterModule.forRoot(routes, { useHash: true }),
+        ServiceWorkerModule.register('ngsw-worker.js', {
+          enabled: !isDevMode(),
+          // Register the ServiceWorker as soon as the application is stable
+          // or after 30 seconds (whichever comes first).
+          registrationStrategy: 'registerWhenStable:30000'
+        }),
    ]
 })
 //
