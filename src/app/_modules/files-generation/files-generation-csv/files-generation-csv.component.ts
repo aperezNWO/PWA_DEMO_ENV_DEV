@@ -9,6 +9,7 @@ import html2canvas                                       from 'html2canvas';
 import { MCSDService                                   } from '../../../_services/mcsd.service';
 import { CustomErrorHandler                            } from '../../../app.module';
 import { PersonEntity, SearchCriteria, _languageName   } from '../../../_models/entityInfo.model';
+import { PdfEngine                                     } from 'src/app/_models/pdf-engine.model';
 //
 @Component({
   selector: 'app-files-generation-csv',
@@ -342,22 +343,14 @@ export class FilesGenerationCSVComponent implements OnInit, AfterViewInit {
     //
     GetPDF():void
     {
-      //
-      console.log("getting pdf");
-      //
-      html2canvas(this.canvas_csv.nativeElement).then((_canvas) => {
-          //
-          let w = this.divPieChart_CSV.nativeElement.offsetWidth;
-          let h = this.divPieChart_CSV.nativeElement.offsetHeight;
-          //
-          let imgData = _canvas.toDataURL('image/jpeg');
-          //
-          let pdfDoc  = new jsPDF("landscape", "px", [w, h]);
-          //
-          pdfDoc.addImage(imgData, 0, 0, w, h);
-          //
-          pdfDoc.save('sample-file.pdf');
-      });
+        //
+        let pdfEngine = new PdfEngine(
+          FilesGenerationCSVComponent.PageTitle,
+          this.canvas_csv,
+          this.divPieChart_CSV,
+        )
+        //  
+        pdfEngine._GetPDF();
     }
     //--------------------------------------------------------------------------
     // METODOS REACTIVE FORMS 

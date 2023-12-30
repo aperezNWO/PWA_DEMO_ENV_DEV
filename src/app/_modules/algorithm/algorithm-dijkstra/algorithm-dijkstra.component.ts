@@ -6,6 +6,8 @@ import { MCSDService                                 } from '../../../_services/
 import { CustomErrorHandler                          } from '../../../app.module';
 import { _languageName, _vertexSize                  } from '../../../_models/entityInfo.model';
 import { DrawEngine } from 'src/app/_models/draw-engine.model';
+import { UtilManager } from 'src/app/_models/util-manager.model';
+import { PdfEngine } from 'src/app/_models/pdf-engine.model';
 //
 @Component({
   selector       : 'app-algorithm-dijkstra',
@@ -302,7 +304,7 @@ export class AlgorithmDijkstraComponent implements OnInit, AfterViewInit {
             let stringItem : string = "";
             //
             stringItem              = stringItems[index].replace("&lt;", "<").replace("&gt;", ">");
-            stringItem              = this.mcsdService.DebugHostingContent(stringItem);
+            stringItem              = UtilManager.DebugHostingContent(stringItem);
             //
             //$('#DistanceList').append($('<option>', { value: (index + 1), text: (stringItem) }));
             //
@@ -358,23 +360,15 @@ export class AlgorithmDijkstraComponent implements OnInit, AfterViewInit {
   // METODOS COMUNES /////////////////////////////////////////////
   ////////////////////////////////////////////////////////////////
   //
-  public _GetPDF():void
+  _GetPDF():void
   {
-    //
-    console.log(AlgorithmDijkstraComponent.PageTitle + " - [getting pdf]");
-    //
-    html2canvas(this.c_canvas.nativeElement).then((_canvas) => {
-        //
-        let w       : number  = this.divCanvas_Pdf.nativeElement.offsetWidth;
-        let h       : number  = this.divCanvas_Pdf.nativeElement.offsetHeight;
-        //
-        let imgData : string  = _canvas.toDataURL('image/jpeg');
-        //
-        let pdfDoc  : jsPDF   = new jsPDF("landscape", "px", [w, h]);
-        //
-        pdfDoc.addImage(imgData, 0, 0, w, h);
-        //
-        pdfDoc.save('sample-file.pdf');
-    });
+      //
+      let pdfEngine = new PdfEngine(
+        AlgorithmDijkstraComponent.PageTitle,
+        this.c_canvas,
+        this.divCanvas_Pdf,
+      )
+      //  
+      pdfEngine._GetPDF();
   }
 };
