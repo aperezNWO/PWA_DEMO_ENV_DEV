@@ -41,7 +41,7 @@ import { TowerComponent                  } from './_modules/games/game-hanoi/tow
 import { ConfigService                   } from './_services/config.service';
 import { MCSDService                     } from './_services/mcsd.service';
 import { UnitTestingComponent            } from './unit-testing/unit-testing.component';
-import { LogType                         } from './_models/log-info.model';
+import { LogType                         } from './_models/entityInfo.model';
 import { Observable, finalize, tap       } from 'rxjs';
 import { ServiceWorkerModule             } from '@angular/service-worker';
 //

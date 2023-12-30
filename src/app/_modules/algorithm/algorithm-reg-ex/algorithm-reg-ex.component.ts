@@ -2,7 +2,7 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MCSDService                                 } from '../../../_services/mcsd.service';
 import { CustomErrorHandler                          } from '../../../app.module';
 import { Observable                                  } from 'rxjs';
-import { _languageName                               } from 'src/app/_models/log-info.model';
+import { _languageName                               } from 'src/app/_models/entityInfo.model';
 
 //
 @Component({
