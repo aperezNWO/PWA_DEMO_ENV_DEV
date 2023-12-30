@@ -1,5 +1,6 @@
 import { Injectable, NgModule, LOCALE_ID } from '@angular/core';
 import { APP_INITIALIZER,ErrorHandler, isDevMode    } from '@angular/core';
+import { ServiceWorkerModule             } from '@angular/service-worker';
 import { FormsModule                     } from '@angular/forms';
 import { MatListModule                   } from '@angular/material/list';
 import { MatTableModule                  } from '@angular/material/table';
@@ -38,12 +39,12 @@ import { SquareComponent                 } from './_modules/games/game-tictactoe
 import { GameWebComponent                } from './_modules/games/game-web/game-web.component';
 import { HanoiTowersComponent            } from './_modules/games/game-hanoi/game-hanoi.component';
 import { TowerComponent                  } from './_modules/games/game-hanoi/tower/tower.component';
+import { LogType                         } from './_models/entityInfo.model';
 import { ConfigService                   } from './_services/config.service';
 import { MCSDService                     } from './_services/mcsd.service';
 import { UnitTestingComponent            } from './unit-testing/unit-testing.component';
-import { LogType                         } from './_models/entityInfo.model';
 import { Observable, finalize, tap       } from 'rxjs';
-import { ServiceWorkerModule             } from '@angular/service-worker';
+
 //
 const routes = [
   {  path: 'Home'                  , component: HomeWebComponent                      },
