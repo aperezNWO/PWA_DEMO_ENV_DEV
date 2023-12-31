@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1703995110610,
+  "timestamp": 1704006214434,
   "index": "https://apereznwo.github.io/AngularMCSD_Public/index.html",
   "assetGroups": [
     {
@@ -15,7 +15,7 @@
         "https://apereznwo.github.io/AngularMCSD_Public/896.4519226224848d4d.js",
         "https://apereznwo.github.io/AngularMCSD_Public/favicon.ico",
         "https://apereznwo.github.io/AngularMCSD_Public/index.html",
-        "https://apereznwo.github.io/AngularMCSD_Public/main.80bf479ceffc6d80.js",
+        "https://apereznwo.github.io/AngularMCSD_Public/main.d687e6e760f58550.js",
         "https://apereznwo.github.io/AngularMCSD_Public/manifest.webmanifest",
         "https://apereznwo.github.io/AngularMCSD_Public/polyfills.77586c43fe67260d.js",
         "https://apereznwo.github.io/AngularMCSD_Public/runtime.6e18956a09ef4bed.js",
@@ -58,8 +58,8 @@
     "https://apereznwo.github.io/AngularMCSD_Public/assets/icons/icon-72x72.png": "aa88a6096bd973be7f6d7a5489bfa6bc2463f8c4",
     "https://apereznwo.github.io/AngularMCSD_Public/assets/icons/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
     "https://apereznwo.github.io/AngularMCSD_Public/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "https://apereznwo.github.io/AngularMCSD_Public/index.html": "24fbeb61643d29df228d24ea4f2d8648192869a6",
-    "https://apereznwo.github.io/AngularMCSD_Public/main.80bf479ceffc6d80.js": "dc4da1393f7e77c8f139e9c930edd30ef5be9745",
+    "https://apereznwo.github.io/AngularMCSD_Public/index.html": "4ee9defbb6f3e69a6d7b534302bfa79d3626baea",
+    "https://apereznwo.github.io/AngularMCSD_Public/main.d687e6e760f58550.js": "ac6984887251bb6ea0d29e10d7fa17fad265f2db",
     "https://apereznwo.github.io/AngularMCSD_Public/manifest.webmanifest": "6d6f8a7b8be921b9450e4ea234cc5349f6f104a1",
     "https://apereznwo.github.io/AngularMCSD_Public/polyfills.77586c43fe67260d.js": "9e2a9f992517e511f5c0d93f45b293a46678cb36",
     "https://apereznwo.github.io/AngularMCSD_Public/runtime.6e18956a09ef4bed.js": "8c77a60df282c9aa55bb61a253f6e5d16f6f5cf0",
