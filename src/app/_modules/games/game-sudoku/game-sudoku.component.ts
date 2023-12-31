@@ -4,8 +4,7 @@ import { Observable                   } from 'rxjs';
 import { MCSDService                  } from 'src/app/_services/mcsd.service';
 import { ListItem                     } from 'src/app/_models/entityInfo.model';
 import { FormBuilder, Validators      } from '@angular/forms';
-import html2canvas                      from 'html2canvas';
-import jsPDF                            from 'jspdf';
+import { PdfEngine                    } from 'src/app/_models/pdf-engine.model';
 //
 @Component({
   selector: 'app-sudoku',
@@ -17,26 +16,26 @@ export class SudokuComponent implements OnInit {
   //
   board: number[][] = [];
   //
+  protected pageTitle              : string = 'SUDOKU BOARD';
   protected tituloListadoLenguajes : string = 'Seleccione Backend';
+  protected tituloGenerarDesde     : string = 'Generar Desde';
   protected btnGenerateCaption     : string = '[GENERAR]';
   protected btnSolveCaption        : string = '[RESOLVER]';
   //
-  protected tituloGenerarDesde    : string = 'Generar Desde';
-  //
-  @ViewChild('_languajeList') _languajeList: any;
-  @ViewChild('_SourceList')   _sourceList: any;
-  @ViewChild('_fileUpload')   _fileUpload: any;
-  @ViewChild('_sudoku_board') _sudoku_board: any;
+  @ViewChild('_languajeList') _languajeList  : any;
+  @ViewChild('_SourceList')   _sourceList    : any;
+  @ViewChild('_fileUpload')   _fileUpload    : any;
+  @ViewChild('_sudoku_board') _sudoku_board  : any;
     //
-  public __languajeList: any;
+  public __languajeList         : any;
   //
-  public __generateSourceList : any;
+  public __generateSourceList   : any;
   //
-  public _fileUploadDivHidden:boolean = true;
+  public _fileUploadDivHidden   : boolean = true;
   //
-  public sudokuSolved: boolean = true;
+  public sudokuSolved           : boolean = true;
   //
-  public _sudokuGenerated: string = '';
+  public _sudokuGenerated       : string = '';
   //-------------------------------------------------
   // file upload
   //-------------------------------------------------
@@ -68,6 +67,8 @@ export class SudokuComponent implements OnInit {
     this.__generateSourceList.push(new ListItem(0, '(SELECCIONE OPCION..)', false));
     this.__generateSourceList.push(new ListItem(1, '[Desde Archivo]'      , false));
     this.__generateSourceList.push(new ListItem(2, '[Desde Backend]'      , true));
+    //
+    this.board = [];
   }
   //
   public _fileUploadDivHiddenChanged(): void {
@@ -354,18 +355,13 @@ export class SudokuComponent implements OnInit {
   }
   //
   _GetPdf() : void {
-    //  
-    const areaToPrint = this._sudoku_board.nativeElement;
     //
-    html2canvas(areaToPrint).then((canvas) => {
-      const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF('p', 'mm', 'a4'); // Portrait, millimeters, A4 size
-  
-      const imgWidth = 210; // A4 size
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
-  
-      pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
-      pdf.save('generated.pdf');
-    });
+    let pdfEngine = new PdfEngine(
+      this.pageTitle,
+      this._sudoku_board,
+      this._sudoku_board,
+    )
+    //  
+    pdfEngine._GetPDF();
   }
 }

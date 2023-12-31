@@ -17,10 +17,13 @@ export class PdfEngine
       //
       console.log(this.pageTitle + " - [getting pdf]");
       //
-      html2canvas(this.c_canvas.nativeElement).then((_canvas) => {
+      const areaToPrint   = this.c_canvas.nativeElement;
+      const borderToPrint = this.divCanvas_Pdf.nativeElement;
+      //
+      html2canvas(areaToPrint).then((_canvas) => {
           //
-          let w       : number  = this.divCanvas_Pdf.nativeElement.offsetWidth;
-          let h       : number  = this.divCanvas_Pdf.nativeElement.offsetHeight;
+          let w       : number  = borderToPrint.offsetWidth;
+          let h       : number  = borderToPrint.offsetHeight;
           //
           let imgData : string  = _canvas.toDataURL('image/jpeg');
           //

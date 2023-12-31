@@ -1,7 +1,7 @@
-<h1>SUDOKU BOARD</h1>
+<h1>{{this.pageTitle}}</h1>
 <!-- TABLERO / INICIO -->    
 <hr/>
-<div class="sudoku-board" #_sudoku_board>
+<div class="sudoku-board" align="center" #_sudoku_board>
   <table>
     <tbody>
     <tr *ngFor="let col of board; let rowIndex = index">
@@ -100,7 +100,9 @@
 </form>
 <!--- BUTTONS / FIN -->
 <hr />
-<input type="button" value="[GENERATE PDF]" (click)="this._GetPdf()"/>
+<div *ngIf="(this.board.length > 0)">
+    <input type="button" value="[GENERATE PDF]" (click)="this._GetPdf()"/>
+</div>
 <hr />
 <a routerLink="/GamesWeb">[Volver al Menú]</a>  
 
