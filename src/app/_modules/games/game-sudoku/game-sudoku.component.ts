@@ -354,14 +354,32 @@ export class SudokuComponent implements OnInit {
     solveSudoku.subscribe(solveSudokuObserver);
   }
   //
-  _GetPdf() : void {
+  _GetPdf() {
     //
-    let pdfEngine = new PdfEngine(
+    let fileName  : string     = "SUDOKU_BOARD";
+    let pdfEngine : PdfEngine  = new PdfEngine
+    (
       this.pageTitle,
       this._sudoku_board,
       this._sudoku_board,
-    )
-    //  
-    pdfEngine._GetPDF();
+      fileName,
+     );
+    //
+    pdfEngine._GetPDF().subscribe(
+    {
+        next: () =>{
+            //
+            this.message = '...Generando PDF...'
+        },
+        error: (error) => {
+            //
+            this.message   = 'ha ocurrido un error : ' + error.message;
+        },
+        complete: () => {
+            //
+            this.message   = 'Se ha generado archivo PDF';
+        }
+      }
+    );
   }
 }

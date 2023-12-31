@@ -31,6 +31,8 @@ export class FilesGenerationXLSComponent implements OnInit, AfterViewInit {
     // PROPIEADES - REACTIVE FORMS
     //--------------------------------------------------------------------------
     //
+    pdf_message                        : string = '[GENERAR PDF]';
+    //
     rf_textStatus                      : string = "";
     //
     rf_buttonCaption                   : string = "[Buscar]";
@@ -642,17 +644,37 @@ export class FilesGenerationXLSComponent implements OnInit, AfterViewInit {
     // METODOS - PDF
     //--------------------------------------------------------------------------
     //
+    //
     GetPDF():void
     {
         //
-        let pdfEngine = new PdfEngine(
-          FilesGenerationXLSComponent.PageTitle,
+        let fileName  : string     = "SUDOKU_BOARD";
+        let pdfEngine : PdfEngine  = new PdfEngine
+        (
+          this.pageTitle,
           this.canvas_xls,
           this.divPieChart_xls,
-        )
-        //  
-        pdfEngine._GetPDF();
+          fileName,
+          );
+        //
+        pdfEngine._GetPDF().subscribe(
+        {
+            next: () =>{
+                //
+                this.pdf_message = '...Generando PDF...'
+            },
+            error: (error) => {
+                //
+                this.pdf_message   = 'ha ocurrido un error : ' + error.message;
+            },
+            complete: () => {
+                //
+                this.pdf_message   = '[GENERAR PDF]';
+            }
+          }
+        );
     }
+
 }
 
 

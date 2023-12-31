@@ -47,9 +47,11 @@ export class FilesGenerationCSVComponent implements OnInit, AfterViewInit {
     @ViewChild('divPieChart_CSV') divPieChart_CSV   : any;
     //
     public pieChartVar                              : any;
-       //--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
     // PROPIEADES - REACTIVE FORMS
     //--------------------------------------------------------------------------
+    //
+    pdf_message                        : string = '[GENERAR PDF]';
     //
     rf_textStatus                      : string = "";
     //
@@ -344,13 +346,31 @@ export class FilesGenerationCSVComponent implements OnInit, AfterViewInit {
     GetPDF():void
     {
         //
-        let pdfEngine = new PdfEngine(
-          FilesGenerationCSVComponent.PageTitle,
+        let fileName  : string     = "SUDOKU_BOARD";
+        let pdfEngine : PdfEngine  = new PdfEngine
+        (
+          this.pageTitle,
           this.canvas_csv,
           this.divPieChart_CSV,
-        )
-        //  
-        pdfEngine._GetPDF();
+          fileName,
+          );
+        //
+        pdfEngine._GetPDF().subscribe(
+        {
+            next: () =>{
+                //
+                this.pdf_message = '...Generando PDF...'
+            },
+            error: (error) => {
+                //
+                this.pdf_message   = 'ha ocurrido un error : ' + error.message;
+            },
+            complete: () => {
+                //
+                this.pdf_message   = '[GENERAR PDF]';
+            }
+          }
+        );
     }
     //--------------------------------------------------------------------------
     // METODOS REACTIVE FORMS 

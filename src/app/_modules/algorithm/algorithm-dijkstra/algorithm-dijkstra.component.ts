@@ -26,6 +26,7 @@ export class AlgorithmDijkstraComponent implements OnInit, AfterViewInit {
   ////////////////////////////////////////////////////////////////
   // VARIABLES ///////////////////////////////////////////////////
   ////////////////////////////////////////////////////////////////
+  protected pdf_message      : string = '[GENERAR PDF]';
   readonly  pageTitle        : string = AlgorithmDijkstraComponent.PageTitle;
   protected vertexMax        : number = 9;
   protected rectSize         : number = 10;
@@ -363,12 +364,30 @@ export class AlgorithmDijkstraComponent implements OnInit, AfterViewInit {
   _GetPDF():void
   {
       //
+      let fileName  = "ALGORITMO_DIJKSTRA";
+      //
       let pdfEngine = new PdfEngine(
         AlgorithmDijkstraComponent.PageTitle,
         this.c_canvas,
         this.divCanvas_Pdf,
+        fileName
       )
-      //  
-      pdfEngine._GetPDF();
+      //
+      pdfEngine._GetPDF().subscribe(
+        {
+            next: () =>{
+                //
+                this.pdf_message = '...Generando PDF...'
+            },
+            error: (error) => {
+                //
+                this.pdf_message   = 'ha ocurrido un error : ' + error.message;
+            },
+            complete: () => {
+                //
+                this.pdf_message   = '[GENERAR PDF]';
+            }
+          }
+        );
   }
 };

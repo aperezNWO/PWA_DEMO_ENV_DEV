@@ -127,7 +127,7 @@
             <!-- GENERAR PDF / INICIO -->
             <hr />
             <div id="divdescargapdf" style="display: block" align="right">
-                <input id="GetPDF" type="button" title="[GENERAR PDF]" value="[GENERAR PDF]" (click)="GetPDF()">           
+                <input id="GetPDF" type="button" title="{{this.pdf_message}}" value="{{this.pdf_message}}" (click)="GetPDF()" [disabled]="(this.pdf_message == '...Generando PDF...')">           
             </div>
             <!-- GENERAR PDF / FIN    -->
         </div>

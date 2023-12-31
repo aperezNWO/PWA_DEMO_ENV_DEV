@@ -72,7 +72,7 @@
             [disabled]="((this.PointListHidden.length == 0) && (this.MatrixListHidden.length == 0))">
         </div>
         <hr />
-            <input id="GetPDF" type="button" title="[GENERAR PDF]" value="[GENERAR PDF]" (click)="this._GetPDF()"
+            <input id="GetPDF" type="button" title="{{this.pdf_message}}" value="{{this.pdf_message}}" (click)="this._GetPDF()"
             [disabled]="  ( (this.PointListHidden.length  == 0) 
                          && (this.MatrixListHidden.length == 0))
                          || (this.selectedIndex           == 0)">

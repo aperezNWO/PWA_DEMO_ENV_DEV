@@ -99,10 +99,12 @@
     </div>
 </form>
 <!--- BUTTONS / FIN -->
+<!--  INICIO GENERAR PDF -->
 <hr />
-<div *ngIf="(this.board.length > 0)">
-    <input type="button" value="[GENERATE PDF]" (click)="this._GetPdf()"/>
+<div *ngIf="(this.board.length>0)" align="left">
+    <input type="button" name="btnGeneratePdf" value="[GENERAR PDF]" (click)="this._GetPdf()" [disabled]="(this.message == '...Generando PDF...')">
 </div>
+<!--  FIN GENERAR PDF -->
 <hr />
 <a routerLink="/GamesWeb">[Volver al Menú]</a>  
 
