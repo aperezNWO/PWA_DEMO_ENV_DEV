@@ -648,7 +648,7 @@ export class FilesGenerationXLSComponent implements OnInit, AfterViewInit {
     GetPDF():void
     {
         //
-        let fileName  : string     = "SUDOKU_BOARD";
+        let fileName  : string     = "BAR CHART";
         let pdfEngine : PdfEngine  = new PdfEngine
         (
           this.pageTitle,

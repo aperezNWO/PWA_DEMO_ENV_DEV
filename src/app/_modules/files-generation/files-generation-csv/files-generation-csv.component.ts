@@ -346,7 +346,7 @@ export class FilesGenerationCSVComponent implements OnInit, AfterViewInit {
     GetPDF():void
     {
         //
-        let fileName  : string     = "SUDOKU_BOARD";
+        let fileName  : string     = "PIE CHART";
         let pdfEngine : PdfEngine  = new PdfEngine
         (
           this.pageTitle,
