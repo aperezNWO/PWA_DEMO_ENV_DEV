@@ -4,6 +4,8 @@ import { Observable                   } from 'rxjs';
 import { MCSDService                  } from 'src/app/_services/mcsd.service';
 import { ListItem                     } from 'src/app/_models/entityInfo.model';
 import { FormBuilder, Validators      } from '@angular/forms';
+import html2canvas                      from 'html2canvas';
+import jsPDF                            from 'jspdf';
 //
 @Component({
   selector: 'app-sudoku',
@@ -24,6 +26,7 @@ export class SudokuComponent implements OnInit {
   @ViewChild('_languajeList') _languajeList: any;
   @ViewChild('_SourceList')   _sourceList: any;
   @ViewChild('_fileUpload')   _fileUpload: any;
+  @ViewChild('_sudoku_board') _sudoku_board: any;
     //
   public __languajeList: any;
   //
@@ -348,5 +351,21 @@ export class SudokuComponent implements OnInit {
     };
     //
     solveSudoku.subscribe(solveSudokuObserver);
+  }
+  //
+  _GetPdf() : void {
+    //  
+    const areaToPrint = this._sudoku_board.nativeElement;
+    //
+    html2canvas(areaToPrint).then((canvas) => {
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF('p', 'mm', 'a4'); // Portrait, millimeters, A4 size
+  
+      const imgWidth = 210; // A4 size
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+  
+      pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+      pdf.save('generated.pdf');
+    });
   }
 }
