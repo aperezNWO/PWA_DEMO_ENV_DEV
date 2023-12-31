@@ -54,7 +54,7 @@ export class AlgorithmDijkstraComponent implements OnInit, AfterViewInit {
   public selectedIndex          : number  = 0;
   public selectedIndexLanguage  : number  = 0;
   //
-  drawEngine: any;
+  protected   drawEngine        : DrawEngine | undefined;;
   ////////////////////////////////////////////////////////////////
   // EVENT HANDLERS //////////////////////////////////////////////  
   ////////////////////////////////////////////////////////////////
@@ -110,11 +110,11 @@ export class AlgorithmDijkstraComponent implements OnInit, AfterViewInit {
         var pointList         = this.PointListHidden.split("|");
         var matrixList        = this.MatrixListHidden.split("|");
         //
-        this.drawEngine.DrawGrid();
+        this.drawEngine?.DrawGrid();
         //
-        this.drawEngine.DrawPoints(pointList, this.strokeStyleCafe);
+        this.drawEngine?.DrawPoints(pointList, this.strokeStyleCafe);
         //
-        this.drawEngine.DrawLines(pointList, matrixList, this.strokeStyleVerde, false);
+        this.drawEngine?.DrawLines(pointList, matrixList, this.strokeStyleVerde, false, this.PointListHidden);
         //
         let distenceListItems = distanceListVal.split("-");
         let path              = distenceListItems[2];
@@ -154,7 +154,7 @@ export class AlgorithmDijkstraComponent implements OnInit, AfterViewInit {
                 }
             }
             // DRAW SHORTEST PATH
-            this.drawEngine.DrawLines(emptyPoints, matrixList, this.strokeStyleRed   , true);
+            this.drawEngine?.DrawLines(emptyPoints, matrixList, this.strokeStyleRed   , true, this.PointListHidden);
         }
     }
   };
@@ -177,7 +177,7 @@ export class AlgorithmDijkstraComponent implements OnInit, AfterViewInit {
       //[x]
       this.MatrixListHidden = "";
       //[X]
-      this.drawEngine.DrawGrid();
+      this.drawEngine?.DrawGrid();
   };
   // 
   _GetGraph():void
@@ -231,7 +231,7 @@ export class AlgorithmDijkstraComponent implements OnInit, AfterViewInit {
                 //
                 let pointArray      : string[] = pointsString.split('|');
                 //
-                this.drawEngine.DrawPoints(pointArray, this.strokeStyleCafe);
+                this.drawEngine?.DrawPoints(pointArray, this.strokeStyleCafe);
                 //
                 //-------------------------------------------------------------
                 // OBTENER MATRIZ - DIBUJAR LINEAS
@@ -245,7 +245,7 @@ export class AlgorithmDijkstraComponent implements OnInit, AfterViewInit {
                 //
                 this.MatrixListHidden = matrixString;
                 //
-                this.drawEngine.DrawLines(pointArray, matrixArray, this.strokeStyleVerde, new Boolean(false), this.PointListHidden);
+                this.drawEngine?.DrawLines(pointArray, matrixArray, this.strokeStyleVerde, new Boolean(false), this.PointListHidden);
                 //            
                 //-------------------------------------------------------------
                 // OBTENER VERTICES DE DISTANCIAS
