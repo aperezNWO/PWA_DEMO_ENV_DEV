@@ -63,6 +63,12 @@
             <option *ngFor="let _vertexSize of __sourcePointList" [value]="_vertexSize._index">{{_vertexSize._value}}</option>
             </select>
         </p>
+        <!--STATUS / INICIO -->
+        <hr/>
+        <div align="left">
+            <div *ngIf="this.pdf_message" class="alert alert-secondary" role="alert">{{ this.pdf_message }}</div>
+        </div>
+        <!-- STATUS / FIN   -->
         <hr />
         <div>
             <input id="GetGraph" type="button" title="[GENERAR]"   value="[GENERAR]"   (click)="this._GetGraph()" 
@@ -72,7 +78,7 @@
             [disabled]="((this.PointListHidden.length == 0) && (this.MatrixListHidden.length == 0))">
         </div>
         <hr />
-            <input id="GetPDF" type="button" title="{{this.pdf_message}}" value="{{this.pdf_message}}" (click)="this._GetPDF()"
+            <input id="GetPDF" type="button" title="[GENERAR PDF]" value="[GENERAR PDF]" (click)="this._GetPDF()"
             [disabled]="  ( (this.PointListHidden.length  == 0) 
                          && (this.MatrixListHidden.length == 0))
                          || (this.selectedIndex           == 0)">

@@ -1,41 +1,43 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit            } from '@angular/core';
+import { ViewChild, AfterViewInit     } from '@angular/core';
+import { FormBuilder, Validators      } from '@angular/forms';
 import { HttpEventType, HttpResponse  } from '@angular/common/http';
 import { Observable                   } from 'rxjs';
 import { MCSDService                  } from 'src/app/_services/mcsd.service';
+import { PdfService                   } from 'src/app/_services/pdf-service.service';
 import { ListItem                     } from 'src/app/_models/entityInfo.model';
-import { FormBuilder, Validators      } from '@angular/forms';
-import { PdfEngine                    } from 'src/app/_models/pdf-engine.model';
 //
 @Component({
   selector: 'app-sudoku',
   templateUrl: './game-sudoku.component.html',
-  styleUrls: ['./game-sudoku.component.css'],
+  styleUrl: './game-sudoku.component.css',
 })
 //
-export class SudokuComponent implements OnInit {
+export class SudokuComponent implements OnInit, AfterViewInit {
   //
   board: number[][] = [];
   //
-  protected pageTitle              : string = 'SUDOKU BOARD';
   protected tituloListadoLenguajes : string = 'Seleccione Backend';
-  protected tituloGenerarDesde     : string = 'Generar Desde';
   protected btnGenerateCaption     : string = '[GENERAR]';
   protected btnSolveCaption        : string = '[RESOLVER]';
   //
-  @ViewChild('_languajeList') _languajeList  : any;
-  @ViewChild('_SourceList')   _sourceList    : any;
-  @ViewChild('_fileUpload')   _fileUpload    : any;
-  @ViewChild('_sudoku_board') _sudoku_board  : any;
+  protected tituloGenerarDesde    : string = 'Generar Desde';
+  //
+  @ViewChild('_languajeList') _languajeList   : any;
+  @ViewChild('_SourceList')   _sourceList     : any;
+  @ViewChild('_fileUpload')   _fileUpload     : any;
+  @ViewChild('_sudoku_board')  _sudoku_board  : any;
     //
-  public __languajeList         : any;
+  public __languajeList: any;  
   //
-  public __generateSourceList   : any;
+  public __generateSourceList : any;
   //
-  public _fileUploadDivHidden   : boolean = true;
+  public _cppSourceDivHidden: boolean = true;
+  public _fileUploadDivHidden:boolean = true;
   //
-  public sudokuSolved           : boolean = true;
+  public sudokuSolved: boolean = true;
   //
-  public _sudokuGenerated       : string = '';
+  public _sudokuGenerated: string = '';
   //-------------------------------------------------
   // file upload
   //-------------------------------------------------
@@ -46,12 +48,17 @@ export class SudokuComponent implements OnInit {
   downloadLink     : string = '';
   //
   rf_searchForm   = this.formBuilder.group({
-    _fileUpload          : ["", Validators.required],
+    _fileUpload   : ["", Validators.required],
   });
+  pageTitle       : string = '[SUDOKU]';
   //
-  constructor(private mcsdService: MCSDService,private formBuilder: FormBuilder,) {
+  constructor(private algorithmService: MCSDService,private formBuilder: FormBuilder, public pdfEngine: PdfService) {
     //
     console.log('[SUDOKU - INGRESO]');
+  }
+  //
+  ngAfterViewInit(): void {
+    //
   }
   //
   ngOnInit(): void {
@@ -63,12 +70,23 @@ export class SudokuComponent implements OnInit {
     this.__languajeList.push(new ListItem(1, '(.NET Core/C++)', true));
     this.__languajeList.push(new ListItem(2, '(Node.js)'      , false));
     //
+    this._cppSourceDivHidden = false;
+    //
     this.__generateSourceList = new Array();
     this.__generateSourceList.push(new ListItem(0, '(SELECCIONE OPCION..)', false));
     this.__generateSourceList.push(new ListItem(1, '[Desde Archivo]'      , false));
     this.__generateSourceList.push(new ListItem(2, '[Desde Backend]'      , true));
+  }
+  //
+  public _cppSourceDivHiddenChanged(): void {
     //
-    this.board = [];
+    console.log('SUDOKU - [DIV CPP SOURCE CHANGED]');
+    //
+    let _selectedIndex: number =
+      this._languajeList.nativeElement.options.selectedIndex;
+    this._cppSourceDivHidden = _selectedIndex != 1; // item 1 = "c++"
+    //
+    this.message = "";
   }
   //
   public _fileUploadDivHiddenChanged(): void {
@@ -91,10 +109,10 @@ export class SudokuComponent implements OnInit {
         //
         switch (selectedIndex) {
           case 1: // c++
-            generatedSudoku = this.mcsdService._GetSudoku();
+            generatedSudoku = this.algorithmService._GetSudoku();
             break;
           case 2: // Typescript
-            generatedSudoku = this.mcsdService._GetSudoku_NodeJS();
+            generatedSudoku = this.algorithmService._GetSudoku_NodeJS();
             break;
           default:
             return;
@@ -177,7 +195,7 @@ export class SudokuComponent implements OnInit {
         //
         this.currentFile = file;
         //
-        this.mcsdService.uploadSudoku(this.currentFile).subscribe({
+        this.algorithmService.uploadSudoku(this.currentFile).subscribe({
           next: (event: any) => {
             if (event.type === HttpEventType.UploadProgress) {
               //
@@ -290,10 +308,10 @@ export class SudokuComponent implements OnInit {
     //
     switch (selectedIndex) {
       case 1: // c++
-        solveSudoku = this.mcsdService._SolveSudoku(this._sudokuGenerated);
+        solveSudoku = this.algorithmService._SolveSudoku(this._sudokuGenerated);
         break;
       case 2: // Typescript
-        solveSudoku = this.mcsdService._SolveSudoku_NodeJS(
+        solveSudoku = this.algorithmService._SolveSudoku_NodeJS(
           this._sudokuGenerated,
         );
         break;
@@ -356,28 +374,33 @@ export class SudokuComponent implements OnInit {
   //
   _GetPdf() {
     //
-    let fileName  : string     = "SUDOKU_BOARD";
-    let pdfEngine : PdfEngine  = new PdfEngine
-    (
-      this.pageTitle,
-      this._sudoku_board,
-      this._sudoku_board,
-      fileName,
-     );
+    let suffix          : string     =  (this.sudokuSolved)? 'SOLVED' : 'STARTED';
     //
-    pdfEngine._GetPDF().subscribe(
-    {
-        next: () =>{
-            //
-            this.message = '...Generando PDF...'
+    let fileName_input  : string     = `SUDOKU_BOARD_${suffix}`;
+    let fileName_output : string     = '';
+    //
+    this.message = '[...Generando PDF...]';
+    //
+    this.pdfEngine._GetPDF
+      (
+        this.pageTitle,
+        this._sudoku_board,
+        this._sudoku_board,
+        fileName_input,
+      )
+      .subscribe(
+      {
+        next: (fileName) =>{
+          //
+          fileName_output = fileName;
         },
-        error: (error) => {
+        error: (error: { message: string; }) => {
             //
             this.message   = 'ha ocurrido un error : ' + error.message;
         },
         complete: () => {
             //
-            this.message   = 'Se ha generado archivo PDF';
+            this.message = `Se ha generado el archivo PDF :[ ${fileName_output} ]`;
         }
       }
     );

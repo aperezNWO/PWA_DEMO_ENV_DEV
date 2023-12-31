@@ -1,13 +1,11 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Observable                                  } from 'rxjs';
-import html2canvas                                     from 'html2canvas';
-import jsPDF                                           from 'jspdf';
+import { DrawEngine                                  } from 'src/app/_models/draw-engine.model';
+import { UtilManager                                 } from 'src/app/_models/util-manager.model';
+import { PdfService                                  } from 'src/app/_services/pdf-service.service';
 import { MCSDService                                 } from '../../../_services/mcsd.service';
 import { CustomErrorHandler                          } from '../../../app.module';
 import { _languageName, _vertexSize                  } from '../../../_models/entityInfo.model';
-import { DrawEngine } from 'src/app/_models/draw-engine.model';
-import { UtilManager } from 'src/app/_models/util-manager.model';
-import { PdfEngine } from 'src/app/_models/pdf-engine.model';
 //
 @Component({
   selector       : 'app-algorithm-dijkstra',
@@ -26,7 +24,7 @@ export class AlgorithmDijkstraComponent implements OnInit, AfterViewInit {
   ////////////////////////////////////////////////////////////////
   // VARIABLES ///////////////////////////////////////////////////
   ////////////////////////////////////////////////////////////////
-  protected pdf_message      : string = '[GENERAR PDF]';
+  protected pdf_message      : string = '';
   readonly  pageTitle        : string = AlgorithmDijkstraComponent.PageTitle;
   protected vertexMax        : number = 9;
   protected rectSize         : number = 10;
@@ -60,7 +58,7 @@ export class AlgorithmDijkstraComponent implements OnInit, AfterViewInit {
   ////////////////////////////////////////////////////////////////
   // EVENT HANDLERS //////////////////////////////////////////////  
   ////////////////////////////////////////////////////////////////
-  constructor(public mcsdService: MCSDService, private customErrorHandler: CustomErrorHandler)
+  constructor(public mcsdService: MCSDService, public customErrorHandler: CustomErrorHandler, public pdfService: PdfService)
   {
      //
      mcsdService.SetLog(this.pageTitle,"PAGE_DIJKSTRA_DEMO");
@@ -364,28 +362,29 @@ export class AlgorithmDijkstraComponent implements OnInit, AfterViewInit {
   _GetPDF():void
   {
       //
-      let fileName  = "ALGORITMO_DIJKSTRA";
+      let fileName           = "ALGORITMO_DIJKSTRA";
+      let pdf_message_output = '';
       //
-      let pdfEngine = new PdfEngine(
+      this.pdfService = new PdfService();
+      //
+      this.pdfService._GetPDF(
         AlgorithmDijkstraComponent.PageTitle,
         this.c_canvas,
         this.divCanvas_Pdf,
         fileName
-      )
-      //
-      pdfEngine._GetPDF().subscribe(
+      ).subscribe(
         {
-            next: () =>{
+            next: (fileName) =>{
                 //
-                this.pdf_message = '...Generando PDF...'
+                pdf_message_output = fileName;
             },
-            error: (error) => {
+            error: (error: Error) => {
                 //
                 this.pdf_message   = 'ha ocurrido un error : ' + error.message;
             },
             complete: () => {
                 //
-                this.pdf_message   = '[GENERAR PDF]';
+                this.pdf_message   = `Se ha genrado el archivo [${pdf_message_output}]`;
             }
           }
         );
