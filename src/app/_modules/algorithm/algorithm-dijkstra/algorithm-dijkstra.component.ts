@@ -76,12 +76,10 @@ export class AlgorithmDijkstraComponent implements OnInit, AfterViewInit {
   ngAfterViewInit():void { 
     //
     console.log(AlgorithmDijkstraComponent.PageTitle + " - [INICIO VISUAL]");
+    //[X]
+    this._context   = this.c_canvas.nativeElement.getContext('2d');
     //
-    this._context = this.c_canvas.nativeElement.getContext('2d');
-    //
-    this.drawEngine = new DrawEngine(this._context,this.c_canvas,this.rectSize, this.screenSize)
-    //
-    this.drawEngine.DrawGrid();
+    this.drawEngine = new DrawEngine(this._context,this.c_canvas,this.rectSize, this.screenSize);
     //    
     this._ResetControls();
   };
@@ -176,7 +174,7 @@ export class AlgorithmDijkstraComponent implements OnInit, AfterViewInit {
       this.PointListHidden  = "";
       //[x]
       this.MatrixListHidden = "";
-      //[X]
+      //
       this.drawEngine?.DrawGrid();
   };
   // 
@@ -184,6 +182,8 @@ export class AlgorithmDijkstraComponent implements OnInit, AfterViewInit {
   {
         //
         console.log(AlgorithmDijkstraComponent.PageTitle + " - [getting graph]");
+        //
+        this.drawEngine?.DrawGrid();
         //
         let _vertexSize         : number = Number.parseInt(this._vertexSizeList.nativeElement.value);
         let _sourcePoint        : number = Number.parseInt(this._sourcePointList.nativeElement.value);
