@@ -123,7 +123,7 @@ export class MCSDService implements OnInit {
     //    
     getInformeRemotoCSV_NodeJS(): Observable<string> {
     //
-    let p_url    = 'https://ms7tks-4000.csb.app/GenerarInformeCSVJson';
+    let p_url    = 'https://jh6mc8-4000.csb.app/GenerarInformeCSVJson';
     //
     console.warn(" REQUESTING URL : " + p_url);
     //
