@@ -32,9 +32,19 @@ export class MCSDService implements OnInit {
       return this.__baseUrlNetCore;
     }
     //
+    public set _baseUrlNetCore(value: string) {
+      //
+      this.__baseUrlNetCore = value;
+    }
+    //
     public get _baseUrlNodeJs(): string {
       //
       return this.__baseUrlNodeJs;
+    }
+    //
+    public set _baseUrlNodeJs(value: string) {
+      //
+      this.__baseUrlNodeJs = value;
     }
     //
     protected __baseUrlNetCore        : string = '';
@@ -46,9 +56,13 @@ export class MCSDService implements OnInit {
     //
     ngOnInit(): void {
       //
+      console.log("Calling MCSDService initialization...");
+      //
     }
     constructor(public http: HttpClient, public _configService : _ConfigService) {
-      ////
+      //
+      console.log("Calling MCSDService constructor...");
+      //
       this.__baseUrlNetCore = this._configService.getConfigValue('baseUrlNetCore');
       this.__baseUrlNodeJs  = this._configService.getConfigValue('baseUrlNodeJs');
       //
@@ -111,6 +125,8 @@ export class MCSDService implements OnInit {
     _SetSTATPieCache(_prefix : string | undefined):void{
       //
       let p_url    =  `${_prefix}demos/_SetSTATPieCache`;
+      //
+      console.log("Setting STAT Pie data to cache :  " + p_url);
       //
       let jsonCSVData : Observable<string> =  this.http.get<string>(p_url,this.HTTPOptions_Text);
       //
@@ -199,9 +215,11 @@ export class MCSDService implements OnInit {
     //
     _SetSTATBarCache(_prefix : string | undefined) : void {
       //
-      let url    = `${_prefix}demos/_SetSTATBarCache`;
+      let p_url    = `${_prefix}demos/_SetSTATBarCache`;
       //
-      let jsonDataObservable : Observable<string> = this.http.get<string>(url,this.HTTPOptions_Text);   
+      console.log("Setting STAT Bar data to cache :  " + p_url);
+      //
+      let jsonDataObservable : Observable<string> = this.http.get<string>(p_url,this.HTTPOptions_Text);   
       //
       const jsonDataOberver = {
         next: (jsondata: string)     => { 
@@ -343,6 +361,8 @@ export class MCSDService implements OnInit {
     {
       //
       let p_url   : string  = `${_prefix}demos/_SetXmlDataToCache`;
+      //
+      console.log("Setting XML data to cache :  " + p_url)
       //
       let xmlData : Observable<string> =  this.http.get<string>(p_url,this.HTTPOptions_Text);
       //

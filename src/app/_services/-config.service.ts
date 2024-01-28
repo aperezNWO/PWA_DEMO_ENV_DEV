@@ -7,13 +7,15 @@ import { _environment } from 'src/environments/environment';
 })
 
 export class _ConfigService {
-  constructor(private http: HttpClient) {}
-
+  constructor(protected http: HttpClient) {}
+  // ONLY HAPPENS ONCE ON APPMODULE LOADING
   loadConfig() {
     return this.http.get('./assets/config.json').toPromise()
       .then((data: any) => {
-         //
-         _environment.externalConfig = data; // Assign loaded data to environment variable
+          //
+          console.log("loading configuration...");
+          //
+          _environment.externalConfig = data; // Assign loaded data to environment variable
       })
       .catch(error => {
         console.error('Error loading configuration:', error);

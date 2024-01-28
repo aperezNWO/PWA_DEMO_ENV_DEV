@@ -1,4 +1,4 @@
-import { Injectable, NgModule, LOCALE_ID            } from '@angular/core';
+import { Injectable, NgModule                       } from '@angular/core';
 import { APP_INITIALIZER,ErrorHandler, isDevMode    } from '@angular/core';
 import { ServiceWorkerModule             } from '@angular/service-worker';
 import { FormsModule                     } from '@angular/forms';
@@ -43,7 +43,7 @@ import { LogType                         } from './_models/entityInfo.model';
 import { MCSDService                     } from './_services/mcsd.service';
 import { _ConfigService                  } from './_services/-config.service';
 import { UnitTestingComponent            } from './unit-testing/unit-testing.component';
-import { Observable, finalize, tap       } from 'rxjs';
+import { finalize, tap                   } from 'rxjs';
 
 //
 const routes = [
@@ -68,7 +68,8 @@ const routes = [
   {  path: '**'                    , component: AppComponent                          },
 ];
 //
-export function loadConfig(_configService: _ConfigService, mcsdService: MCSDService) {
+export function initialize(_configService: _ConfigService) {
+  // 
   return () => _configService.loadConfig();
 }
 //
@@ -148,12 +149,15 @@ export class CustomErrorHandler implements ErrorHandler {
         {  provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true },
         {  provide: LocationStrategy, useClass: HashLocationStrategy },
         {  provide: ErrorHandler, useClass: CustomErrorHandler },
-        {  provide: APP_INITIALIZER, 
-           useFactory: loadConfig, deps: [
-                _ConfigService,
-                MCSDService,
-                HttpClient,
-            ], multi: true },
+        [
+          _ConfigService,
+          {
+            provide   : APP_INITIALIZER,
+            useFactory: initialize,
+            deps      : [_ConfigService,MCSDService,HttpClient],
+            multi     : true
+          }
+        ],
     ],
     bootstrap: [AppComponent],
     imports: [
@@ -186,24 +190,9 @@ export class AppModule {
     //-----------------------------------------------------------------------------------------------------
     constructor(public customErrorHandler : CustomErrorHandler, 
                 public loggingInterceptor : LoggingInterceptor,
-                public mcsdService        : MCSDService,
-                public _configService     : _ConfigService) 
+                public mcsdService : MCSDService,) 
     {
-        //
-        let __baseUrlNetCore = this._configService.getConfigValue('baseUrlNetCore');
-        
-        //////////////////////////////////////////////////////
-        // CACHE PARA XML
-        ///////////////////////////////////////////////////////
-        mcsdService._SetXmlDataToCache(__baseUrlNetCore);
-        ///////////////////////////////////////////////////////
-        // CACHE PARA PIE CHART
-        ///////////////////////////////////////////////////////
-        mcsdService._SetSTATPieCache(__baseUrlNetCore);
-        ///////////////////////////////////////////////////////
-        // CACHE PARA BARCHART
-        ///////////////////////////////////////////////////////
-        mcsdService._SetSTATBarCache(__baseUrlNetCore);
+      //
     }
 }
 

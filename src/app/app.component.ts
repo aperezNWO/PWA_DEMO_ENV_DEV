@@ -19,6 +19,7 @@ import { _ConfigService                } from './_services/-config.service';
 //
 export class AppComponent implements OnInit {
     // propiedades publicas
+    public readonly _title                                       : string | undefined  = "";
     public readonly _appName                                     : string | undefined  = "";
     public readonly _appVersion                                  : string | undefined  = "";
     public readonly HomeWebComponent_pageTitle                   : string  = HomeWebComponent.PageTitle;
@@ -47,6 +48,8 @@ export class AppComponent implements OnInit {
                 private titleService        : Title
                ) 
     {
+      //
+      console.log("Loading AppComponent...");
       // IMPLEMENT AS MAP AND ITERATE
       let keyName  : string = '';
       let keyValue : string = '';
@@ -60,12 +63,39 @@ export class AppComponent implements OnInit {
       keyValue         = this._configService.getConfigValue(keyName);
       this._appVersion = keyValue;
       //
+      let __baseUrlNetCore = this._configService.getConfigValue('baseUrlNetCore');
+      let __baseUrlNodeJs  = this._configService.getConfigValue('baseUrlNodeJs');
+      //
+      this.mcsdService._baseUrlNetCore = __baseUrlNetCore;
+      this.mcsdService._baseUrlNodeJs  = __baseUrlNodeJs;
+      //
+      //////////////////////////////////////////////////////
+      // CACHE PARA XML
+      ///////////////////////////////////////////////////////
+      //
+      this.mcsdService._SetXmlDataToCache(__baseUrlNetCore);
+      ///////////////////////////////////////////////////////
+      // CACHE PARA PIE CHART
+      ///////////////////////////////////////////////////////
+      this.mcsdService._SetSTATPieCache(__baseUrlNetCore);
+      ///////////////////////////////////////////////////////
+      // CACHE PARA BARCHART
+      ///////////////////////////////////////////////////////
+      this.mcsdService._SetSTATBarCache(__baseUrlNetCore);
+      //
+      let title : string = `${this._appName} - ${this._appVersion}`;
+      //
+      console.log("Setting Title : " + title);
+      //
+      this._title = `${this._appName}`;
+      //
+      this.titleService.setTitle(title);
+      //
       router.navigateByUrl("/Home");
     }   
     //-----------------------------------------------------------------------------------------------------
     ngOnInit() {
         //
-        this.titleService.setTitle(`${this._appName} - ${this._appVersion}`);
     }
     //
     getValueFromConfig(key: string) {
