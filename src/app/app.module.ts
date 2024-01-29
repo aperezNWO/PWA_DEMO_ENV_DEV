@@ -39,12 +39,14 @@ import { SquareComponent                 } from './_modules/games/game-tictactoe
 import { GameWebComponent                } from './_modules/games/game-web/game-web.component';
 import { HanoiTowersComponent            } from './_modules/games/game-hanoi/game-hanoi.component';
 import { TowerComponent                  } from './_modules/games/game-hanoi/tower/tower.component';
+import { OcrComponent                    } from './_modules/miscelaneous/ocr/ocr.component';
+import { ChatComponent                   } from './_modules/miscelaneous/chat/chat/chat.component';
+import { MiscelaneousComponent           } from './_modules/miscelaneous/miscelaneous/miscelaneous.component';
 import { LogType                         } from './_models/entityInfo.model';
 import { MCSDService                     } from './_services/mcsd.service';
 import { _ConfigService                  } from './_services/-config.service';
 import { UnitTestingComponent            } from './unit-testing/unit-testing.component';
 import { finalize, tap                   } from 'rxjs';
-
 //
 const routes = [
   {  path: 'Home'                  , component: HomeWebComponent                      },
@@ -65,6 +67,9 @@ const routes = [
   {  path: 'GamesTicTacToe'        , component: GameTictactoeComponent                },
   {  path: 'GamesHanoi'            , component: HanoiTowersComponent                  },
   {  path: 'GamesWeb'              , component: GameWebComponent                      },
+  {  path: 'Ocr'                   , component: OcrComponent                          },
+  {  path: 'Chat'                  , component: ChatComponent                         },
+  {  path: 'Miscelaneous'          , component: MiscelaneousComponent                 },
   {  path: '**'                    , component: AppComponent                          },
 ];
 //
@@ -143,6 +148,9 @@ export class CustomErrorHandler implements ErrorHandler {
         GameTictactoeComponent,
         HanoiTowersComponent,
         GameWebComponent,
+        OcrComponent,
+        ChatComponent,
+        MiscelaneousComponent,
     ],
     exports: [RouterModule],
     providers: [
