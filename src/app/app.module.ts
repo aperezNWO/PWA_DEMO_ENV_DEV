@@ -1,5 +1,6 @@
 import { Injectable, NgModule                       } from '@angular/core';
 import { APP_INITIALIZER,ErrorHandler, isDevMode    } from '@angular/core';
+import { CommonModule, DatePipe                     } from '@angular/common';
 import { ServiceWorkerModule             } from '@angular/service-worker';
 import { FormsModule                     } from '@angular/forms';
 import { MatListModule                   } from '@angular/material/list';
@@ -67,7 +68,6 @@ const routes = [
   {  path: 'GamesTicTacToe'        , component: GameTictactoeComponent                },
   {  path: 'GamesHanoi'            , component: HanoiTowersComponent                  },
   {  path: 'GamesWeb'              , component: GameWebComponent                      },
-  {  path: 'Ocr'                   , component: OcrComponent                          },
   {  path: 'Chat'                  , component: ChatComponent                         },
   {  path: 'Miscelaneous'          , component: MiscelaneousComponent                 },
   {  path: '**'                    , component: AppComponent                          },
@@ -166,6 +166,7 @@ export class CustomErrorHandler implements ErrorHandler {
             multi     : true
           }
         ],
+        DatePipe,
     ],
     bootstrap: [AppComponent],
     imports: [
