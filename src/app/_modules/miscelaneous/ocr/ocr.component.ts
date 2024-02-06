@@ -24,7 +24,7 @@ export class OcrComponent {
   //
   public status : string = '';
   //
-  public statusButton  : string = '[parse]';
+  public statusButton  : string = '[Parse]';
   //
   constructor(public mcsdService : MCSDService)
   {
@@ -45,25 +45,6 @@ export class OcrComponent {
      console.log('Data URL:', base64ImageString);
      //
      this.uploadImage(base64ImageString);
-     /* 
-     // Create an anchor element
-     const downloadLink : HTMLAnchorElement = document.createElement('a');
-
-     // Set href attribute with the data URL
-     downloadLink.href = dataUrl;
-
-     // Set a suggested filename for the download
-     downloadLink.download = 'signature.png';
-
-     // Append the anchor to the body
-     document.body.appendChild(downloadLink);
-
-     // Trigger a click event on the anchor
-     downloadLink.click();
-
-     // Remove the anchor from the body
-     document.body.removeChild(downloadLink);
-     */
   }
   // Trigger a click event on the anchor
   clearSignature():void{
@@ -74,7 +55,7 @@ export class OcrComponent {
      //
      this.status = "";
      //
-     this.statusButton = "[parse]";
+     this.statusButton = "[Parse]";
   }
   //
   uploadImage(base64ImageString : string):void {
@@ -86,7 +67,7 @@ export class OcrComponent {
       (response) => {
         console.log('Image uploaded successfully:', response);
         this.status = JSON.parse(JSON.stringify(response))['message'];
-        this.statusButton = '[parse]';
+        this.statusButton = '[Parse]';
       },
       (error) => {
         //
@@ -94,7 +75,7 @@ export class OcrComponent {
         //
         this.status = error;
         //
-        this.statusButton = '[parse]';
+        this.statusButton = '[Parse]';
       }
     );
   }
