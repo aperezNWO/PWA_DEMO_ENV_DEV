@@ -48,6 +48,8 @@ import { MCSDService                     } from './_services/mcsd.service';
 import { _ConfigService                  } from './_services/-config.service';
 import { UnitTestingComponent            } from './unit-testing/unit-testing.component';
 import { finalize, tap                   } from 'rxjs';
+import { NgxSignaturePadModule           } from '@eve-sama/ngx-signature-pad';
+
 //
 const routes = [
   {  path: 'Home'                  , component: HomeWebComponent                      },
@@ -69,6 +71,7 @@ const routes = [
   {  path: 'GamesHanoi'            , component: HanoiTowersComponent                  },
   {  path: 'GamesWeb'              , component: GameWebComponent                      },
   {  path: 'Chat'                  , component: ChatComponent                         },
+  {  path: 'Ocr'                   , component: OcrComponent                          },
   {  path: 'Miscelaneous'          , component: MiscelaneousComponent                 },
   {  path: '**'                    , component: AppComponent                          },
 ];
@@ -181,6 +184,7 @@ export class CustomErrorHandler implements ErrorHandler {
         MatPaginatorModule,
         MatTabsModule,
         NgbModule,
+        NgxSignaturePadModule,
         BoardComponent,
         SquareComponent,
         TowerComponent,
