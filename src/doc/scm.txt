@@ -153,6 +153,12 @@ export class environment {
 // GIT HUB CODESPACES / PAGES
 /////////////////////////////////////////////////////////////////
 
+-- [_] clone repository
+
+-- [_] instal angular CLI 
+
+      -- [_] npm install  --force 
+
 -- [_] Build your Angular application: 
 
 -- Create a production build of your Angular application using the Angular CLI:
@@ -202,6 +208,7 @@ export class environment {
 /////////////////////////////////////////////////////////////////
 
 npm install @eve-sama/ngx-signature-pad --force 
+
 /////////////////////////////////////////////////////////////////
 // PWD
 /////////////////////////////////////////////////////////////////
