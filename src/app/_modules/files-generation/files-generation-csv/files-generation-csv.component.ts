@@ -366,7 +366,7 @@ export class FilesGenerationCSVComponent implements OnInit, AfterViewInit {
             },
             complete: () => {
                 //
-                this.pdf_message   = `Se ha generado el asrchivo [${fileName_output}]`;
+                this.pdf_message   = `Se ha generado el archivo [${fileName_output}]`;
             }
           }
         );

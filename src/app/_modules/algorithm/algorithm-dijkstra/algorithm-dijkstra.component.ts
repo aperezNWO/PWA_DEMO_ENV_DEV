@@ -545,7 +545,7 @@ export class AlgorithmDijkstraComponent implements OnInit, AfterViewInit {
       //
       this.pdf_message = '[...Generando PDF...]'
       //
-      let fileName         : string     = "PIE CHART";
+      let fileName         : string     = "DIJKSTRA";
       let fileName_output  : string     = '';
       //
       this.pdfService._GetPDF(
@@ -565,7 +565,7 @@ export class AlgorithmDijkstraComponent implements OnInit, AfterViewInit {
           },
           complete: () => {
               //
-              this.pdf_message   = `Se ha generado el asrchivo [${fileName_output}]`;
+              this.pdf_message   = `Se ha generado el archivo [${fileName_output}]`;
           }
         }
       );
