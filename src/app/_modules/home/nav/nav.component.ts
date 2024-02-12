@@ -2,11 +2,6 @@ import { Component, OnInit, VERSION    } from '@angular/core';
 import { Router                        } from '@angular/router';
 import { Title                         } from '@angular/platform-browser';
 import { CustomErrorHandler            } from 'src/app/app.component';
-import { HomeWebComponent              } from 'src/app/_modules/home/home-web/home-web.component';
-import { AlgorithmWebComponent         } from 'src/app/_modules/algorithm/algorithm-web/algorithm-web.component';
-import { AngularTutorialsnWebComponent } from 'src/app/_modules/topics/angular-tutorialsn-web/angular-tutorialsn-web.component';
-import { FilesGenerationWebComponent   } from 'src/app/_modules/files-generation/files-generation-web/files-generation-web.component';
-import { AAboutWebComponent            } from 'src/app/_modules/about/a-about-web/a-about-web.component';
 import { MCSDService                   } from 'src/app/_services/mcsd.service';
 import { _ConfigService                } from 'src/app/_services/-config.service';
 //
@@ -19,14 +14,10 @@ import { _ConfigService                } from 'src/app/_services/-config.service
 export class NavComponent {
 
     // propiedades publicas
+    public readonly _brand                                       : string | undefined  = "";
     public readonly _title                                       : string | undefined  = "";
     public readonly _appName                                     : string | undefined  = "";
     public readonly _appVersion                                  : string | undefined  = "";
-    public readonly HomeWebComponent_pageTitle                   : string  = HomeWebComponent.PageTitle;
-    public readonly AlgorithmWebComponent_pageTitle              : string  = AlgorithmWebComponent.PageTitle;
-    public readonly FilesGenerationWebComponent_pageTitle        : string  = FilesGenerationWebComponent.PageTitle;
-    public readonly AngularTutorialsnWebComponent_pageTitle      : string  = AngularTutorialsnWebComponent.PageTitle;
-    public readonly AAboutWebComponent_pageTitle                 : string  = AAboutWebComponent.PageTitle
     //
     private  navbarCollapsed                                     : boolean = true;
     //
@@ -39,9 +30,35 @@ export class NavComponent {
         //
         this.navbarCollapsed = p_navbarCollapsed;
     }
+    //
+    pages =[
+    {
+      'url' : '/Home',
+      'text': '[HOME]',
+    },
+    {
+      'url': '/Miscelaneous', 
+      'text': '[MISCELANEOUS]',
+    },  
+    {
+      'url': '/GamesWeb', 
+      'text': '[GAMES]',
+    },    
+    {
+      'url': '/AlgorithmWeb',
+      'text': '[ALGORITMOS]',
+    },
+    {
+      'url': '/FilesGenerationWeb', 
+      'text': '[GENERAR ARCHIVOS]',
+    },
+    {
+      'url' : '/AAboutWeb', 
+      'text': '[ACERCA DE]',
+    },    
+  ];
     //-----------------------------------------------------------------------------------------------------
     constructor(
-                private router              : Router, 
                 private _customErrorHandler : CustomErrorHandler, 
                 private mcsdService         : MCSDService, 
                 private _configService      : _ConfigService,
@@ -85,13 +102,11 @@ export class NavComponent {
       //
       let title : string = `${this._appName} - ${this._appVersion}`;
       //
-      console.log("Setting Title : " + title);
-      //
-      this._title = `${this._appName}`;
-      //
       this.titleService.setTitle(title);
       //
-      router.navigateByUrl("/Home");
+      console.log("Setting Title : " + title);
+      //
+      this._brand = `${this._appName}`;
     }   
     //-----------------------------------------------------------------------------------------------------
     ngOnInit() {

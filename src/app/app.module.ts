@@ -1,6 +1,6 @@
 import { Injectable, NgModule                       } from '@angular/core';
 import { APP_INITIALIZER,ErrorHandler, isDevMode    } from '@angular/core';
-import { CommonModule, DatePipe                     } from '@angular/common';
+import { DatePipe                        } from '@angular/common';
 import { ServiceWorkerModule             } from '@angular/service-worker';
 import { FormsModule                     } from '@angular/forms';
 import { MatListModule                   } from '@angular/material/list';
@@ -14,7 +14,7 @@ import { HttpClient, HttpClientModule    } from '@angular/common/http';
 import { HttpHandler, HttpInterceptor    } from '@angular/common/http';
 import { HttpRequest, HttpResponse       } from '@angular/common/http';
 import { HTTP_INTERCEPTORS               } from '@angular/common/http';
-import { RouterModule                    } from '@angular/router';
+import { RouterModule, Routes            } from '@angular/router';
 import { HashLocationStrategy            } from '@angular/common';
 import { LocationStrategy                } from '@angular/common';
 import { NgbModule                       } from '@ng-bootstrap/ng-bootstrap'
@@ -25,7 +25,6 @@ import { NavComponent                    } from './_modules/home/nav/nav.compone
 import { ContactComponent                } from './_modules/about/contact/contact.component';
 import { AAboutWebComponent              } from './_modules/about/a-about-web/a-about-web.component';
 import { TechnicalSpecsComponent         } from './_modules/about/technicalspecs/technical-specs/technical-specs.component';
-import { AngularTutorialsnWebComponent   } from './_modules/topics/angular-tutorialsn-web/angular-tutorialsn-web.component';
 import { FilesGenerationWebComponent     } from './_modules/files-generation/files-generation-web/files-generation-web.component';
 import { FilesGenerationXLSComponent     } from './_modules/files-generation/files-generation-xls/files-generation-xls.component';
 import { FilesGenerationCSVComponent     } from './_modules/files-generation/files-generation-csv/files-generation-csv.component';
@@ -52,13 +51,12 @@ import { UnitTestingComponent            } from './unit-testing/unit-testing.com
 import { finalize, tap                   } from 'rxjs';
 import { NgxSignaturePadModule           } from '@eve-sama/ngx-signature-pad';
 //
-const routes = [
+const routes : Routes = [
   {  path: 'Home'                  , component: HomeWebComponent                      },
   {  path: ''                      , component: HomeWebComponent                      },
   {  path: 'AAboutWeb'             , component: AAboutWebComponent                    },
   {  path: 'Contact'               , component: ContactComponent                      },
   {  path: 'TechnicalSpecs'        , component: TechnicalSpecsComponent               },
-  {  path: 'AngularTutorialsnWeb'  , component: AngularTutorialsnWebComponent         },
   {  path: 'AlgorithmWeb'          , component: AlgorithmWebComponent                 },
   {  path: 'AlgorithmRegEx'        , component: AlgorithmRegExComponent               },
   {  path: 'AlgorithmSort'         , component: AlgorithmSortComponent                },
@@ -137,7 +135,6 @@ export class CustomErrorHandler implements ErrorHandler {
         HomeWebComponent,
         ContactComponent,
         AAboutWebComponent,
-        AngularTutorialsnWebComponent,
         AlgorithmWebComponent,
         AlgorithmRegExComponent,
         AlgorithmSortComponent,
@@ -157,6 +154,7 @@ export class CustomErrorHandler implements ErrorHandler {
         ChatComponent,
         MiscelaneousComponent,
         NavComponent,
+        PageNotFoundComponent,
     ],
     exports: [RouterModule],
     providers: [

@@ -4,7 +4,6 @@ import { Title                         } from '@angular/platform-browser';
 import { CustomErrorHandler            } from './app.module';
 import { HomeWebComponent              } from './_modules/home/home-web/home-web.component';
 import { AlgorithmWebComponent         } from './_modules/algorithm/algorithm-web/algorithm-web.component';
-import { AngularTutorialsnWebComponent } from './_modules/topics/angular-tutorialsn-web/angular-tutorialsn-web.component';
 import { FilesGenerationWebComponent   } from './_modules/files-generation/files-generation-web/files-generation-web.component';
 import { AAboutWebComponent            } from './_modules/about/a-about-web/a-about-web.component';
 import { MCSDService                   } from './_services/mcsd.service';
@@ -22,11 +21,6 @@ export class AppComponent implements OnInit {
     public readonly _title                                       : string | undefined  = "";
     public readonly _appName                                     : string | undefined  = "";
     public readonly _appVersion                                  : string | undefined  = "";
-    public readonly HomeWebComponent_pageTitle                   : string  = HomeWebComponent.PageTitle;
-    public readonly AlgorithmWebComponent_pageTitle              : string  = AlgorithmWebComponent.PageTitle;
-    public readonly FilesGenerationWebComponent_pageTitle        : string  = FilesGenerationWebComponent.PageTitle;
-    public readonly AngularTutorialsnWebComponent_pageTitle      : string  = AngularTutorialsnWebComponent.PageTitle;
-    public readonly AAboutWebComponent_pageTitle                 : string  = AAboutWebComponent.PageTitle
     //
     private  navbarCollapsed                                     : boolean = true;
     //
@@ -50,6 +44,7 @@ export class AppComponent implements OnInit {
     {
       //
       console.log("Loading AppComponent...");
+      
       // IMPLEMENT AS MAP AND ITERATE
       let keyName  : string = '';
       let keyValue : string = '';

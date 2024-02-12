@@ -1,6 +1,7 @@
 import { Component            } from '@angular/core';
 import { CustomErrorHandler   } from '../../../app.module';
 import { MCSDService          } from '../../../_services/mcsd.service';
+import { _ConfigService       } from 'src/app/_services/-config.service';
 //
 @Component({
   selector    : 'app-home-web',
@@ -9,21 +10,32 @@ import { MCSDService          } from '../../../_services/mcsd.service';
 })
 export class HomeWebComponent {
   //
-  public  static get PageTitle()   : string {
-    return '[INDICE]';
-  }
+  public readonly _appName    : string = '';
+  public readonly _appVersion : string = '';
+  pageTitle                   : string = '[HOME]';
+  static PageTitle            : string = '[HOME]';
   //
-  public readonly pageTitle        : string = HomeWebComponent.PageTitle;
-  //
-  constructor(mcsdService : MCSDService, customErrorHandler : CustomErrorHandler)
+  constructor(mcsdService : MCSDService, private _configService: _ConfigService, customErrorHandler : CustomErrorHandler)
   {
       //
-      console.log(HomeWebComponent.PageTitle + " - [INGRESO]") ;
+      console.log(this.pageTitle + " - [INGRESO]") ;
       //
       if (mcsdService._baseUrlNetCore != null)
       {
         //
         mcsdService.SetLog(this.pageTitle,"PAGE_ANGULAR_DEMO_INDEX");
       }
+      // IMPLEMENT AS MAP AND ITERATE
+      let keyName  : string = '';
+      let keyValue : string = '';
+      //
+      keyName  = 'appName';
+      keyValue = this._configService.getConfigValue(keyName);
+      //
+      this._appName = keyValue;
+      //
+      keyName          = 'appVersion';
+      keyValue         = this._configService.getConfigValue(keyName);
+      this._appVersion = keyValue;
   }
 }
