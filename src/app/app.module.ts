@@ -21,6 +21,7 @@ import { NgbModule                       } from '@ng-bootstrap/ng-bootstrap'
 import { AppComponent                    } from './app.component';
 import { HomeWebComponent                } from './_modules/home/home-web/home-web.component';
 import { PageNotFoundComponent           } from './_modules/home/page-not-found/page-not-found.component';
+import { NavComponent                    } from './_modules/home/nav/nav.component';
 import { ContactComponent                } from './_modules/about/contact/contact.component';
 import { AAboutWebComponent              } from './_modules/about/a-about-web/a-about-web.component';
 import { TechnicalSpecsComponent         } from './_modules/about/technicalspecs/technical-specs/technical-specs.component';
@@ -155,6 +156,7 @@ export class CustomErrorHandler implements ErrorHandler {
         OcrComponent,
         ChatComponent,
         MiscelaneousComponent,
+        NavComponent,
     ],
     exports: [RouterModule],
     providers: [
