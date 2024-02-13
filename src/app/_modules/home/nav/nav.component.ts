@@ -19,7 +19,6 @@ export class NavComponent {
     public readonly _appVersion                                  : string | undefined  = "";
     //
     public  _navbarCollapsed                                     : boolean = true;
-    static  navbarCollapsed                                      : boolean;
     //
     public get _NavbarCollapsed() : boolean {
       //

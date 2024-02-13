@@ -29,12 +29,16 @@ export class OcrComponent implements OnInit {
   //
   public defaultStatusBotton : string = '[Parse]'
   //
+  public defaultStatus       : string = '[Draw a letter on the pad]'
+  //
   constructor(public mcsdService : MCSDService)
   {
       //
   }
   ngOnInit(): void {
-     NavComponent.navbarCollapsed = true;
+     //NavComponent.navbarCollapsed = true;
+     this.statusButton = this.defaultStatusBotton;
+     this.status       = this.defaultStatus;
   }
   /** The begin event of sign */
   onBeginSign(): void { }
@@ -59,7 +63,7 @@ export class OcrComponent implements OnInit {
      // PNG
      this.signature?.clear();
      //
-     this.status = "";
+     this.status       = this.defaultStatus;;
      //
      this.statusButton = this.defaultStatusBotton;
   }
@@ -82,6 +86,8 @@ export class OcrComponent implements OnInit {
         this.status = error;
         //
         this.statusButton = this.defaultStatusBotton;
+        //
+        this.status       = this.defaultStatus;
       }
     );
   }
