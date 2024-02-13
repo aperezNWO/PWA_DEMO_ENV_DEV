@@ -7,7 +7,7 @@ import { Chart, registerables                          } from 'chart.js';
 import { MCSDService                                   } from '../../../_services/mcsd.service';
 import { CustomErrorHandler                            } from '../../../app.module';
 import { PersonEntity, SearchCriteria, _languageName   } from '../../../_models/entityInfo.model';
-import { PdfService                                    } from 'src/app/_services/pdf-service.service';
+import { PdfService                                    } from 'src/app/_engines/pdf.engine';
 //
 @Component({
   selector: 'app-files-generation-csv',

@@ -6,7 +6,7 @@ import { LogEntry,SearchCriteria, _languageName        } from '../../../_models/
 import { MCSDService                                   } from '../../../_services/mcsd.service';
 import { CustomErrorHandler                            } from '../../../app.component';
 import { UtilManager                                   } from 'src/app/_engines/util.engine';
-import { PdfService                                    } from 'src/app/_services/pdf-service.service';
+import { PdfService                                    } from 'src/app/_engines/pdf.engine';
 import { Observable                                    } from 'rxjs';
 import { Chart, registerables                          } from 'chart.js';
 //

@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Observable                                  } from 'rxjs';
 import { _languageName, _vertexSize                  } from 'src/app/_models/entityInfo.model';
-import { PdfService                                  } from 'src/app/_services/pdf-service.service';
+import { PdfService                                  } from 'src/app/_engines/pdf.engine';
 import { UtilManager                                 } from 'src/app/_engines/util.engine';
 import { MCSDService                                 } from '../../../_services/mcsd.service';
 import { CustomErrorHandler                          } from '../../../app.module';

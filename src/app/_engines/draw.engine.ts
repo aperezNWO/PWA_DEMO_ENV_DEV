@@ -53,8 +53,8 @@ export class DrawEngine
             this._context.fillRect(x, y, length, height);
         }
     }
-  //
-  DrawPoint(pointName : string, x : number, y : number, strokeStyle : string) : void {
+    //
+    DrawPoint(pointName : string, x : number, y : number, strokeStyle : string) : void {
     //--------------------------
     // Escalar coordenadas
     //--------------------------
@@ -85,9 +85,9 @@ export class DrawEngine
     this._context.font      = "x-small Arial";
     this._context.fillText(fullPointName, (x + (this.rectSize / 2)), (this.screenSize - y));
     //
-  }
-   //
-   DrawPoints(points : string [], strokeStyle : string) : void {
+    }
+    //
+    DrawPoints(points : string [], strokeStyle : string) : void {
     //
     let index  : number;
     //
@@ -106,9 +106,9 @@ export class DrawEngine
         //
         this.DrawPoint(index.toString(), coordinate_x, coordinate_y, strokeStyle);
     }
-  }
-  //
-  DrawLine(x1 : number, y1 : number, x2 : number, y2 : number):void {
+    }
+    //
+    DrawLine(x1 : number, y1 : number, x2 : number, y2 : number):void {
     //--------------------------
     // Escalar coordenadas
     //--------------------------
@@ -126,9 +126,9 @@ export class DrawEngine
     //--------------------------
     this._context.moveTo(x1, _y1);
     this._context.lineTo(x2, _y2);
-  }
-  //
-  DrawLines(pointArray : string[], matrixArray : string[], strokeStyle : string, drawingSubSet : Boolean, PointListHidden : string) : void {
+    }
+    //
+    DrawLines(pointArray : string[], matrixArray : string[], strokeStyle : string, drawingSubSet : Boolean, PointListHidden : string) : void {
     //
     //console.log("DRAWING_LINES");
     //--------------------------------------------------------------------------
@@ -218,5 +218,5 @@ export class DrawEngine
     //
     this._context.strokeStyle = strokeStyle;
     this._context.stroke();
-  }
+    }
 }

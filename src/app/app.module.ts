@@ -24,6 +24,7 @@ import { PageNotFoundComponent           } from './_modules/home/page-not-found/
 import { NavComponent                    } from './_modules/home/nav/nav.component';
 import { ContactComponent                } from './_modules/about/contact/contact.component';
 import { AAboutWebComponent              } from './_modules/about/a-about-web/a-about-web.component';
+import { TopicsComponent                 } from './_modules/about/topics/topics.component';
 import { TechnicalSpecsComponent         } from './_modules/about/technicalspecs/technical-specs/technical-specs.component';
 import { FilesGenerationWebComponent     } from './_modules/files-generation/files-generation-web/files-generation-web.component';
 import { FilesGenerationXLSComponent     } from './_modules/files-generation/files-generation-xls/files-generation-xls.component';
@@ -44,12 +45,13 @@ import { TowerComponent                  } from './_modules/games/game-hanoi/tow
 import { OcrComponent                    } from './_modules/miscelaneous/ocr/ocr.component';
 import { ChatComponent                   } from './_modules/miscelaneous/chat/chat/chat.component';
 import { MiscelaneousComponent           } from './_modules/miscelaneous/miscelaneous/miscelaneous.component';
+import { UnitTestingComponent            } from './_modules/_unitttesting/unit-testing.component';
 import { LogType                         } from './_models/entityInfo.model';
 import { MCSDService                     } from './_services/mcsd.service';
 import { _ConfigService                  } from './_services/-config.service';
-import { UnitTestingComponent            } from './unit-testing/unit-testing.component';
 import { finalize, tap                   } from 'rxjs';
 import { NgxSignaturePadModule           } from '@eve-sama/ngx-signature-pad';
+
 //
 const routes : Routes = [
   {  path: 'Home'                  , component: HomeWebComponent                      },
@@ -57,6 +59,7 @@ const routes : Routes = [
   {  path: 'AAboutWeb'             , component: AAboutWebComponent                    },
   {  path: 'Contact'               , component: ContactComponent                      },
   {  path: 'TechnicalSpecs'        , component: TechnicalSpecsComponent               },
+  {  path: 'Topics'                , component: TopicsComponent                       },
   {  path: 'AlgorithmWeb'          , component: AlgorithmWebComponent                 },
   {  path: 'AlgorithmRegEx'        , component: AlgorithmRegExComponent               },
   {  path: 'AlgorithmSort'         , component: AlgorithmSortComponent                },
@@ -155,6 +158,7 @@ export class CustomErrorHandler implements ErrorHandler {
         MiscelaneousComponent,
         NavComponent,
         PageNotFoundComponent,
+        TopicsComponent,
     ],
     exports: [RouterModule],
     providers: [
