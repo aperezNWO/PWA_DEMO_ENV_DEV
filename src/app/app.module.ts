@@ -46,37 +46,17 @@ import { OcrComponent                    } from './_modules/miscelaneous/ocr/ocr
 import { ChatComponent                   } from './_modules/miscelaneous/chat/chat/chat.component';
 import { MiscelaneousComponent           } from './_modules/miscelaneous/miscelaneous/miscelaneous.component';
 import { UnitTestingComponent            } from './_modules/_unitttesting/unit-testing.component';
+import { AppRoutingModule                } from './app-routing.module';
 import { LogType                         } from './_models/entityInfo.model';
 import { MCSDService                     } from './_services/mcsd.service';
 import { _ConfigService                  } from './_services/-config.service';
 import { finalize, tap                   } from 'rxjs';
 import { NgxSignaturePadModule           } from '@eve-sama/ngx-signature-pad';
 
+
 //
 const routes : Routes = [
-  {  path: 'Home'                  , component: HomeWebComponent                      },
-  {  path: ''                      , component: HomeWebComponent                      },
-  {  path: 'AAboutWeb'             , component: AAboutWebComponent                    },
-  {  path: 'Contact'               , component: ContactComponent                      },
-  {  path: 'TechnicalSpecs'        , component: TechnicalSpecsComponent               },
-  {  path: 'Topics'                , component: TopicsComponent                       },
-  {  path: 'AlgorithmWeb'          , component: AlgorithmWebComponent                 },
-  {  path: 'AlgorithmRegEx'        , component: AlgorithmRegExComponent               },
-  {  path: 'AlgorithmSort'         , component: AlgorithmSortComponent                },
-  {  path: 'AlgorithmDijkstra'     , component: AlgorithmDijkstraComponent            },
-  {  path: 'FilesGenerationWeb'    , component: FilesGenerationWebComponent           },
-  {  path: 'FilesGenerationXLS'    , component: FilesGenerationXLSComponent           },
-  {  path: 'FilesGenerationCSV'    , component: FilesGenerationCSVComponent           },
-  {  path: 'FilesGenerationPDF'    , component: FilesGenerationPDFComponent           },
-  {  path: 'FilesGenerationZIP'    , component: FilesGenerationZIPComponent           },         
-  {  path: 'GamesSudoku'           , component: SudokuComponent                       },
-  {  path: 'GamesTicTacToe'        , component: GameTictactoeComponent                },
-  {  path: 'GamesHanoi'            , component: HanoiTowersComponent                  },
-  {  path: 'GamesWeb'              , component: GameWebComponent                      },
-  {  path: 'Chat'                  , component: ChatComponent                         },
-  {  path: 'Ocr'                   , component: OcrComponent                          },
-  {  path: 'Miscelaneous'          , component: MiscelaneousComponent                 },
-  {  path: '**'                    , component: PageNotFoundComponent                 },
+ 
 ];
 //
 export function initialize(_configService: _ConfigService) {
@@ -193,8 +173,9 @@ export class CustomErrorHandler implements ErrorHandler {
         BoardComponent,
         SquareComponent,
         TowerComponent,
-        RouterModule,
-        RouterModule.forRoot(routes, { useHash: true }),
+        AppRoutingModule,
+        //RouterModule,
+        //RouterModule.forRoot(routes, { useHash: true }),
         ServiceWorkerModule.register('ngsw-worker.js', {
           enabled: !isDevMode(),
           // Register the ServiceWorker as soon as the application is stable
@@ -208,7 +189,7 @@ export class AppModule {
     //-----------------------------------------------------------------------------------------------------
     constructor(public customErrorHandler : CustomErrorHandler, 
                 public loggingInterceptor : LoggingInterceptor,
-                public mcsdService : MCSDService,) 
+                public mcsdService        : MCSDService,) 
     {
       //
     }

@@ -1,24 +1,28 @@
-import { Component            } from '@angular/core';
+import { Component, OnInit, ViewChild            } from '@angular/core';
 import { CustomErrorHandler   } from '../../../app.module';
 import { MCSDService          } from '../../../_services/mcsd.service';
 import { _ConfigService       } from 'src/app/_services/-config.service';
+import { NavComponent } from '../nav/nav.component';
 //
 @Component({
   selector    : 'app-home-web',
   templateUrl : './home-web.component.html',
   styleUrls   : ['./home-web.component.css']
 })
-export class HomeWebComponent {
+export class HomeWebComponent implements OnInit {
   //
   public readonly _appName    : string = '';
   public readonly _appVersion : string = '';
   pageTitle                   : string = '[HOME]';
   static PageTitle            : string = '[HOME]';
+  @ViewChild('nav') nav!      : NavComponent;
   //
   constructor(mcsdService : MCSDService, private _configService: _ConfigService, customErrorHandler : CustomErrorHandler)
   {
       //
       console.log(this.pageTitle + " - [INGRESO]") ;
+      //
+      //this.nav._NavbarCollapsed = true;
       //
       if (mcsdService._baseUrlNetCore != null)
       {
@@ -37,5 +41,10 @@ export class HomeWebComponent {
       keyName          = 'appVersion';
       keyValue         = this._configService.getConfigValue(keyName);
       this._appVersion = keyValue;
+  }
+  //
+  ngOnInit(): void {
+    //
+    this.nav._NavbarCollapsed = false;
   }
 }
