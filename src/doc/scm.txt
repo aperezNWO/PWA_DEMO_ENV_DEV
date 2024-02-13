@@ -215,3 +215,5 @@ npm install @eve-sama/ngx-signature-pad --force
 -- [_] npm update --force 
 -- [_] npm install @angular/pwa 
 -- [_] ng add @angular/pwa --project=AngularDijkstra 
+
+/////////////////////////////////////////////////////////////////

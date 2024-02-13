@@ -3,7 +3,7 @@ import { MCSDService                                 } from '../../../_services/
 import { CustomErrorHandler                          } from '../../../app.module';
 import { Observable                                  } from 'rxjs';
 import { SortInfo, _languageName                     } from 'src/app/_models/entityInfo.model';
-import { DrawEngine } from 'src/app/_models/draw-engine.model';
+import { DrawEngine } from 'src/app/_engines/draw.engine';
 //
 @Component({
   selector: 'app-algorithm-sort',

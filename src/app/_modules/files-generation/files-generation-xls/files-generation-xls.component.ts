@@ -5,7 +5,7 @@ import { MatPaginator                                  } from '@angular/material
 import { LogEntry,SearchCriteria, _languageName        } from '../../../_models/entityInfo.model';
 import { MCSDService                                   } from '../../../_services/mcsd.service';
 import { CustomErrorHandler                            } from '../../../app.component';
-import { UtilManager                                   } from 'src/app/_models/util-manager.model';
+import { UtilManager                                   } from 'src/app/_engines/util.engine';
 import { PdfService                                    } from 'src/app/_services/pdf-service.service';
 import { Observable                                    } from 'rxjs';
 import { Chart, registerables                          } from 'chart.js';

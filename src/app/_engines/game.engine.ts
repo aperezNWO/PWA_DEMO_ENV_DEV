@@ -11,8 +11,8 @@ export class TicTacToeEngine
     private            whoseTurn    : number  = this.HUMAN;
     private            moveIndex    : number  = 0;    
     private            board        : ('X' | 'O' | null)[][] = [];
-    public             winner       : ('X' | 'O' | null)    = null;
-    public             squares      : ('X' | 'O' | null)[]  = Array(this.boardSurface).fill(null);
+    public             winner       : ('X' | 'O' | null)     = null;
+    public             squares      : ('X' | 'O' | null)[]   = Array(this.boardSurface).fill(null);
     public             message      : string = '';
     //    
     constructor()

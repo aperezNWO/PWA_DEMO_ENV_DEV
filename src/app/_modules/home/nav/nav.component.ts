@@ -1,5 +1,4 @@
 import { Component, OnInit, VERSION    } from '@angular/core';
-import { Router                        } from '@angular/router';
 import { Title                         } from '@angular/platform-browser';
 import { CustomErrorHandler            } from 'src/app/app.component';
 import { MCSDService                   } from 'src/app/_services/mcsd.service';
@@ -19,16 +18,17 @@ export class NavComponent {
     public readonly _appName                                     : string | undefined  = "";
     public readonly _appVersion                                  : string | undefined  = "";
     //
-    private  navbarCollapsed                                     : boolean = true;
+    public  _navbarCollapsed                                     : boolean = true;
+    static  navbarCollapsed                                      : boolean;
     //
-    public get NavbarCollapsed() : boolean {
+    public get _NavbarCollapsed() : boolean {
       //
-      return this.navbarCollapsed;
+      return this._navbarCollapsed;
     }
     //
-    public set NavbarCollapsed(p_navbarCollapsed: boolean) {
+    public set _NavbarCollapsed(p_navbarCollapsed: boolean) {
         //
-        this.navbarCollapsed = p_navbarCollapsed;
+        this._navbarCollapsed = p_navbarCollapsed;
     }
     //
     pages =[

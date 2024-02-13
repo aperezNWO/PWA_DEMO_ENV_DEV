@@ -35,5 +35,5 @@ export class UtilManager
             }
             //
             return strMsg;
-        };
+    };
 }

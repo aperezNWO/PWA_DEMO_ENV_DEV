@@ -12,13 +12,13 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse"     
           data-target="#navbarItems" aria-controls="navbarItems"                
           aria-expanded="false" aria-label="Toggle navigation" 
-          (click)="this.NavbarCollapsed = !this.NavbarCollapsed">
+          (click)="this._NavbarCollapsed = !this._NavbarCollapsed">
           <span class="navbar-toggler-icon"></span>
         </button>
         <!--fin menu toogle -->
         <!-- menu items inicio -->
         <div class="collapse navbar-collapse subtitle" id="navbarItems" #navbarItems
-            [ngbCollapse]="this.NavbarCollapsed">
+            [ngbCollapse]="this._NavbarCollapsed">
             <ul class="navbar-nav" *ngFor="let page of pages">
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/{{page.url}}"><span>{{page.text}}</span></a>
