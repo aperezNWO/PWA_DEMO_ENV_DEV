@@ -87,7 +87,7 @@ export class LoggingInterceptor implements HttpInterceptor {
         finalize(() => {
           const elapsed = Date.now() - started;
           const msg = `${req.method} "${req.urlWithParams}" ${ok} in ${elapsed} ms.`;
-          console.warn(' [REQUESTIN URL (INTERCEPT)] : ' + msg);
+          console.warn(' [REQUESTING URL (INTERCEPT)] : ' + msg);
         })
       );
   }
