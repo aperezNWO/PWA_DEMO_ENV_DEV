@@ -8,4 +8,5 @@ import { Component } from '@angular/core';
 //
 export class TopicsComponent {
     //
+    pageTitle : string = '[TOPICS]';
 }
