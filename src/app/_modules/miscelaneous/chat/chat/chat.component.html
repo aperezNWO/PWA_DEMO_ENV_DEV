@@ -1,8 +1,5 @@
 <h1>[CHAT]</h1>
 <hr/>
-<h4>[MESSAGES]</h4>
-<!-- MESSAGES / INICIO -->
-<hr>
 <div id="divMessageInput" align="left">
 <form #messageinputform="ngForm" (ngSubmit)="submitForm(messageinputform);">
         <div class="form-group">        
@@ -20,6 +17,8 @@
 </form>
 </div>
 <hr>
+<h4>[MESSAGES]</h4>
+<!-- MESSAGES / INICIO -->
 <div id="divMessageOutput">
         <table class="message-data" *ngFor="let message of this.parentData">
         <tr>

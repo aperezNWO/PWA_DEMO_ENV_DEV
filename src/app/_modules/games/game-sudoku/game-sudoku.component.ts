@@ -1,6 +1,6 @@
 import { Component, OnInit            } from '@angular/core';
 import { ViewChild, AfterViewInit     } from '@angular/core';
-import { FormBuilder, Validators      } from '@angular/forms';
+import { FormBuilder, NgForm, Validators      } from '@angular/forms';
 import { HttpEventType, HttpResponse  } from '@angular/common/http';
 import { Observable                   } from 'rxjs';
 import { MCSDService                  } from 'src/app/_services/mcsd.service';
@@ -405,4 +405,16 @@ export class SudokuComponent implements OnInit, AfterViewInit {
       }
     );
   }
+  //
+  submitForm(form: NgForm) {
+    if (form.valid) {
+      // Handle form submission logic
+      console.log(form.value); // Access form values
+      //
+      let name    = form.value['txtName'];
+      let message = form.value['txtMessage'];
+      //
+      //this.sendMessage(name,message);
+    }
+    }
 }

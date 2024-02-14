@@ -110,4 +110,21 @@
 </div>
 <!--- BUTTONS / FIN -->
 <hr />
+<!--
+<form #messageinputform="ngForm" (ngSubmit)="submitForm(messageinputform);">
+    <div class="form-group">        
+    <label for="txtName">Your Name:</label>
+    <input type="text" #_txtName  id="txtName" name="txtName" maxlength="10" ngModel required>
+    </div>
+    <div class="form-group">        
+    <label for="txtMessage">Your Message :</label>
+    <input type="text" #_txtMessage id="txtMessage" name="txtMessage"  maxlength="25" ngModel required>
+    </div>
+    <div class="form-group" align="left" *ngIf="(messageinputform.valid==false) && (messageinputform.submitted)">
+            Pleae enter all fields
+    </div>
+    <input type="submit" value="[SEND MESSAGE]">
+</form>
+-->
+<hr />
 <a routerLink="/GamesWeb">[Volver al Menú]</a>    
