@@ -19,7 +19,7 @@ import { _ConfigService                } from './_services/-config.service';
 export class AppComponent implements OnInit {
     // propiedades publicas
     public readonly _title                                       : string | undefined  = "";
-    public readonly _appName                                     : string | undefined  = "";
+    public readonly _appBrand                                    : string | undefined  = "";
     public readonly _appVersion                                  : string | undefined  = "";
     //
     private  navbarCollapsed                                     : boolean = true;
@@ -49,10 +49,10 @@ export class AppComponent implements OnInit {
       let keyName  : string = '';
       let keyValue : string = '';
       //
-      keyName  = 'appName';
+      keyName  = 'appBrand';
       keyValue = this._configService.getConfigValue(keyName);
       //
-      this._appName = keyValue;
+      this._appBrand  = keyValue;
       //
       keyName          = 'appVersion';
       keyValue         = this._configService.getConfigValue(keyName);
@@ -78,11 +78,11 @@ export class AppComponent implements OnInit {
       ///////////////////////////////////////////////////////
       this.mcsdService._SetSTATBarCache(__baseUrlNetCore);
       //
-      let title : string = `${this._appName} - ${this._appVersion}`;
+      let title : string = `${this._appBrand} - ${this._appVersion}`;
       //
       console.log("Setting Title : " + title);
       //
-      this._title = `${this._appName}`;
+      this._title = `${this._appBrand}`;
       //
       this.titleService.setTitle(title);
       //

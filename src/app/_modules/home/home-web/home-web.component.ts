@@ -11,10 +11,9 @@ import { NavComponent } from '../nav/nav.component';
 })
 export class HomeWebComponent implements OnInit {
   //
-  public readonly _appName    : string = '';
-  public readonly _appVersion : string = '';
-  pageTitle                   : string = '[HOME]';
-  static PageTitle            : string = '[HOME]';
+  public _appBrand            : string | undefined = '';
+  pageTitle                   : string             = '[HOME]';
+  static PageTitle            : string             = '[HOME]';
   @ViewChild('nav') nav!      : NavComponent;
   //
   constructor(mcsdService : MCSDService, private _configService: _ConfigService, customErrorHandler : CustomErrorHandler)
@@ -22,29 +21,16 @@ export class HomeWebComponent implements OnInit {
       //
       console.log(this.pageTitle + " - [INGRESO]") ;
       //
-      //this.nav._NavbarCollapsed = true;
-      //
       if (mcsdService._baseUrlNetCore != null)
       {
         //
         mcsdService.SetLog(this.pageTitle,"PAGE_ANGULAR_DEMO_INDEX");
       }
-      // IMPLEMENT AS MAP AND ITERATE
-      let keyName  : string = '';
-      let keyValue : string = '';
       //
-      keyName  = 'appName';
-      keyValue = this._configService.getConfigValue(keyName);
-      //
-      this._appName = keyValue;
-      //
-      keyName          = 'appVersion';
-      keyValue         = this._configService.getConfigValue(keyName);
-      this._appVersion = keyValue;
+      this._appBrand  = this._configService.getConfigValue('appBrand');;
   }
   //
   ngOnInit(): void {
     //
-    this.nav._NavbarCollapsed = false;
   }
 }

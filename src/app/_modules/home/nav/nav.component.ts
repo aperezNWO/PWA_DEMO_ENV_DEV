@@ -13,9 +13,9 @@ import { _ConfigService                } from 'src/app/_services/-config.service
 export class NavComponent {
 
     // propiedades publicas
-    public readonly _brand                                       : string | undefined  = "";
+    public readonly _appBrand                                    : string | undefined  = "";
     public readonly _title                                       : string | undefined  = "";
-    public readonly _appName                                     : string | undefined  = "";
+    public readonly _appEnv                                      : string | undefined  = "";
     public readonly _appVersion                                  : string | undefined  = "";
     //
     public  _navbarCollapsed                                     : boolean = true;
@@ -70,10 +70,13 @@ export class NavComponent {
       let keyName  : string = '';
       let keyValue : string = '';
       //
-      keyName  = 'appName';
-      keyValue = this._configService.getConfigValue(keyName);
+      keyName        = 'appBrand';
+      keyValue       = this._configService.getConfigValue(keyName);
+      this._appBrand = keyValue;
       //
-      this._appName = keyValue;
+      keyName        = 'appEnv';
+      keyValue       = this._configService.getConfigValue(keyName);
+      this._appEnv   = keyValue;
       //
       keyName          = 'appVersion';
       keyValue         = this._configService.getConfigValue(keyName);
@@ -99,13 +102,11 @@ export class NavComponent {
       ///////////////////////////////////////////////////////
       this.mcsdService._SetSTATBarCache(__baseUrlNetCore);
       //
-      let title : string = `${this._appName} - ${this._appVersion}`;
+      let title : string = `${this._appBrand} -- ${this._appEnv} -- ${this._appVersion}`;
       //
       this.titleService.setTitle(title);
       //
       console.log("Setting Title : " + title);
-      //
-      this._brand = `${this._appName}`;
     }   
     //-----------------------------------------------------------------------------------------------------
     ngOnInit() {

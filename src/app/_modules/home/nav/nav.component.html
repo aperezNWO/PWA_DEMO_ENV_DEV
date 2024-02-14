@@ -4,7 +4,7 @@
         <!-- inicio brand -->
         <a class="navbar-brand" href="#">
             <div class="subtitle">
-              <h2>{{this._brand}}</h2>
+              <h2>{{this._appBrand}}</h2>
             </div>
         </a>
         <!-- fin brand -->
@@ -18,10 +18,10 @@
         <!--fin menu toogle -->
         <!-- menu items inicio -->
         <div class="collapse navbar-collapse subtitle" id="navbarItems" #navbarItems
-            [ngbCollapse]="this._NavbarCollapsed">
+            [ngbCollapse]="this._NavbarCollapsed" align="left">
             <ul class="navbar-nav" *ngFor="let page of pages">
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/{{page.url}}" (click)="this._navbarCollapsed = true;"><span>{{page.text}}</span></a>
+                    <a class="nav-link" routerLink="/{{page.url}}" (click)="this._navbarCollapsed = true;"><div align="left">{{page.text}}</div></a>
                 </li>
             </ul>
         </div>
@@ -36,7 +36,7 @@
 <hr/>
 <footer>
 <div class="footer">
-    <h5>Aplication Name    : {{this._appName}}</h5>
+    <h5>Aplication Name    : {{this._appBrand}}</h5>
     <h5>Aplication Version : {{this._appVersion}}</h5>
 </div>
 </footer>
