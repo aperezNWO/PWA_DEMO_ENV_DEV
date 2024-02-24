@@ -35,18 +35,18 @@
     </div>
     <!-- GENERERAR DESDE ... / FIN    -->
     <!-- LISTADO LENGUAJE / INICIO  -->    
-        <div  class="form-group" id="LangListDiv" align="left">
-            <label for="LanguajeList"><span id="tituloListadoLenguajes">{{this.tituloListadoLenguajes}}</span></label>
-            <select id="LanguageList"
-                    name="LanguajeList"
-                    #_languajeList
-                    (change)="this._cppSourceDivHiddenChanged()">
-                    <option *ngFor="let _languageName of __languajeList" 
-                            [value]   ="_languageName._index"
-                            [selected]="_languageName._selected">{{_languageName._value}}
-                    </option>
-            </select>
-        </div>
+    <div  class="form-group" id="LangListDiv" align="left">
+        <label for="LanguajeList"><span id="tituloListadoLenguajes">{{this.tituloListadoLenguajes}}</span></label>
+        <select id="LanguageList"
+                name="LanguajeList"
+                #_languajeList
+                (change)="this._cppSourceDivHiddenChanged()">
+                <option *ngFor="let _languageName of __languajeList" 
+                        [value]   ="_languageName._index"
+                        [selected]="_languageName._selected">{{_languageName._value}}
+                </option>
+        </select>
+    </div>
     <hr>
     <!-- listado lenguaje / fin       --> 
     <!-- FILE UPLOAD         / INICIO -->
