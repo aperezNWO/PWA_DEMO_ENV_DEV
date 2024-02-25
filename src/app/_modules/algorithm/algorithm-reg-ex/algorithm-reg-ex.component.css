@@ -1,21 +1,4 @@
-    /*------------------------------------------------*/
-    /* ESTILO PARA AREA DE XML                        */
-    /*------------------------------------------------*/
-    #global 
-    {
-        width         : 350px;
-        height        : 100px;
-        border        : 1px solid #ddd;
-        background    : #cccccc;
-        color         : #0000ff;
-        overflow-y    : scroll;
-    }
-    #mensajes 
-    {
-        height: auto;
-    }
-
-    /*------------------------------------------------*/
+     /*------------------------------------------------*/
     /* ESTILO PARA FORMJLARIO                         */
     /*------------------------------------------------*/
     .form-group {
@@ -43,4 +26,22 @@
         /* Adjust width and other styles as needed */
         flex: 1; /* Grow input fields to fill remaining space */
     }
+    /*------------------------------------------------*/
+    /* ESTILO PARA AREA DE XML                        */
+    /*------------------------------------------------*/
+    #global 
+    {
+        width         : 350px;
+        height        : 100px;
+        border        : 1px solid #ddd;
+        background    : #cccccc;
+        color         : #0000ff;
+        overflow-y    : scroll;
+    }
+    #mensajes 
+    {
+        height: auto;
+    }
+
+   
     
