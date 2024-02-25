@@ -3,8 +3,8 @@
     /*------------------------------------------------*/
     #global 
     {
+        width         : 350px;
         height        : 100px;
-        width         : 300px;
         border        : 1px solid #ddd;
         background    : #cccccc;
         color         : #0000ff;
@@ -19,11 +19,11 @@
     /* ESTILO PARA FORMJLARIO                         */
     /*------------------------------------------------*/
     .form-group {
-        background-color: #ccc;
-        width:300px;
+        width:350px;
         margin-bottom: 1em;
         display: flex;
         align-items: center;
+        background-color: #ccc;
     }
   
     label {

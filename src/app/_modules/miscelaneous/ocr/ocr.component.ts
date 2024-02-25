@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild     } from '@angular/core';
-import { NgxSignaturePadComponent } from '@eve-sama/ngx-signature-pad/lib/ngx-signature-pad.component';
-import { NgxSignatureOptions      } from '@eve-sama/ngx-signature-pad/lib/types/ngx-signature-pad';
-import { MCSDService              } from 'src/app/_services/mcsd.service';
-import { NavComponent } from '../../home/nav/nav.component';
+import { NgxSignaturePadComponent         } from '@eve-sama/ngx-signature-pad/lib/ngx-signature-pad.component';
+import { NgxSignatureOptions              } from '@eve-sama/ngx-signature-pad/lib/types/ngx-signature-pad';
+import { MCSDService                      } from 'src/app/_services/mcsd.service';
+import { NavComponent                     } from '../../home/nav/nav.component';
+
 //
 @Component({
   selector: 'app-ocr',
@@ -11,6 +12,8 @@ import { NavComponent } from '../../home/nav/nav.component';
 })
 //
 export class OcrComponent implements OnInit {
+  //
+  @ViewChild('nav') nav!           : NavComponent;
   /** Catch object, call functions via instance object */
   @ViewChild('signature') signature: NgxSignaturePadComponent | undefined;
   /** You can see more introduction in the below about NgxSignatureOptions */
@@ -36,9 +39,11 @@ export class OcrComponent implements OnInit {
       //
   }
   ngOnInit(): void {
-     //NavComponent.navbarCollapsed = true;
+     //
      this.statusButton = this.defaultStatusBotton;
      this.status       = this.defaultStatus;
+     //
+     this.nav._NavbarCollapsed = true;
   }
   /** The begin event of sign */
   onBeginSign(): void { }
@@ -83,7 +88,7 @@ export class OcrComponent implements OnInit {
         //
         console.error('Error uploading image:', error);
         //
-        this.status = error;
+        this.status       = error;
         //
         this.statusButton = this.defaultStatusBotton;
         //
