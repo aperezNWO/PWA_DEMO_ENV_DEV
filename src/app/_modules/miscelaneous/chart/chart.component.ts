@@ -17,7 +17,8 @@ export class ChartComponent implements OnInit  {
     // PROPIEDADES COMUNES
     //--------------------------------------------------------------------------
     //
-    pdf_message                                     : string = '';  
+    pdf_message_csv                                    : string = '';  
+    pdf_message_xls                                    : string = '';  
     //--------------------------------------------------------------------------
     // PROPIEDADES - ESTADISTICA
     //--------------------------------------------------------------------------
@@ -236,16 +237,15 @@ export class ChartComponent implements OnInit  {
     GetPDF(P_fileName : string):void
     {
         //
-        this.pdf_message = '[...Generando PDF...]'
+        (P_fileName == '[PIE CHART]')? this.pdf_message_csv = '[...Generando PDF...]' : this.pdf_message_xls = '[...Generando PDF...]'
         //
-        let fileName         : string     = P_fileName;
         let fileName_output  : string     = '';
         //
         this.pdfService._GetPDF(
           P_fileName,
-          this.canvas_csv,
-          this.divPieChart_CSV,
-          fileName,
+          (P_fileName == '[PIE CHART]')? this.canvas_csv      : this.canvas_xls,
+          (P_fileName == '[PIE CHART]')? this.divPieChart_CSV : this.divPieChart_xls,
+          P_fileName,
         ).subscribe(
         {
             next: (fileName: string) =>{
@@ -254,11 +254,13 @@ export class ChartComponent implements OnInit  {
             },
             error: (error: Error) => {
                 //
-                this.pdf_message   = 'ha ocurrido un error : ' + error.message;
+                let msg = 'ha ocurrido un error : ' + error.message;
+                (P_fileName == '[PIE CHART]')? this.pdf_message_csv   = msg : this.pdf_message_xls   = msg;
             },
             complete: () => {
                 //
-                this.pdf_message   = `Se ha generado el archivo [${fileName_output}]`;
+                let msg = `Se ha generado el archivo [${fileName_output}]`;
+                (P_fileName == '[PIE CHART]')? this.pdf_message_csv  = msg : this.pdf_message_xls    = msg;
             }
           }
         );
