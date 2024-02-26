@@ -44,6 +44,7 @@ const routes: Routes = [
   {  path: 'GamesHanoi'            , component: HanoiTowersComponent                  },
   {  path: 'GamesWeb'              , component: GameWebComponent                      },
   {  path: 'Chat'                  , component: ChatComponent                         },
+  {  path: 'Chart'                 , component: ChatComponent                         },
   {  path: 'Ocr'                   , component: OcrComponent                          },
   {  path: 'Miscelaneous'          , component: MiscelaneousComponent                 },
   {  path: '**'                    , component: PageNotFoundComponent                 },

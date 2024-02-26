@@ -46,18 +46,8 @@ export class AppComponent implements OnInit {
       console.log("Loading AppComponent...");
       
       // IMPLEMENT AS MAP AND ITERATE
-      let keyName  : string = '';
-      let keyValue : string = '';
-      //
-      keyName  = 'appBrand';
-      keyValue = this._configService.getConfigValue(keyName);
-      //
-      this._appBrand  = keyValue;
-      //
-      keyName          = 'appVersion';
-      keyValue         = this._configService.getConfigValue(keyName);
-      this._appVersion = keyValue;
-      //
+      this._appBrand      = this._configService.getConfigValue('appBrand');
+      this._appVersion    = this._configService.getConfigValue('appVersion');
       let __baseUrlNetCore = this._configService.getConfigValue('baseUrlNetCore');
       let __baseUrlNodeJs  = this._configService.getConfigValue('baseUrlNodeJs');
       //
