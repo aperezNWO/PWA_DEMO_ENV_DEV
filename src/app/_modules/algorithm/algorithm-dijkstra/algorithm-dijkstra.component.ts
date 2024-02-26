@@ -32,7 +32,7 @@ export class AlgorithmDijkstraComponent implements OnInit, AfterViewInit {
   protected strokeStyleVerde : string = "#006400";
   protected strokeStyleRed   : string = "#ff0000";
   protected tituloListadoDistancias: string = "";
-  protected tituloListadoLenguajes : string = "Seleccione Backend";
+  protected tituloListadoLenguajes : string = "[BACKEND] :";
   //
   @ViewChild('c_canvas')      c_canvas      : any;
   @ViewChild('divCanvas_Pdf') divCanvas_Pdf : any;
