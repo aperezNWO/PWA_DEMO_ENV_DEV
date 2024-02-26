@@ -13,7 +13,7 @@ import { NavComponent                     } from '../../home/nav/nav.component';
 //
 export class OcrComponent implements OnInit {
   //
-  @ViewChild('nav') nav!           : NavComponent;
+  //@ViewChild('nav') nav!           : NavComponent;
   /** Catch object, call functions via instance object */
   @ViewChild('signature') signature: NgxSignaturePadComponent | undefined;
   /** You can see more introduction in the below about NgxSignatureOptions */
@@ -43,7 +43,7 @@ export class OcrComponent implements OnInit {
      this.statusButton = this.defaultStatusBotton;
      this.status       = this.defaultStatus;
      //
-     this.nav._NavbarCollapsed = true;
+     //this.nav._NavbarCollapsed = true;
   }
   /** The begin event of sign */
   onBeginSign(): void { }

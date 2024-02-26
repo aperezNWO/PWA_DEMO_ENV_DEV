@@ -16,10 +16,6 @@ export class ChartComponent implements OnInit  {
     //--------------------------------------------------------------------------
     // PROPIEDADES COMUNES
     //--------------------------------------------------------------------------
-    public static get PageTitle()   : string {
-      return '[GENERAR ARCHIVOS XLS]';
-    }
-    readonly pageTitle          : string = ChartComponent.PageTitle;
     //
     pdf_message                                     : string = '';  
     //--------------------------------------------------------------------------
@@ -246,7 +242,7 @@ export class ChartComponent implements OnInit  {
         let fileName_output  : string     = '';
         //
         this.pdfService._GetPDF(
-          this.pageTitle,
+          P_fileName,
           this.canvas_csv,
           this.divPieChart_CSV,
           fileName,
