@@ -6,9 +6,7 @@ import { LogEntry,SearchCriteria, _languageName        } from '../../../_models/
 import { MCSDService                                   } from '../../../_services/mcsd.service';
 import { CustomErrorHandler                            } from '../../../app.component';
 import { UtilManager                                   } from 'src/app/_engines/util.engine';
-import { PdfService                                    } from 'src/app/_engines/pdf.engine';
 import { Observable                                    } from 'rxjs';
-import { Chart, registerables                          } from 'chart.js';
 //
 @Component({
   selector     : 'app-files-generation-xls',
@@ -91,13 +89,11 @@ export class FilesGenerationXLSComponent implements OnInit, AfterViewInit {
     @ViewChild('_languajeList')    _languajeList       : any;
     //
     public __languajeList                              : any;
-    protected tituloListadoLenguajes                   : string = "Seleccione Backend";
+    protected tituloListadoLenguajes                   : string = "[Backend] :";
     //--------------------------------------------------------------------------
     // EVENT HANDLERS FORMIULARIO 
     //--------------------------------------------------------------------------
-    constructor(private mcsdService: MCSDService, private formBuilder: FormBuilder, private customErrorHandler : CustomErrorHandler, public pdfService: PdfService) {
-      //
-      Chart.register(...registerables);
+    constructor(private mcsdService: MCSDService, private formBuilder: FormBuilder, private customErrorHandler : CustomErrorHandler) {
       //
     }
     //

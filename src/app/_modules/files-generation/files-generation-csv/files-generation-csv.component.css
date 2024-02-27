@@ -1,18 +1,25 @@
 .mat-column-id_Column {
     flex: none;
     width: 100px;
-    padding: 1rem;
+    font-size: x-small;
   }
 
 .mat-column-ciudad {
   flex: none;
   width: 100px;
-  padding: 1rem;
+  font-size: x-small;
+}
+
+.mat-column-nombreCompleto {
+  flex: none;
+  width: auto;
+  font-size: x-small;
 }
 
 .mdc-list-item__content
 {
    color:bisque;   
+   font-size: x-small;
 }
 
 .form-group {

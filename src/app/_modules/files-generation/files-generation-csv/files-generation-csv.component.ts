@@ -1,13 +1,11 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild   } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild   } from '@angular/core';
 import { FormBuilder, Validators                       } from '@angular/forms';
 import { MatTableDataSource                            } from '@angular/material/table';
 import { MatPaginator                                  } from '@angular/material/paginator';
 import { Observable                                    } from 'rxjs';
-import { Chart, registerables                          } from 'chart.js';
 import { MCSDService                                   } from '../../../_services/mcsd.service';
 import { CustomErrorHandler                            } from '../../../app.module';
 import { PersonEntity, SearchCriteria, _languageName   } from '../../../_models/entityInfo.model';
-import { PdfService                                    } from 'src/app/_engines/pdf.engine';
 //
 @Component({
   selector: 'app-files-generation-csv',
@@ -61,7 +59,7 @@ export class FilesGenerationCSVComponent implements OnInit, AfterViewInit {
                                             ,"");
     //
     public __languajeList                              : any;
-    protected tituloListadoLenguajes                   : string = "Seleccione Backend";
+    protected tituloListadoLenguajes                   : string = "[Backend]:";
     //
     @ViewChild("rf_paginator" ,{read:MatPaginator}) rf_paginator!:  MatPaginator;
     @ViewChild('_languajeList')    _languajeList                 : any;
@@ -75,9 +73,7 @@ export class FilesGenerationCSVComponent implements OnInit, AfterViewInit {
     // EVENT HANDLERS FORMIULARIO 
     //--------------------------------------------------------------------------
     //
-    constructor(public mcsdService: MCSDService, public formBuilder: FormBuilder, public customErrorHandler : CustomErrorHandler, public pdfService : PdfService,) {
-      //
-      Chart.register(...registerables);
+    constructor(public mcsdService: MCSDService, public formBuilder: FormBuilder, public customErrorHandler : CustomErrorHandler) {
       //
     }
     //
