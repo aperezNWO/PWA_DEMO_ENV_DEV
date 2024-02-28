@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1709091089044,
+  "timestamp": 1709094132674,
   "index": "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/index.html",
   "assetGroups": [
     {
@@ -15,7 +15,7 @@
         "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/896.4519226224848d4d.js",
         "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/favicon.ico",
         "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/index.html",
-        "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/main.0fdc9da48d0c8141.js",
+        "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/main.4d0cb0e4b8ffce8e.js",
         "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/manifest.webmanifest",
         "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/polyfills.77586c43fe67260d.js",
         "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/runtime.6e18956a09ef4bed.js",
@@ -58,8 +58,8 @@
     "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/assets/icons/icon-72x72.png": "aa88a6096bd973be7f6d7a5489bfa6bc2463f8c4",
     "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/assets/icons/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
     "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/index.html": "b68017474c080541b587ac5f62b74455c97b781b",
-    "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/main.0fdc9da48d0c8141.js": "8db77c25b862f727798a9e92d5e063abadf44d9d",
+    "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/index.html": "8ed06f127868189dade264bc92721ad6db6aa62c",
+    "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/main.4d0cb0e4b8ffce8e.js": "562d91f7609f6e8ede8b1483f9b0f60484549691",
     "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/manifest.webmanifest": "4c4fda145c554fe9a7ed086f63fa914267022e67",
     "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/polyfills.77586c43fe67260d.js": "9e2a9f992517e511f5c0d93f45b293a46678cb36",
     "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/runtime.6e18956a09ef4bed.js": "8c77a60df282c9aa55bb61a253f6e5d16f6f5cf0",
