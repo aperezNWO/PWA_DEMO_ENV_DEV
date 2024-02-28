@@ -41,7 +41,7 @@ export class TechnicalSpecsComponent {
     //
     public get _baseUrlNodeJsChat(): string
     {
-      return this.__baseUrlNodeJsOcr;
+      return this.__baseUrlNodeJsChat;
     }
     //
     protected __baseUrlNetCore        : string = '';
