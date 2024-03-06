@@ -329,6 +329,7 @@
         --[_] Referencia c++ Regex / Geek for geeks.
         --[_] UIX : PrimeNG, Material, Zorro_ng.
         --[_] Software engigeering topics : SOLID / CLEAN / PATTERNS / PWA.
+        --[_] EPPPlus referene. Complete references.
 
 
 
