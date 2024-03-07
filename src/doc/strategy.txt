@@ -329,8 +329,12 @@
         --[_] Referencia c++ Regex / Geek for geeks.
         --[_] UIX : PrimeNG, Material, Zorro_ng.
         --[_] Software engigeering topics : SOLID / CLEAN / PATTERNS / PWA.
+<<<<<<< HEAD
         --[_] EPPPlus referene. Complete references.
 
 
+=======
+        --[_] Server-Side Rendering (SSR) and Static Site Generation (SSG/Prerendering).
+>>>>>>> fc26bfc (strategy update)
 
 ////////////////////////////////////////////////////////////////////////////////
