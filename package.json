@@ -8,8 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "package": "ng build --c=production --base-href=\"https://apereznwo.github.io/PWA_DEMO_ENV_DEV/\"",
-    "publish": "npx ngh --dir=dist\\pwa-demo-env-dev",
-    "package-and-publish": "ng build --c=production --base-href=\"https://apereznwo.github.io/PWA_DEMO_ENV_DEV/\" && npx ngh --dir=dist\\pwa-demo-env-dev"
+    "publish": "npx ngh --dir=dist\\pwa-demo-env-test",
+    "package-and-publish": "ng build --c=production --base-href=\"https://apereznwo.github.io/PWA_DEMO_ENV_DEV/\" && npx ngh --dir=dist\\pwa-demo-env-test"
   },
   "private": true,
   "dependencies": {
