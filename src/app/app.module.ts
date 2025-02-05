@@ -1,73 +1,84 @@
-import { Injectable, NgModule                       } from '@angular/core';
-import { APP_INITIALIZER,ErrorHandler, isDevMode    } from '@angular/core';
-import { DatePipe                        } from '@angular/common';
-import { ServiceWorkerModule             } from '@angular/service-worker';
-import { FormsModule                     } from '@angular/forms';
-import { MatListModule                   } from '@angular/material/list';
-import { MatTableModule                  } from '@angular/material/table';
-import { MatPaginatorModule              } from '@angular/material/paginator';
-import { MatTabsModule                   } from '@angular/material/tabs';
-import { BrowserModule                   } from '@angular/platform-browser';
-import { BrowserAnimationsModule         } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule             } from '@angular/forms';
-import { HttpClient, HttpClientModule    } from '@angular/common/http';
-import { HttpHandler, HttpInterceptor    } from '@angular/common/http';
-import { HttpRequest, HttpResponse       } from '@angular/common/http';
-import { HTTP_INTERCEPTORS               } from '@angular/common/http';
-import { RouterModule, Routes            } from '@angular/router';
-import { HashLocationStrategy            } from '@angular/common';
-import { LocationStrategy                } from '@angular/common';
-import { NgbModule                       } from '@ng-bootstrap/ng-bootstrap'
-import { AppComponent                    } from './app.component';
-import { HomeWebComponent                } from './_modules/home/home-web/home-web.component';
-import { PageNotFoundComponent           } from './_modules/home/page-not-found/page-not-found.component';
-import { NavComponent                    } from './_modules/home/nav/nav.component';
-import { ContactComponent                } from './_modules/about/contact/contact.component';
-import { AAboutWebComponent              } from './_modules/about/a-about-web/a-about-web.component';
-import { TopicsComponent                 } from './_modules/about/topics/topics.component';
-import { TechnicalSpecsComponent         } from './_modules/about/technicalspecs/technical-specs/technical-specs.component';
-import { FilesGenerationWebComponent     } from './_modules/files-generation/files-generation-web/files-generation-web.component';
-import { FilesGenerationXLSComponent     } from './_modules/files-generation/files-generation-xls/files-generation-xls.component';
-import { FilesGenerationCSVComponent     } from './_modules/files-generation/files-generation-csv/files-generation-csv.component';
-import { FilesGenerationPDFComponent     } from './_modules/files-generation/files-generation-pdf/files-generation-pdf.component';
-import { FilesGenerationZIPComponent     } from './_modules/files-generation/files-generation-zip/files-generation-zip.component';
-import { AlgorithmDijkstraComponent      } from './_modules/algorithm/algorithm-dijkstra/algorithm-dijkstra.component';
-import { AlgorithmWebComponent           } from './_modules/algorithm/algorithm-web/algorithm-web.component';
-import { AlgorithmRegExComponent         } from './_modules/algorithm/algorithm-reg-ex/algorithm-reg-ex.component';
-import { AlgorithmSortComponent          } from './_modules/algorithm/algorithm-sort/algorithm-sort.component';
-import { SudokuComponent                 } from './_modules/games/game-sudoku/game-sudoku.component';
-import { GameTictactoeComponent          } from './_modules/games/game-tictactoe/game-tictactoe.component';
-import { BoardComponent                  } from './_modules/games/game-tictactoe/board/board.component';
-import { SquareComponent                 } from './_modules/games/game-tictactoe/square/square.component';
-import { GameWebComponent                } from './_modules/games/game-web/game-web.component';
-import { HanoiTowersComponent            } from './_modules/games/game-hanoi/game-hanoi.component';
-import { TowerComponent                  } from './_modules/games/game-hanoi/tower/tower.component';
-import { OcrComponent                    } from './_modules/miscelaneous/ocr/ocr.component';
-import { ChatComponent                   } from './_modules/miscelaneous/chat/chat/chat.component';
-import { ChartComponent                  } from './_modules/miscelaneous/chart/chart.component';
-import { MiscelaneousComponent           } from './_modules/miscelaneous/miscelaneous/miscelaneous.component';
-import { UnitTestingComponent            } from './_modules/_unitttesting/unit-testing.component';
-import { AppRoutingModule                } from './app-routing.module';
-import { LogType                         } from './_models/entityInfo.model';
-import { MCSDService                     } from './_services/mcsd.service';
-import { _ConfigService                  } from './_services/-config.service';
-import { finalize, tap                   } from 'rxjs';
-import { NgxSignaturePadModule           } from '@eve-sama/ngx-signature-pad';
+import { APP_INITIALIZER, ErrorHandler } from '@angular/core';
+import { Injectable, NgModule } from '@angular/core';
+import { AsyncPipe, CommonModule, DatePipe, DecimalPipe } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { provideClientHydration } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
+import { HttpHandler, HttpInterceptor } from '@angular/common/http';
+import { HttpRequest, HttpResponse } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { LogType } from './_models/algorithm.model';
+import { ConfigService } from './_services/config/config.service';
+import { BackendService } from './_services/backend/backend.service';
+import { NavComponent } from './_modules/_home/nav/nav.component';
+import { SCMComponent } from './_modules/about/scm/scm.component';
+import { TopicsComponent } from './_modules/about/topics/topics.component';
+import { HomeComponent } from './_modules/_home/home/home.component';
+import { IndexComponent } from './_modules/about/index/index.component';
+import { NotFoundPageComponent } from './_modules/_home/not-found-page/not-found-page.component';
+import { finalize, tap } from 'rxjs';
+import { NgbHighlight, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxSignaturePadModule } from '@eve-sama/ngx-signature-pad';
+import { ButtonModule } from 'primeng/button';
+import { AboutComponent } from './_modules/about/about/about.component';
+import { HanoiAutoComponent } from './_modules/__StableReleases/_games/hanoi/hanoi-auto/hanoi-auto.component';
+import { HanoiObservableComponent } from './_modules/__StableReleases/_games/hanoi/hanoi-observable/hanoi-observable.component';
+import { HanoiTowersComponent } from './_modules/__StableReleases/_games/hanoi/hanoi-towers/game-hanoi.component';
+import { TowerComponent } from './_modules/__StableReleases/_games/hanoi/hanoi-towers/tower/tower.component';
+import { Hanoi3dComponent } from './_modules/__StableReleases/_games/hanoi3d/hanoi3d.component';
+import { SudokuComponent } from './_modules/__StableReleases/_games/sudoku/sudoku.component';
+import { TetrisComponent } from './_modules/__StableReleases/_games/tetris/tetris.component';
+import { BoardComponent } from './_modules/__StableReleases/_games/tic-tac-toe/offline/board/board.component';
+import { TicTacToeComponent } from './_modules/__StableReleases/_games/tic-tac-toe/offline/tic-tac-toe.component';
+import { BoardOnlineComponent } from './_modules/__StableReleases/_games/tic-tac-toe/tic-tac-toe-online/board/board.component';
+import { TicTacToeOnlineComponent } from './_modules/__StableReleases/_games/tic-tac-toe/tic-tac-toe-online/tic-tac-toe-online.component';
+import { BouncingBallComponent } from './_modules/__StableReleases/_miscelaneous/bouncing-ball/bouncing-ball.component';
+import { ChatComponent } from './_modules/__StableReleases/_miscelaneous/chat/chat/chat.component';
+import { MessageComponent } from './_modules/__StableReleases/_miscelaneous/chat/message/message.component';
+import { MathParsingComponent } from './_modules/__StableReleases/_miscelaneous/math-parsing/math-parsing.component';
+import { OcrPhotoCaptureComponent } from './_modules/__StableReleases/_miscelaneous/ocr-photo-capture/ocr-photo-capture.component';
+import { StableReleasesComponent } from './_modules/__StableReleases/stable-releases/stable-releases.component';
+import { DevComponent } from './_modules/__TestingReleases/_dev/dev.component';
+import { UntTestingComponent } from './_modules/__TestingReleases/backendtesting/unt-testing.component';
+import { OcrComponent } from './_modules/__TestingReleases/ocr/ocr.component';
+import { OpenCvShapeReconComponent } from './_modules/__TestingReleases/open-cv-shape-recon/open-cv-shape-recon.component';
+import { RxJSPlaygroundComponent } from './_modules/__TestingReleases/rx-jsplayground/rx-jsplayground.component';
+import { ShapeReconCanvasComponent } from './_modules/__TestingReleases/shape-recon-canvas/shape-recon-canvas.component';
+import { SpeechRecognitionComponent } from './_modules/__TestingReleases/speech-recognition/speech-recognition.component';
+import { ContactFormComponent } from './_modules/about/contactForm/contact-form..component';
+import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
+import { LLMListComponent } from './_modules/about/llms/llm-list.component';
+//  
+@Injectable({
+  providedIn: 'root'
+})
 //
-const routes : Routes = [
- 
-];
-//
-export function initialize(_configService: _ConfigService) {
-  // 
-  return () => _configService.loadConfig();
+export class CustomErrorHandler implements ErrorHandler {
+  //
+  constructor(public mcsdService: BackendService) { }
+  //
+  handleError(_error: Error): void {
+    // 
+    console.warn("[CUSTOM ERROR HANDLING]:\n" + _error.name + "\n" + _error.message);
+    //
+    let logType: LogType = LogType.Error
+    //
+    this.mcsdService.SetLog("[CUSTOM ERROR HANDLING]", _error.message, logType);
+    //
+  }
 }
 //
 @Injectable({
   providedIn: 'root'
 })
 export class LoggingInterceptor implements HttpInterceptor {
-  constructor() {}
+  constructor() { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     const started = Date.now();
@@ -86,114 +97,111 @@ export class LoggingInterceptor implements HttpInterceptor {
         finalize(() => {
           const elapsed = Date.now() - started;
           const msg = `${req.method} "${req.urlWithParams}" ${ok} in ${elapsed} ms.`;
-          console.warn(' [REQUESTING URL (INTERCEPT)] : ' + msg);
+          console.warn(' [REQUEST URL (INTERCEPT)] : ' + msg);
         })
       );
   }
 }
-//  
-@Injectable({
-  providedIn: 'root'
-})
 //
-export class CustomErrorHandler implements ErrorHandler {
-    //
-    constructor(public mcsdService : MCSDService) { } 
-    //
-    handleError(_error: Error): void 
-    { 
-      // 
-      console.warn("[CUSTOM ERROR HANDLING]:\n" + _error); 
-      //
-      let logType : LogType = LogType.Error
-      //
-      this.mcsdService.SetLog("[CUSTOM ERROR HANDLING]",_error.message,logType);
-    } 
+export function loadConfig(configService: ConfigService) {
+  //
+  configService.loadAiPrompts();
+  //
+  configService.loadSCMList();
+  //
+  return () => configService.loadConfig();
 }
+
 //
 @NgModule({
-    declarations: [
-        AppComponent,
-        HomeWebComponent,
-        ContactComponent,
-        AAboutWebComponent,
-        AlgorithmWebComponent,
-        AlgorithmRegExComponent,
-        AlgorithmSortComponent,
-        AlgorithmDijkstraComponent,
-        FilesGenerationWebComponent,
-        FilesGenerationXLSComponent,
-        FilesGenerationCSVComponent,
-        FilesGenerationPDFComponent,
-        FilesGenerationZIPComponent,
-        TechnicalSpecsComponent,
-        UnitTestingComponent,
-        SudokuComponent,
-        GameTictactoeComponent,
-        HanoiTowersComponent,
-        GameWebComponent,
-        OcrComponent,
-        ChatComponent,
-        ChartComponent,
-        MiscelaneousComponent,
-        NavComponent,
-        PageNotFoundComponent,
-        TopicsComponent,
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    SudokuComponent,
+    TicTacToeComponent,
+    HanoiTowersComponent,
+    HanoiObservableComponent,
+    HanoiAutoComponent,
+    MessageComponent,
+    ChatComponent,
+    RxJSPlaygroundComponent,
+    TicTacToeOnlineComponent,
+    OcrComponent,
+    OcrPhotoCaptureComponent,
+    NavComponent,
+    DevComponent,
+    SCMComponent,
+    TopicsComponent,
+    UntTestingComponent,
+    SpeechRecognitionComponent,
+    IndexComponent,
+    NotFoundPageComponent,
+    LLMListComponent,
+    StableReleasesComponent,
+    OpenCvShapeReconComponent,
+    ShapeReconCanvasComponent,
+    BouncingBallComponent,
+    Hanoi3dComponent,
+    TetrisComponent,
+    MathParsingComponent,
+    AboutComponent,
+    ContactFormComponent
+  ],
+  providers: [DatePipe, DecimalPipe, HttpClient, provideClientHydration(),
+    [
+      { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true },
+      { provide: ErrorHandler, useClass: CustomErrorHandler },
+      ConfigService,
+      {
+        provide: APP_INITIALIZER,
+        useFactory: loadConfig,
+        deps: [ConfigService],
+        multi: true
+      },
+      {
+        provide: 'SocialAuthServiceConfig',
+        useValue: {
+          autoLogin: false, // Set to true if you want auto login
+          providers: [
+            {
+              id: FacebookLoginProvider.PROVIDER_ID,
+              provider: new FacebookLoginProvider(
+                '1763416537924183' // Replace with your Facebook App ID
+              )
+            }
+          ]
+        } as SocialAuthServiceConfig,
+      }
     ],
-    exports: [RouterModule],
-    providers: [
-        {  provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true },
-        {  provide: LocationStrategy, useClass: HashLocationStrategy },
-        {  provide: ErrorHandler, useClass: CustomErrorHandler },
-        [
-          _ConfigService,
-          {
-            provide   : APP_INITIALIZER,
-            useFactory: initialize,
-            deps      : [_ConfigService,MCSDService,HttpClient],
-            multi     : true
-          }
-        ],
-        DatePipe,
-    ],
-    bootstrap: [AppComponent],
-    imports: [
-        HttpClientModule,
-        FormsModule,
-        BrowserModule,
-        BrowserAnimationsModule,
-        ReactiveFormsModule,
-        HttpClientModule,
-        MatListModule,
-        MatTableModule,
-        MatPaginatorModule,
-        MatTabsModule,
-        NgbModule,
-        NgxSignaturePadModule,
-        BoardComponent,
-        SquareComponent,
-        TowerComponent,
-        AppRoutingModule,
-        //RouterModule,
-        //RouterModule.forRoot(routes, { useHash: true }),
-        ServiceWorkerModule.register('ngsw-worker.js', {
-          enabled: !isDevMode(),
-          // Register the ServiceWorker as soon as the application is stable
-          // or after 30 seconds (whichever comes first).
-          registrationStrategy: 'registerWhenStable:30000'
-        }),
-   ]
+  ],
+  bootstrap: [AppComponent],
+  imports: [
+    BoardComponent,
+    TowerComponent,
+    BoardOnlineComponent,
+    AppRoutingModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    NgxSignaturePadModule,
+    NgbModule,
+    NgbModule,
+    NgbPaginationModule,
+    NgbAlertModule,
+    NgbHighlight,
+    NgbPaginationModule,
+    DecimalPipe,
+    FormsModule,
+    AsyncPipe,
+    ButtonModule,
+    SocialLoginModule // Add SocialLoginModule
+  ]
 })
-//
-export class AppModule { 
-    //-----------------------------------------------------------------------------------------------------
-    constructor(public customErrorHandler : CustomErrorHandler, 
-                public loggingInterceptor : LoggingInterceptor,
-                public mcsdService        : MCSDService,) 
-    {
+export class AppModule {
+  constructor() {
       //
-    }
+  }
 }
-
-
-

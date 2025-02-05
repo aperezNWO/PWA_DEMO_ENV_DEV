@@ -3,10 +3,8 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-topics',
   templateUrl: './topics.component.html',
-  styleUrl: './topics.component.css'
+  styleUrls: ['./topics.component.css']
 })
-//
 export class TopicsComponent {
-    //
-    pageTitle : string = '[TOPICS]';
+
 }
