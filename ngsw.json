@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1738722969916,
+  "timestamp": 1738724919133,
   "index": "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/index.html",
   "assetGroups": [
     {
@@ -15,7 +15,7 @@
         "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/973.316ac4d5fee2f217.js",
         "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/favicon.ico",
         "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/index.html",
-        "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/main.40795c9ae88b86ee.js",
+        "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/main.7f45a07cd0d8a3ec.js",
         "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/manifest.webmanifest",
         "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/polyfills.d4aa8125b65d4528.js",
         "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/runtime.3409b7574c43778f.js",
@@ -90,8 +90,8 @@
     "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/color.febf5f041e83bfbe.png": "c54e4eac0b6c88b9da8cfdf00b1d9093b828286b",
     "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
     "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/hue.de26927932756490.png": "ec215387067c733aed6649b96d8a81798a58b21b",
-    "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/index.html": "542b7a99bde7dd064e9811c476549d363e81c0bc",
-    "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/main.40795c9ae88b86ee.js": "6a09513a9349c4eb1cd71c4ce1bd862c0f8a8c78",
+    "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/index.html": "547ad661901f9cc792907f7d953e84ea026950c3",
+    "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/main.7f45a07cd0d8a3ec.js": "446514e711e7fbd7b5d64d7d664114535585fd0c",
     "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/manifest.webmanifest": "e13577e9817bde7c3ea1af3fcc523f86335d0f73",
     "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/polyfills.d4aa8125b65d4528.js": "a063506f957de345af77eb04df62e5280a953eb1",
     "https://apereznwo.github.io/PWA_DEMO_ENV_DEV/runtime.3409b7574c43778f.js": "b4d458e958005753fe5a2a0f4bf59a8cfd9e0e3c",
