@@ -1,75 +1,97 @@
-import { NgModule                      } from '@angular/core';
-import { Route, RouterModule, Routes   } from '@angular/router';
-import { HanoiAutoComponent } from './_modules/__StableReleases/_games/hanoi/hanoi-auto/hanoi-auto.component';
-import { HanoiObservableComponent } from './_modules/__StableReleases/_games/hanoi/hanoi-observable/hanoi-observable.component';
-import { HanoiTowersComponent } from './_modules/__StableReleases/_games/hanoi/hanoi-towers/game-hanoi.component';
-import { Hanoi3dComponent } from './_modules/__StableReleases/_games/hanoi3d/hanoi3d.component';
-import { SudokuComponent } from './_modules/__StableReleases/_games/sudoku/sudoku.component';
-import { TetrisComponent } from './_modules/__StableReleases/_games/tetris/tetris.component';
-import { TicTacToeComponent } from './_modules/__StableReleases/_games/tic-tac-toe/offline/tic-tac-toe.component';
-import { TicTacToeOnlineComponent } from './_modules/__StableReleases/_games/tic-tac-toe/tic-tac-toe-online/tic-tac-toe-online.component';
-import { BouncingBallComponent } from './_modules/__StableReleases/_miscelaneous/bouncing-ball/bouncing-ball.component';
-import { ChatComponent } from './_modules/__StableReleases/_miscelaneous/chat/chat/chat.component';
-import { MathParsingComponent } from './_modules/__StableReleases/_miscelaneous/math-parsing/math-parsing.component';
-import { OcrPhotoCaptureComponent } from './_modules/__StableReleases/_miscelaneous/ocr-photo-capture/ocr-photo-capture.component';
-import { StableReleasesComponent } from './_modules/__StableReleases/stable-releases/stable-releases.component';
-import { DevComponent } from './_modules/__TestingReleases/_dev/dev.component';
-import { UntTestingComponent } from './_modules/__TestingReleases/backendtesting/unt-testing.component';
-import { OcrComponent } from './_modules/__TestingReleases/ocr/ocr.component';
-import { OpenCvShapeReconComponent } from './_modules/__TestingReleases/open-cv-shape-recon/open-cv-shape-recon.component';
-import { RxJSPlaygroundComponent } from './_modules/__TestingReleases/rx-jsplayground/rx-jsplayground.component';
-import { ShapeReconCanvasComponent } from './_modules/__TestingReleases/shape-recon-canvas/shape-recon-canvas.component';
-import { SpeechRecognitionComponent } from './_modules/__TestingReleases/speech-recognition/speech-recognition.component';
-import { HomeComponent } from './_modules/_home/home/home.component';
-import { NotFoundPageComponent } from './_modules/_home/not-found-page/not-found-page.component';
-import { IndexComponent } from './_modules/about/index/index.component';
-import { LLMListComponent } from './_modules/about/llms/llm-list.component';
-import { ContactFormComponent } from './_modules/about/contactForm/contact-form..component';
-import { SCMComponent } from './_modules/about/scm/scm.component';
-import { TopicsComponent } from './_modules/about/topics/topics.component';
-import { AboutComponent } from './_modules/about/about/about.component';
+import { NgModule                        } from '@angular/core';
+import { Route, RouterModule             } from '@angular/router';
+import { HomeWebComponent                } from './_modules/home/home-web/home-web.component';
+import { PageNotFoundComponent           } from './_modules/home/page-not-found/page-not-found.component';
+import { AAboutWebComponent              } from './_modules/about/a-about-web/a-about-web.component';
+import { SCMComponent                    } from './_modules/about/scm/scm.component';
+import { LLMListComponent                } from './_modules/about/llmlist/llmlist.component';
+import { TopicsComponent                 } from './_modules/about/topics/topics.component';
+import { TechnicalSpecsComponent         } from './_modules/about/technicalspecs/technical-specs/technical-specs.component';
+import { FilesGenerationWebComponent     } from './_modules/files-generation/files-generation-web/files-generation-web.component';
+import { FilesGenerationXLSComponent     } from './_modules/files-generation/files-generation-xls/files-generation-xls.component';
+import { FilesGenerationCSVComponent     } from './_modules/files-generation/files-generation-csv/files-generation-csv.component';
+import { FilesGenerationPDFComponent     } from './_modules/files-generation/files-generation-pdf/files-generation-pdf.component';
+import { FilesGenerationZIPComponent     } from './_modules/files-generation/files-generation-zip/files-generation-zip.component';
+import { AlgorithmDijkstraComponent      } from './_modules/algorithm/algorithm-dijkstra/algorithm-dijkstra.component';
+import { AlgorithmWebComponent           } from './_modules/algorithm/algorithm-web/algorithm-web.component';
+import { AlgorithmRegExComponent         } from './_modules/algorithm/algorithm-reg-ex/algorithm-reg-ex.component';
+import { AlgorithmSortComponent          } from './_modules/algorithm/algorithm-sort/algorithm-sort.component';
+import { SudokuComponent                 } from './_modules/games/game-sudoku/game-sudoku.component';
+import { GameTictactoeComponent          } from './_modules/games/game-tictactoe/game-tictactoe.component';
+import { GameWebComponent                } from './_modules/games/game-web/game-web.component';
+import { GameHanoiAutoComponent          } from './_modules/games/game-hanoi-auto/game-hanoi-auto.component';
+import { ChatComponent                   } from './_modules/miscelaneous/chat/chat/chat.component';
+import { OcrPhotoCaptureComponent        } from './_modules/miscelaneous/ocr-photo-capture/ocr-photo-capture.component';
+import { MiscelaneousComponent           } from './_modules/miscelaneous/miscelaneous/miscelaneous.component';
+import { IndexComponent                  } from './_modules/home/index/index.component';
+import { ComputerVisionComponent         } from './_modules/miscelaneous/computer-vision/computer-vision.component';
+import { ChartComponent                  } from './_modules/files-generation/chart/chart.component';
+import { GameHanoi3dComponent            } from './_modules/games/game-hanoi3d/game-hanoi3d.component';
+import { MathParsingComponent            } from './_modules/miscelaneous/math-parsing/math-parsing.component';
+import { GameTetrisComponent             } from './_modules/games/game-tetris/game-tetris.component';
+import { AlgorithmCollisionComponent     } from './_modules/algorithm/algorithm-collision/algorithm-collision.component';
+import { CurriculumComponent             } from './_modules/about/curriculum/curriculum.component';
+import { FeaturePagesComponent           } from './_modules/about/feature-pages/feature-pages.component';
 
-//
 export interface _Route extends Route
 {
+    id      : number;
     caption : string;
 }
 
 //
-export const routes : _Route[] = [ 
-  { path: 'Home'             , component: HomeComponent              , caption : 'Home'                },
-  { path: ''                 , component: HomeComponent              , caption : ''                    },
-  { path: 'Sudoku'           , component: SudokuComponent            , caption : 'Sudoku'              },
-  { path: 'TicTacToe'        , component: TicTacToeComponent         , caption : 'TicTacToe'           },
-  { path: 'TicTacToeOnline'  , component: TicTacToeOnlineComponent   , caption : 'TicTacToe-Online'    },
-  { path: 'Hanoi'            , component: HanoiTowersComponent       , caption : 'Hanoi - Timer'       },
-  { path: 'HanoiRjxs'        , component: HanoiObservableComponent   , caption : 'Hanoi - Rjxs'        },
-  { path: 'HanoiAuto'        , component: HanoiAutoComponent         , caption : 'Hanoi - Rjxs -Auto'  },
-  { path: 'Hanoi3d'          , component: Hanoi3dComponent           , caption : 'Hanoi - 3d'          },
-  { path: 'RxJsPlayground'   , component: RxJSPlaygroundComponent    , caption : 'RxJs-Playground'     },
-  { path: 'OcrPhotoCapture'  , component: OcrPhotoCaptureComponent   , caption : 'Ocr-Photo-Capture'   },
-  { path: 'Ocr'              , component: OcrComponent               , caption : 'Ocr'                 },
-  { path: 'Chat'             , component: ChatComponent              , caption : 'Chat'                     },
-  { path: 'SpeechRecognition', component: SpeechRecognitionComponent , caption : 'Speech  - Recognition'    },
-  { path: 'ShapeReconCanvas' , component: ShapeReconCanvasComponent  , caption : 'Shape   - Recon - Canvas' },
-  { path: 'ShapeRecognition' , component: OpenCvShapeReconComponent  , caption : 'Shape   - Recognition' },
-  { path: 'BackendTesting'   , component: UntTestingComponent        , caption : 'Backend - Testing'     },
-  { path: 'BouncingBall'     , component: BouncingBallComponent      , caption : 'Boucing - Testing'     },
-  { path: 'Tetris'           , component: TetrisComponent            , caption : 'Tetris  - Testing'     },
-  { path: 'MathParsing'      , component: MathParsingComponent       , caption : 'Math    - Testing'     },
-  { path: 'Dev'              , component: DevComponent               , caption : 'Testing Releases'      },
-  { path: 'StableReleases'   , component: StableReleasesComponent    , caption : 'Stable Releases'       },
-  { path: 'SCM'              , component: SCMComponent               , caption : 'About - SCM'           },
-  { path: 'Topics'           , component: TopicsComponent            , caption : 'About - Topics'        },
-  { path: 'LLMs'             , component: LLMListComponent           , caption : 'About - LLM List'      },
-  { path: 'Index'            , component: IndexComponent             , caption : 'About - Index'         },
-  { path: 'ContactForm'      , component: ContactFormComponent       , caption : 'About - Contact Form'  },
-  { path: 'About'            , component: AboutComponent             , caption : 'About'                 },
-  { path: '**'               , component: NotFoundPageComponent      , caption : ''                      },
+export const routes: _Route[] = [
+  {  id: 0,  path: 'Home'                  , component: HomeWebComponent                    , caption: ' Home'                                        },
+  {  id: 0,  path: 'Index'                 , component: IndexComponent                      , caption: ' Index'                                       },
+  {  id: 0,  path:  ''                     , component: HomeWebComponent                    , caption: ''                                             },
+  {  id: 0,  path: 'AAboutWeb'             , component: AAboutWebComponent                  , caption: ' About  - Main Page'                            },
+  {  id: 0,  path: 'SCM'                   , component: SCMComponent                        , caption: ' About  - SCM'                                  },
+  {  id: 0,  path: 'LLMList'               , component: LLMListComponent                    , caption: ' About  - LLM List'                             },
+  {  id: 0,  path: 'TechnicalSpecs'        , component: TechnicalSpecsComponent             , caption: ' About  - Technical Specifications'                    },
+  {  id: 0,  path: 'Topics'                , component: TopicsComponent                     , caption: ' About  - Topics'                          },
+  {  id: 0,  path: 'Curriculum'            , component: CurriculumComponent                 , caption: ' About  - Curriculum'                          },
+  {  id: 0,  path: 'Features'              , component: FeaturePagesComponent               , caption: ' About  - Features'                          },
+  {  id: 0,  path: 'AlgorithmWeb'          , component: AlgorithmWebComponent               , caption: ' Algoritmos - Main Page'                      },
+  {  id: 0,  path: 'AlgorithmRegEx'        , component: AlgorithmRegExComponent             , caption: ' Algoritmos - Regular Expression'             },
+  {  id: 0,  path: 'AlgorithmSort'         , component: AlgorithmSortComponent              , caption: ' Algoritmos - Sort'                           },
+  {  id: 0,  path: 'AlgorithmDijkstra'     , component: AlgorithmDijkstraComponent          , caption: ' Algoritmos - Dijkstra  - distancia más corta' },
+  {  id: 0,  path: 'AlgorithmCollision'    , component: AlgorithmCollisionComponent         , caption: ' Algoritmos - Collision - Demo' },
+  {  id: 0,  path: 'FilesGenerationWeb'    , component: FilesGenerationWebComponent         , caption: ' File Generatin  - Main Page'                 },
+  {  id: 0,  path: 'FilesGenerationXLS'    , component: FilesGenerationXLSComponent         , caption: ' File Generation - XLS'                       },
+  {  id: 0,  path: 'FilesGenerationCSV'    , component: FilesGenerationCSVComponent         , caption: ' File Generation - CSV'                       },
+  {  id: 0,  path: 'FilesGenerationPDF'    , component: FilesGenerationPDFComponent         , caption: ' File Generation - PDF'                       },
+  {  id: 0,  path: 'FilesGenerationZIP'    , component: FilesGenerationZIPComponent         , caption: ' File Generation - ZIP    '                   },
+  {  id: 0,  path: 'Chart'                 , component: ChartComponent                      , caption: ' File Generation - Chart Demo'                },
+  {  id: 0,  path: 'GamesSudoku'           , component: SudokuComponent                     , caption: ' Games  - Sudoku'                             },
+  {  id: 0,  path: 'GamesTicTacToe'        , component: GameTictactoeComponent              , caption: ' Games  - TicTacToe'                          },
+  {  id: 0,  path: 'GamesHanoiAuto'        , component: GameHanoiAutoComponent              , caption: ' Games  - Hanoi'                              },
+  {  id: 0,  path: 'GamesHanoi3d'          , component: GameHanoi3dComponent                , caption: ' Games  - Hanoi 3d'                           },
+  {  id: 0,  path: 'GamesTetris'           , component: GameTetrisComponent                 , caption: ' Games  - Hanoi 3d'                           },
+  {  id: 0,  path: 'GamesWeb'              , component: GameWebComponent                    , caption: ' Games  - Tetris'                             },
+  {  id: 0,  path: 'Chat'                  , component: ChatComponent                       , caption: ' Miscelaneous - Chat Demo'                    },
+  {  id: 0,  path: 'OcrPhotoCapture'       , component: OcrPhotoCaptureComponent            , caption: ' Miscelaneous - Ocr Photo Capture'            },
+  {  id: 0,  path: 'ComputerVision'        , component: ComputerVisionComponent             , caption: ' Miscelaneous - Computer Vision'              },
+  {  id: 0,  path: 'MathParsing'           , component: MathParsingComponent                , caption: ' Miscelaneous - Math Parsing'                 },
+  {  id: 0,  path: 'Miscelaneous'          , component: MiscelaneousComponent               , caption: ' Miscelaneous - Main Page'                    },
+  {  id: 0,  path: '**'                    , component: PageNotFoundComponent               , caption: ''                                             },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+
+    constructor()
+    {
+        //
+        let index : number = 0;
+        //
+        routes.forEach(element => {
+            if (((element.path == '') && (element.caption == ''))==false)
+            {
+              element.id = ++index;
+            }
+        });    
+    }
+}

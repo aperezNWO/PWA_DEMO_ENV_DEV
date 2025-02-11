@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { ShapeDetectionService } from './shape-detection.service';
 
-describe('ShapeDetectionService', () => {
+describe('ShapeRecognitionService', () => {
   let service: ShapeDetectionService;
 
   beforeEach(() => {

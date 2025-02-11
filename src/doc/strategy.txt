@@ -1,184 +1,349 @@
-/////////////////////////////////////////////
-// STRATEGY
-/////////////////////////////////////////////
+=====================================================================
+-- SCM - HOSTING
+=====================================================================
 
-/////////////////////////////////////////////
-// GENERAL
-/////////////////////////////////////////////
+-- [x] environments.
 
--- [_] MAIN MENU.
--- [_] http interceptor.
--- [_] codespaces.
+        -- [_] LOCAL_IIS.
+        -- [_] WebApi.
+        -- [_] angulardemo.
 
-/////////////////////////////////////////////
-// HANOI TOWER
-/////////////////////////////////////////////
+-- [>] SOURCE github.com        
 
--- [_] MAIN MENU.
--- [_] .
--- [_] .
+        -- [_] PUBLIC SOURCES.                        
+                -- [x] [mcsdWebApíTFS] (tff)      -->  (github) "mcsd_public".
+                -- [>] Update sources.
 
-/////////////////////////////////////////////
-// SUDOKU
-/////////////////////////////////////////////
+-- [>] HOSTING  
 
---[_] sudoku from photo capture.
+        -- [_] [alternativas]
 
-/////////////////////////////////////////////
+                -- [_] https://xranks.com/es/somee.com
 
-1) show me an angular and node.js code to crreate an online tic tac toe app
+        -- [_] [somee.com]
+         
+                -- [_] [HELP]
+                        https://somee.com/doka/Help/Article/106/How_to_deploy_Web_project_from_Visual_Studio
 
-2) ¿Can I make an angular and node.js applicatoin which taka a photograph and recognize letters and numbers?
+                -- [_] [mcsd/angulardemo/webapidemo]
+                -- [_] [db].
+                       -- [_] reset log db #1 / debug content.
+                       -- [_] enbable   db #2 / (CSV DEMO).
+                -- [_] check disabled accounts.
+                       -- [_] https://www.angulardemo.somee.com.
 
-3) ¿Can I make an angular, node.js and gemini ai applicatoin which taka a photograph and recognize letters and numbers?
+-- [>] webapidemo / service.
 
-https://chat.openai.com/share/f383e00f-3b68-45c8-ad3f-d5bd32b9933e
+       -- [x] remove demo views/controllers.
+       -- [x] enable domain "WebApiDemo".
+       -- [x] mcsdWebApíTFS.
+       -- [x] mcsdBackup.
 
-https://chat.openai.com/share/f383e00f-3b68-45c8-ad3f-d5bd32b9933e
+                -- [x] BACKUP /DELETE BOOK "DELORME".  
+                -- [x] BACKUP /DELETE folder "_angular".  
+                -- [x] turn off domain "mcsdBackup".
+                -- [x] change tfs/github name "mcsdNet48TFS" / "mcsdNet48GitHub".
+                -- [x] change tfs/github name "mcsd" por "mcsdNetCoreBackup".
 
-/////////////////////////////////////////////
+        -- [_] REDUCE FILE SIZE.
+                -- [_] check disable email from "somee.com".
 
-[EXPORT BARD ANSWERS TO GOOGLE DOCUMENTS]
+/*
 
-/////////////////////////////////////////////
-// PWA
-/////////////////////////////////////////////
+        Your website 'angulardemo.somee.com' was disabled for the following reason: 
 
---[_] https://web.dev/learn/pwa/service-workers
+        Website's average, per request bandwidth has exceeded a limit that is set for the website hosted with a free hosting package! 
+        Although we do not limit the file size that can be uploaded or downloaded from your website, 
+        we set a limit of [150KByte] on average file size that can be downloaded from the website hosted with free package. 
 
---[_] https://angular.dev/ecosystem/service-workers
+        The average is calculated every several hours for all files together, including *.html, *.asp, *.aspx, *.jpg, *.png, *.gif, *.mpg 
+        and other text and media files. 
 
-/////////////////////////////////////////////
-// TODO LIST
-/////////////////////////////////////////////
+        Your website is scheduled to start again in about 12 hours, or you can start it manually from our control panel any time. 
 
--- [x] ngb pad instructions.   
+        But if you will not take actions to decrease the average file size that is sent from your website it will be stopped again 
+        and you are allowed to start it 5 times only. 
 
--- [x] Angular Url Query Param. 
+        You can also switch to any other hosting package where such maintenance is not performed.
 
--- [x] RXJS Playground.
+*/
+=====================================================================
+-- STRATEGY - DIFUSION
+=====================================================================
 
-      --[x] https://v17.angular.io/guide/observables
+-- [_] FREELANCE WEB SITES
 
-      --[x] Replace timers with observables.
+                -- [_] WORKANA.
+                -- [_] FIVERR.
+                -- [_] UPWORK.
 
---[>>] Improve Hanoi Program.
+-- [_] LINKEDIN
+
+-- [_] facebook
+
+        -- [_] .NET COMMUNITY
+        -- [_] ANGULAR COMMUNITY
+
+-- [_] DIRECT EMAIL
+
+        -- [_] JOB SEARCH MODULE
+
+-- [_] TWITTER /
+-- [_] INSTAGRAM / TK.
+-- [_] NON IT COMPANIES / DIRECT OFFER.
+
+=====================================================================
+-- ERRORS
+=====================================================================
+
+-- [_]
+
+=====================================================================
+-- OBSERVACIONES / REDES SOCIALES
+=====================================================================
+-- [daniel sevilla]         
+
+    -- [_]              https://primeng.org/installation.
+
+=====================================================================
+
+////////////////////////////////////////////////////////////////////////////////
+-- [_] TODO GENERAL
+////////////////////////////////////////////////////////////////////////////////
+
+-- [_] Algorithms
+
+        -- [_] [TAOCP]
+
+-- [_] Games
+        -- [_] tic tac toe
+        -- [_] hanoi towers
+        -- [_] sudoku
+-- [_] A.I. Apps
+        -- [_] C# Accord
+        -- [_] C++ OpenCV
+        -- [_] Neural Networks
+        -- [_] Machine Learning
+
+-- [_] Backend
+        -- [_] C#
+        -- [_] C++
+        -- [_] Node Js
+        -- [_] Python
+-- [_] Environments
+        -- [_] CodeSandbox
+        -- [_] Git Hub CodeSpaces
+        -- [_] Docker
+
+=====================================================================
+-- STRATEGY - dev
+=====================================================================
+
+
+-- [x] CORREGIR UIX.
+
+       -- [x] uncontrasted font colors.
+
+-- [x] [CPP DEMO]
+
+    -- [x] performance benchmark [c# / typescript / c++].
+
+-- [_] CHAT GTP.
+
+    -- [_]  https://www.businessinsider.es/chatgpt-codigos-impresionantes-prompts-debes-usar-expertos-1288236
+
+-- [_] ANGULAR TOPICS.
+
+    -- [_] https://angular.io/docs
+
+        -- [_] MODULES.
+        -- [_] @Input.
+        -- [_] i18n.
+        -- [_] Dynamic Forms.
+        -- [_] Angular CDN.
+                -- [_] DebugHostingContent as webapi/global/cdn.
+        -- [_] TOPIC_1.        
+        -- [_] TOPIC_2.
+        -- [_] TOPIC_3.
+
+-- [_] architectural changes.
+
+    -- [_] General Error Handling.
+
+    -- [_] Service Architecture.
+
+        -- [_] uv_apidigitacion / [nuevo ruv].
+
+    -- [_] paquete de idiomas/localizacion (en/us).
+           
+           -- [_] angular i18n.
+
+    -- [_] DebugHostingContent as webapi/global/cdn.
+
+    -- [_] OAUTH.
+
+        -- [_] https://codingpotions.com/angular-login-sesion/
+        -- [_] https://auth0.com/docs/quickstart/spa/angular/01-login
+        -- [_] https://auth0.com/blog/complete-guide-to-angular-user-authentication/
+        -- [_] https://dev.to/ricardochl/angular-login-with-auth0-4d8l
+        -- [_] https://medium.com/@michaszala/2-authentication-guide-angular-14-simple-login-and-register-app-4d7c01a69546
+        -- [_] https://www.positronx.io/angular-facebook-oauth-social-login-tutorial/
+        -- [_] https://medium.com/@danilrabizo/google-authentication-in-the-angular-application-e86df69be58a
+        -- [_] https://learn.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-angular-auth-code
+
+-- [_] uix --> general.
+
+        -- [x] install bootstrap.
+        -- [x] Bootstrap menu navigation (from .NET CORE).
+        -- [x] implement menu.
+        -- [_] check uix color/usability.
+        -- [_] menu collapse on page entry.
+        -- [_] metronic.
+        -- [_] scss.
+                -- [daniel sevilla]         https://primeng.org/installation.
+
+-- [_] UIX --> check.
+
+     -- [_] [GENERAR ARCHIVO]
+ 
+     -- [_] [ACERCA DE]
+    
+        -- [_] [contacto]
+        -- [_] [technical specs]
+        -- [_] [job search]  
+            -- [_] oauth.        
+        -- [_] [seccion comentarios]
+            -- [_] oauth.
+    
+    -- [_] [LOGIN]            
+            -- [_] CUSTOM.
+            -- [_] oauth.
+            -- [_] DYNAMIC FORM.
+
+    -- [_] [AI/ NEURAL NETWORK DEMO]
+
+           -- [_] [TIC/TAC/TOE] --> [min/max algorthm].
+
+                  -- [_] https://www.geeksforgeeks.org/implementation-of-tic-tac-toe-game/
+
+    -- [_] UDEMY / ANGULAR.
+        
+        -- [_] https://www.udemy.com/topic/angular/free/
+
+
+-- [_] cusotm error handling.
+
+        -- [_] to interface --> [standard label status].
+        -- [_] to log.
+        -- [_] debug console messages.
+        -- [_] asp.net core enable trace.
+
+-- [_] Use custom login.
+
+        -- [_] DYNAMIC FORM.
+        -- [_] DB MODEL.
+
+-- [_] [GENERAR ARCHIVO XLS]
+
+        -- [x] angular interceptors.
+        -- [_] filtro por tipo de log.
+        -- [_] corregir consulta y rango de fechas.
+        -- [_] CORREGIR DATOS ESTADISTICAS.
+        -- [_] Referencia Template Driven/Reactive.
+        -- [_] depurar entradas log.
+
+-- [_] [GENERAR ARCHIVO CSV]
+
+        -- [_] Editar lista de cumpleaños exnacato.
+                -- [_] ANGULA CRUD.
+                -- [_] METRONIC.
+        -- [_] oauth.
+        -- [_] Dynamic forms.
+
+-- [_] node.js.
+
+       -- [_] As backend of sandbox demo.
+       -- [_] As standalone demo with index.
+       -- [_] Angular Hosting|.
+
+-- [_] MISCELANEOUS.
+
+     -- [x] bootstrap menu plegar en entrada a modulo.
+     -- [_] Angular Topics.
+     -- [_] Renovar https somme.com.
      
-      --[>>] Hanoi RJXS
+-- [_] CRUD.
 
-      --[>>] Hanoi Game Engine.
+       -- [_] oAuth.
+       -- [_] Linkedon Job Alerts "Angular".
+       -- [_] List of previous job alerts ".NET".
+       -- [_] UIX FIX.
 
-      --[>>] Hanoi RJXS - Auto 
+-- [_] OBSERVABLE.
 
-            --[>>] Merge Hanoi RJXS with Hanoi Game Engine. 
--- [x] index.
+       -- [_] https://v17.angular.io/guide/observables.
+       -- [_] "Loading component" (from ngbgrid).
+       -- [_] Curruculum entry.
 
-      -- [x] app routes.
+-- [x] ngb grids.
 
-      -- [x] atributo adicional.
+////////////////////////////////////////////////////////////////////////////////
 
-      -- [x] grid.
+-- [x] spring boot menu entry.
 
-      -- [x] speech to text search.
+-- [x] MENSAJE DE ESPERA EN BOTON DE ALGORITMO DE DISTANCIA CORTA.
 
--- [_] OPEN CV
+-- [X] OCR PHOTO CAPTURE.
 
-      -- [_] OCR ? .
+-- [x] material grid theme.
 
-      -- [_] CV / BASIC SHAPES RECOGNITION.
+-- [x] delete word mcsd.
 
-      -- [_] CV / COLORED SHAPES RECOGNITION.
+-- [x] opencv.js basic shape recognition.
 
-      -- [_] C++ Builder. 
+-- [x] miscelaneous file genration - chart.
 
--- [_] amigo secreto.
+-- [x] ngb pad instructions.
 
-      -- [_] SMTP CLIENT / node.js.
+-- [x] Agular / Features.       
 
-      -- [_] excel list with open fields.
+-- [x] angular pensum.
 
-      -- [_] https://gemini.google.com/app/ebedc87978d91d09.
+-- [_] home menu items.
 
+        -- [_] programming languages / backend.
 
--- [_] miscelaneous.
+        -- [_] uix libraries.
 
-      -- [X] move a.i. prompts from ENV_LANDING.
+               -- [_] 2d / 3d.
 
-      -- [X] SPLIT "STABLE RELEASES" FROM "DEV".
+               -- [_] material.
 
-      -- [x] BACK TO HOME LINK ON FOOTER.
+               -- [_] ng bootstrap.
+               
+        -- [_] export  libraries
 
-      -- [>] read config from database.
+               -- [_] epp plus.
 
--- [_] file generation zip / xls | zip / csv.      
+               -- [_] jsPdf / iTextSharp.
 
--- [_] show me a practial example of tensorflow.js and angular
+               -- [_] char js.
 
-      -- [_]  https://claude.ai/chat/1fbb12fc-eab0-44da-b2a8-764005708a35     
+        -- [_] miscelaneous
 
--- [_] django python backend.
+               -- [_] math parsing.
 
-        -- [_] https://code.visualstudio.com/docs/python/tutorial-fastapi
+               -- [_] ngb pad.
+ 
+        -- [_] computer visions / machine learning
 
--- [_] A.I. Prompts API QUERY EXAMPLE.
+                -- [_] tesseract.
 
-      -- [_] djuango backend.
-      
-      -- [_] node.js backend.
-      
--- [x] A.I. Prompts.            
-
-        -- [x] page list from json file.
-
-        <li><a href="https://gemini.google.com/" target="_blank">Google Gemini.</a></li>
-        <li><a href="https://chatgpt.com/"       target="_blank">Chat GTP.</a></li>
-        <li><a href="https://claude.ai/new"      target="_blank">Arthropic - Claude.</a></li>
-        <li><a href="https://groq.com/"          target="_blank">Groq</a></li>
-        <li><a href="https://pi.ai/talk"         target="_blank">Inflection - PI</a></li>
-        <li><a href="https://www.meta.ai/"       target="_blank">Meta - A.I.</a></li>
-        <li><a href="https://venice.ai/"         target="_blank">Venice</a></li>
-        <li><a href="https://x.com/i/grok?focus=1" target="_blank">xAI</a></li>
-
-
--- [_] scm.            
-
-        -- [_] ngb grid component.
-
-            -- [_] AI_PROMPTS.
-
-            -- [_] AI_DEV.
-
-            -- [_] DEV_ENVS.
-
-            -- [_] HOSTINGS.
-
-            -- [_] DB.
-
- -- [_] HOME
-  
-      -- [_] ICON QUERY URL TO INDEX.
-
--- [_] TOPICS
-  
-      -- [_] LINK TO ENV_LANDING.
-
--- [_] ENV_PUBLIC  / ACERCA DE / TECHNICAL SPECS (WEB):
-
-      -- [_] TECHNICAL SPECS (DETAIL) :
-
-            -- [_] json external list.
-
-      -- [_] SCM:
-
-             -- [_] ngb grid.
-
-                  -- [_] span row.
-             
-            -- [_] json external list.
-     
-      -- [_] LLM.
-
-   -- [_] scm             
+                -- [_] tensorflow.
+   
+                -- [_] opencv.
+                
+    -- [_] scm             
 
         -- [_] row detail grid.
 
@@ -194,13 +359,129 @@ https://chat.openai.com/share/f383e00f-3b68-45c8-ad3f-d5bd32b9933e
 
         -- [_] DB.
 
--- [_] complete header references.
+-- [_] hosting files cleanup service.
+
+-- [_] SSR.
+
+-- [_] PWA / SPA.
+
+-- [_] modules / engines.
+
+-- [_] CONTACT FORM.
+
+        -- [_] oAuth.
+
+        -- [_] dynamic form.
+
+-- [_] computer vision
+
+       -- [_] https://opencv.org/
+
+       -- [_] https://www.tensorflow.org/?hl=es-419
+
+-       -- [_] COMPUTER VISION.
+
+        -- [_] OPEN CV / JAVASCRIPT.   
+
+        -- [_] OPEN CV / c++ builder.
+
+        -- [_] TENSORFLOW / JAVASCRIPT.   
+
+-- [_] MACHINE LEARNING.
+
+        -- [_] OPEN CV / JAVASCRIPT.   
+
+        -- [_] OPEN CV / c++ builder.
+
+        -- [_] TENSORFLOW / JAVASCRIPT.  
+        
+-- [_] TOPICS.        
+
+        -- [_] index aditional fields.
+
+        -- [_] ngb grid.
+
+                -- [_] voice search.
+
+        -- [_] angular - topics.
+
+                        -- [_] route attribute.
+
+        -- [_] angular - features.
+
+                        -- [_] route attribute.        
+
+-- [_] speech service.
+
+-- [_] read config from database.
+
+-- [_] revisión general.
+
+        -- [x] sudoku button.
+        
+        -- [x] routers caption text correction.
+
+        -- [X] menu items.
+
+                -- [X] computer vision.
+
+                -- [X] amigo secreto.
+
+        -- [_] techical specs revision.
+
+               -- [_] iterate from list.
+
+               -- [_] iterate from DATABASE.
+
+               -- [_] swagger links.
+
+               -- [_] ngb grid.
+
+               -- [_] ngb grid hover detail.
+
+        -- [_] navigation menu display error.
+
+        -- [_] replace topics with index.
+
+                -- [_] router fields : id, source code, topic, feature. 
+
+                -- [_] router from external file. 
+
+                -- [_] master detail field. 
+
+        -- [_] main page menu.
+
+                -- [_] PWA_DEMO / ANGULAR LINK.
+
+                -- [_] menu items.
+
+                -- [_] hover animation.
+
+                -- [_] programming languages links to index.
+
+                        -- [_] query url.
+
+-- [_] dynamic title from page _Route.caption.
+
+-- [_] fancy home background.
+
+        -- [_] corregir fireworks.
 
 -- [_] download csv / xls /pdf file as zip.
+
+-- [_] complete header references.
 
 -- [_] CORRECT HANOI 3D POSITION.
 
 -- [_] join chart / xls / csv.
+               
+-- [_] scmlist, llmlist to new ngbgrid schema.
+
+-- [_] merghe math demo with collision demo.
+
+-- [_] fix ngbgrid sort.
+
+-- [_] ngbgrid with voice search.
 
 -- [_] opencv.
 
@@ -210,14 +491,16 @@ https://chat.openai.com/share/f383e00f-3b68-45c8-ad3f-d5bd32b9933e
 
       -- [_] c++.
 
-      -- [_] java.
+      -- [_] java.      
 
 -- [_] tensorflow.
 
       -- [_] django python backend.
 
-            -- [_] https://code.visualstudio.com/docs/python/tutorial-django
+              -- [_] https://code.visualstudio.com/docs/python/tutorial-django
 
+      -- [_]  https://www.freecodecamp.org/learn/machine-learning-with-python/#machine-learning-with-python-projects
+      
       -- [_] tensorflow.js typescript.
 
       -- [_] python.
@@ -225,7 +508,7 @@ https://chat.openai.com/share/f383e00f-3b68-45c8-ad3f-d5bd32b9933e
       -- [_] c++.
 
       -- [_] java.
-
+  
 
 -- [_] sites destination.
 
@@ -237,48 +520,43 @@ https://chat.openai.com/share/f383e00f-3b68-45c8-ad3f-d5bd32b9933e
 
         -- [_] env_prod    -> contact form.
 
+                -- [_]  https://developers.facebook.com/apps
+
+        -- [_] fb account "adam heispaupt" -> Dev / OAutn Accont.
+
+-- [_] djanto setup windows  : listado xls / csv
+        https://codesandbox.io/p/github/aperezNWO/django_setup_windows/main
+
+
+-- [_] djanto setup linux    : freecode camp curso de ciencia de datos.
+        https://codesandbox.io/p/github/aperezNWO/django_setup_linux/main
+
+-- [_] contact form.
+
+        -- [_] https://developers.facebook.com/apps/creation/
+
+        -- [_]  https://developers.facebook.com/apps
+
+        -- [_] dynamic form.
+
+        -- [_] oAuth.
+
+        -- [_] email notification.
+
+        -- [_] log entry.
+
+        -- [_] llm secure tips.
+         
+        -- [_] isolated url / ENV_LANDING.
+ 
+        -- [_] Microsoft Forms.
+
 -- [_] git hub source.        
 
       -- [_] aperezNWO      -> PRIVATE.        
 
       -- [_] aperezNWOGmail -> PUBLIC.        
 
-      -- [_] EXAM486        -> PUBLIC.        
+      -- [_] EXAM486        -> PUBLIC.              
 
--- [_] contact form.
-
-      -- [_] oAuth.
-
-            -- [_] Facebook.
-
-                  -- [_] Facebook LOGIN BUTTON.
-
-            -- [_] Gmail.
-     
-      -- [_] Dynamic form.
-
-      -- [_] email notification.
-      
-      -- [_] log.
-
-      -- [_] LLM -> secure tips.
-      
-      -- [_] isolated url / LANDING_PAGE.
-
-      -- [_] Microsoft Fornm.
-  
-      -- [_] Angular / Features.
-
-      -- [_] ENV_XXX 
-            
-            -- [_] env_TEST    => TEST env .
-
-            -- [_] env_DEV     => FREECODECAMP.
-            
-            -- [_] env_prod    => production env.
-
-            -- [_] env_PUBLIC  => CONTACT FORM / DELETE ROUTES.
-
-            -- [_] env_LANDING => MARKETING.
-
-/////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////

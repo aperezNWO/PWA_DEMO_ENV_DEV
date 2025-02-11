@@ -1,2 +1,1 @@
-getonboard, glassdoor, indeed, computrabajo, bumeran, upwork, fiverr, workana, linkedin
-
+getonboard, glassdoor, indeed, computrabajo, bumeran, upwork, fiverr, workana

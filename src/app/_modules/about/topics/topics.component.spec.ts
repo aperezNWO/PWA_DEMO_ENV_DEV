@@ -6,10 +6,12 @@ describe('TopicsComponent', () => {
   let component: TopicsComponent;
   let fixture: ComponentFixture<TopicsComponent>;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [TopicsComponent]
-    });
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [TopicsComponent]
+    })
+    .compileComponents();
+    
     fixture = TestBed.createComponent(TopicsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

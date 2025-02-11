@@ -1,11 +1,12 @@
-import { Inject, Injectable, QueryList, ViewChildren } from "@angular/core";
-import { Observable, of                              } from "rxjs";
-import { _BaseModel, SiteRole                        } from "../_models/common/common";
-import { _environment                                } from "../../environments/environment";
-import { _BaseSortEvent, BaseSortableHeader          } from "../_directives/BaseSortableHeader.directive";
-import { AuthService                                 } from "../_services/config/auth.service";
-import { ConfigService                               } from "../_services/config/config.service";
-import { BaseService                                 } from "../_services/config/base.service";
+import { Injectable, ViewChildren, QueryList, Inject } from "@angular/core";
+import { Observable, of } from "rxjs";
+import { _environment } from "src/environments/environment";
+import { _BaseModel, SiteRole } from "../_models/common/common";
+import { AuthService } from "../_services/authService/auth.service";
+import { ConfigService } from "../_services/ConfigService/config.service";
+import { BaseSortableHeader, _BaseSortEvent } from "../_headers/BaseSortableHeader.directive";
+import { BaseService } from "../_services/baseService/base.service";
+
 
 @Injectable({
 	providedIn: 'root'
@@ -32,7 +33,7 @@ export class BaseComponent
         const pageSetting    = _environment.pageSettingDictionary[_dictionaryKey];
         //
         let _environmentList : string[] = [];
-        //
+
         __configService.loadJsonData(pageSetting.p_Path,
                                     _environmentList).then(() => {
             //

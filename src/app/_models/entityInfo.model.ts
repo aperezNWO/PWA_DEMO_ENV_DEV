@@ -16,7 +16,6 @@ export interface PersonEntity
     id_Column       : string;
     ciudad          : string;
     nombreCompleto  : string;
-    profesionOficio : string;
 }
 //
 export class _vertexSize
@@ -86,7 +85,7 @@ export class DiskInfo
 export interface HanoiStep
 {
     //
-    n: number;
-    from: string;
-    to: string;
+    n    : number;
+    from : string;
+    to   : string;
 }

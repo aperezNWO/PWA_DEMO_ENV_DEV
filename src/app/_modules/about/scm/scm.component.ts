@@ -1,11 +1,9 @@
-
 import { Component, PipeTransform, QueryList, ViewChildren } from '@angular/core';
 import { Directive, EventEmitter, Input, Output            } from '@angular/core';
 import { DecimalPipe                                       } from '@angular/common';
-import { AuthService                                       } from 'src/app/_services/config/auth.service';
-import { SiteRole                                          } from 'src/app/_models/common/common';
 import { BehaviorSubject, debounceTime, delay, Observable, of, Subject, switchMap, tap } from 'rxjs';
 import { _environment                                      } from 'src/environments/environment';
+import { SiteRole } from 'src/app/_models/common/common';
 //
 export interface _SCMItem 
 {
@@ -121,7 +119,7 @@ export class SCMComponent {
   //
   constructor(
     private pipe: DecimalPipe,
-    public _authService: AuthService,
+    //public _authService: AuthService,
   ) 
   {
     //

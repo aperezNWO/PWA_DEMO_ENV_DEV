@@ -1,7 +1,7 @@
-import { Injectable, QueryList, ViewChild } from "@angular/core";
-import { Observable } from "rxjs";
-import { BehaviorSubject } from "rxjs/internal/BehaviorSubject";
-import { ListItem } from "../_models/algorithm.model";
+import { Injectable,  ViewChild } from "@angular/core";
+import { Observable             } from "rxjs";
+import { BehaviorSubject        } from "rxjs/internal/BehaviorSubject";
+import { ListItem               } from "../_models/entityInfo.model";
 //
 export class DiskInfo
 {
