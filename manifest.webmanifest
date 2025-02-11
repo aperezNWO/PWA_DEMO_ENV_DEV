@@ -1,6 +1,6 @@
 {
-  "name": "sandbox",
-  "short_name": "sandbox",
+  "name": "AngularDijkstra",
+  "short_name": "AngularDijkstra",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
